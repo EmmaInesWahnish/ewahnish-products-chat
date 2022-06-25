@@ -1,7 +1,5 @@
 const socket = io();
 
-let email="";
-
 let messages = document.getElementById('messages')
 let form = document.getElementById('form');
 let input = document.getElementById('input');
@@ -24,7 +22,12 @@ socket.on('chat message', (msg) => {
     window.scrollTo(0, document.body.scrollHeight);
 });
 
-npm
+socket.on('new user', (msg) => {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+})
 
 socket.on('join server', (msg) => {
     var item = document.createElement('li');
@@ -49,8 +52,4 @@ function addMessage(e) {
         timehh: today
     };
     return message;
-}
-
-function fillEmail(e) {
-    email = document.getElementById("email").value;
 }
