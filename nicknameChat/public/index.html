@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    
+    <style>
+      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      h1 { color: blue;}
+      #email { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; display: flex; height: auto; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      .input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      .input:focus { outline: none; }
+      #form > button { background: blue; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 15px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+    </style>
+  </head>
+  <body>
+    <h1>Message Center</h1>
+    <form id="email" class="form">
+      <input class="input" type="email" id="email" value="user@gmail.com" placeholder="user@gmail.com" onchange="fillEmail()" />
+    </form>
+    <ul id="messages"></ul>
+    <form id="form" class="form" action="">
+      <input class="input" type="text" id="username" placeholder="name" />
+      <input class="input" type="text" id="input" autocomplete="off" placeholder="message" />
+      <button type="submit">Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
