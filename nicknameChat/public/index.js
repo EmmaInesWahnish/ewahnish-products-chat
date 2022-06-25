@@ -11,7 +11,7 @@ form.addEventListener('submit', function (e) {
     if (input.value) {
         socket.emit('chat message', ` ${message.timehh} Id:${message.id}  Sender: ${message.sender}   Message:${message.text}`);
         input.value = '';
-        username.value = '';
+        username.value = 'ewahnish@gmail.com';
     }
 });
 
@@ -46,7 +46,7 @@ socket.on('old messages', (msg) => {
 function addMessage(e) {
     let today= new Date();
     let message = {
-        id: socket.id,
+        socketid: socket.id,
         sender: document.getElementById("username").value,
         text: document.getElementById("input").value,
         timehh: today
