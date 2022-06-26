@@ -20,9 +20,9 @@ img {
 /*titulos*/
 h1 {
   font-family: trebuchet;
-  color: #2D85E5;
   font-size: 2em;
   text-shadow: 2px 2px 5px grey;
+  text-align: center;
 }
 
 /*titulos h2 algo mas pequeños*/
@@ -837,10 +837,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-h1,
 strong, b {
   color: blue;
-  text-align: center;
 }
 
 i {
@@ -877,7 +875,6 @@ i {
 }
 
 #form>button {
-  background: blue;
   border: none;
   padding: 0 1rem;
   margin: 0.25rem;

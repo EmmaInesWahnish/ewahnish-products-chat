@@ -6,6 +6,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const Messages = new AnyContainer('./files/messages.txt');
+const Products = new AnyContainer('./files/productos.txt');
+
+let list = [];
+let productos = [];
 
 app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: true }))
@@ -15,10 +19,17 @@ app.set('view engine', 'ejs');
 app.set('view engine', 'html');
 
 app.get('/', async (req, res) => {
-    res.render('index.ejs', { root: __dirname })
+    try {
+        productos = await Products.getAll()
+        res.render('index.ejs', { root: __dirname , productos})
+    }
+    catch (error) {
+        console.log(error);
+    }
 })
 
 io.on('connection', async (socket) => {
+    
     try {
         list = await Messages.getLines();
         for (let msg in list) {
@@ -68,6 +79,39 @@ const addToMessageList = async (message) => {
     }
     return list;
 }
+
+app.get('/productos', async (req, res) => {
+    try {
+        productos = await Products.getAll()
+    }
+    catch (error) {
+        console.log(error);
+    }
+    res.render('products.ejs', { productos });
+});
+
+app.post('/productos', async (req, res) => {
+    let element = [{
+        title: req.body.title,
+        price: req.body.price,
+        thumbnail: req.body.thumbnail
+    }]
+    if (element) {
+        try {
+            await Products.saveArray(element);
+            try {
+                productos = await Products.getAll();
+                res.redirect('/')
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+});
 
 server.listen(3000, () => {
     console.log('listening on *:3000');
