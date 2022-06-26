@@ -8,9 +8,14 @@ const io = new Server(server);
 const Messages = new AnyContainer('./files/messages.txt');
 
 app.use(express.static('./public'))
+app.use(express.urlencoded({ extended: true }))
+
+app.set('views', './views');
+app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 app.get('/', async (req, res) => {
-    res.sendFile('index.html', { root: __dirname })
+    res.render('index.ejs', { root: __dirname })
 })
 
 io.on('connection', async (socket) => {
