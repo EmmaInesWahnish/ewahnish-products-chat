@@ -9,10 +9,6 @@ const Messages = new AnyContainer('./files/messages.txt');
 
 app.use(express.static('./public'))
 
-const messageList = async () => {
-    return list;
-}
-
 app.get('/', async (req, res) => {
     res.sendFile('index.html', { root: __dirname })
 })
@@ -21,18 +17,18 @@ io.on('connection', async (socket) => {
     try {
         list = await Messages.getLines();
         for (let msg in list) {
-            socket.emit('old messages', `${list[msg]}`);
+            socket.emit('old messages', list[msg]);
         }
     }
     catch (error) {
         console.log(error);
     }
 
-    io.sockets.emit('new user', `${socket.id} entered the chat`);
+    io.sockets.emit('new user', `${socket.id} ingresa al Centro de Mensajes`);
 
 
     socket.on('disconnect', () => {
-        io.emit('new user', `${socket.id} left the chat`);
+        io.sockets.emit('new user', `${socket.id} abandona el centro de mensajes`);
         //console.log('user disconnected');
     });
 
