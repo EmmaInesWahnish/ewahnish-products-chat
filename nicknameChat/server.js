@@ -24,11 +24,11 @@ io.on('connection', async (socket) => {
         console.log(error);
     }
 
-    io.sockets.emit('new user', `${socket.id} ingresa al Centro de Mensajes`);
+    io.sockets.emit('new user', `${socket.id} ha ingresado al Centro de Mensajes`);
 
 
     socket.on('disconnect', () => {
-        io.sockets.emit('new user', `${socket.id} abandona el centro de mensajes`);
+        io.sockets.emit('new user', `${socket.id} ha abandonado el Centro de mensajes`);
         //console.log('user disconnected');
     });
 
