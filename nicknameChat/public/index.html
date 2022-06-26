@@ -3,10 +3,12 @@
 
 <head>
   <title>Socket.IO chat</title>
+  <script src="/socket.io/socket.io.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
+
 <body>
   <div class="bg-light">
     <h1>Centro de mensajes</h1>
@@ -16,7 +18,6 @@
       <input class="input" type="text" id="input" autocomplete="off" placeholder="message" />
       <button type="submit">Enviar</button>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
     <script src="./index.js"></script>
   </div>
 </body>
