@@ -43,20 +43,14 @@ function addMessage(e) {
     console.log(message)
     return message
 }
-
-function makeHTML(msj) {
-    return (
-        `<div>
-                <strong {{color:"blue" }}>${msj.sender}</strong>
-                <em {{color: "brown"}}> [${msj.timehh}] 
-                <i>${msj.text}</i>
-            <div>`);
-  }
   
   function render(data) {
+    let theDate = (data.timehh).toString().substr(0,10);
+    let theTime = (data.timehh).toString().substr(11,8);
     const where = document.createElement('div')
-    where.innerHTML = `<strong>${data.sender}</strong> <em>[${data.timehh}]</em> 
-                <i>${data.text}</i></span>
-            <div>`;
+    where.innerHTML = `<b>${data.sender}</b> 
+                        <span id="theDate">[${theDate} ${theTime}]</span> 
+                        <i>${data.text}</i>
+                    <div>`;
     messages.appendChild(where);
   }
