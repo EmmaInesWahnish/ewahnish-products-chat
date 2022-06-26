@@ -1,0 +1,15 @@
+<div class="bg-primary">
+    <button onclick="goHome()" type="button" class="btn btn-primary">Home</button>
+    <button onclick="gotoProducts()" type="button" class="btn btn-primary">Productos</button>
+</div>
+<h1 className="titulo">Node Js & Express & Handlebars</h1>
+<script>
+    function goHome() {
+        location.replace("http://localhost:8080/")
+    }
+</script>
+<script>
+    function gotoProducts() {
+        location.replace("http://localhost:8080/productos")
+    }
+</script>

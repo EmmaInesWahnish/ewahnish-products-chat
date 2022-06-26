@@ -1,0 +1,16 @@
+{
+  "name": "hbsproject",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend project with Express and Handlebars",
+  "main": "hbsServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "EIW",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6"
+  }
+}
