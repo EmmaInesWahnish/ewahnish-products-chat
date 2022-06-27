@@ -21,7 +21,7 @@ app.set('view engine', 'html');
 app.get('/', async (req, res) => {
     try {
         productos = await Products.getAll()
-        res.render('index.ejs', { root: __dirname , productos})
+        res.render('index.ejs', { root: __dirname, productos })
     }
     catch (error) {
         console.log(error);
@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
 })
 
 io.on('connection', async (socket) => {
-    
+
     try {
         list = await Messages.getLines();
         for (let msg in list) {
@@ -53,6 +53,40 @@ io.on('connection', async (socket) => {
         io.emit('chat message', msg);
         addToMessageList(msg)
     })
+
+    socket.on('new product', async (msg) => {
+        let element = [{
+            title: msg.title,
+            price: msg.price,
+            thumbnail: msg.thumbnail
+        }]
+        if (element) {
+            try {
+                await Products.saveArray(element);
+                try {
+                    productos = await Products.getAll();
+                    let howMany = productos.length;
+                    io.sockets.emit('new product', productos[howMany - 1])
+                }
+                catch (error) {
+                    console.log(error)
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+    });
+
+    app.get('/productos', async (req, res) => {
+        try {
+            productos = await Products.getAll()
+        }
+        catch (error) {
+            console.log(error);
+        }
+        res.render('products.ejs', { productos });
+    });
 
 });
 
@@ -80,40 +114,6 @@ const addToMessageList = async (message) => {
     return list;
 }
 
-app.get('/productos', async (req, res) => {
-    try {
-        productos = await Products.getAll()
-    }
-    catch (error) {
-        console.log(error);
-    }
-    res.render('products.ejs', { productos });
-});
-
-app.post('/productos', async (req, res) => {
-    let element = [{
-        title: req.body.title,
-        price: req.body.price,
-        thumbnail: req.body.thumbnail
-    }]
-    if (element) {
-        try {
-            await Products.saveArray(element);
-            try {
-                productos = await Products.getAll();
-                let howMany = productos.length;
-                console.log(productos[howMany-1])
-                res.redirect('/')
-            }
-            catch (error) {
-                console.log(error)
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-});
 
 server.listen(3000, () => {
     console.log('listening on *:3000');
