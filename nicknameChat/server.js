@@ -101,6 +101,8 @@ app.post('/productos', async (req, res) => {
             await Products.saveArray(element);
             try {
                 productos = await Products.getAll();
+                let howMany = productos.length;
+                console.log(productos[howMany-1])
                 res.redirect('/')
             }
             catch (error) {

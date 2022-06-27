@@ -1,3 +1,2 @@
-import anyContainerClean from './containerCleanExpress.js';
+const anyContainerClean = require('./containerCleanExpress.js');
 anyContainerClean()
-

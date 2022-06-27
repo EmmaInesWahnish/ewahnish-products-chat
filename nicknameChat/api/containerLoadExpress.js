@@ -1,4 +1,4 @@
-import AnyContainer from './Container.js';
+const AnyContainer = require('./Container.js');
 const products = [
     {
         title: "Cazuela de Mariscos",
@@ -50,4 +50,4 @@ async function anyContainerLoader() {
     
 }
 
-export default anyContainerLoader;
+module.exports = anyContainerLoader;
