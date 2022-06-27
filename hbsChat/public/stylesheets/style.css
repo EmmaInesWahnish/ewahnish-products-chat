@@ -904,3 +904,7 @@ i {
 #messages>div:nth-child(odd) {
   background: #efefef;
 }
+
+.noDisplay {
+  display: none;
+}

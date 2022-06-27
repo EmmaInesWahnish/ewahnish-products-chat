@@ -19,6 +19,8 @@ form.addEventListener('submit', function (e) {
 productForm.addEventListener('submit', function (e) {
     e.preventDefault();
     let message = addProduct();
+    let noHay = document.getElementById('noHay');
+    noHay.style.display="none";
     if (title.value) {
         socket.emit('new product', message)
         title.value = '';

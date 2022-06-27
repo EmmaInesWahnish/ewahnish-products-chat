@@ -27,5 +27,16 @@
         </table>
     </div>
 {{else}}
-    <h3 class="alert alert-danger">No hay productos</h1>
+    <h3 id="noHay" class="alert alert-danger">No hay productos</h1>
+    <h1 class="text-warning">Lista de productos</h1>
+    <div class="table-responsive">
+        <table id="products" class="table table-dark table-bordered table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+        </table>
+     </div>   
 {{/if}}
