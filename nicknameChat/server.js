@@ -78,16 +78,16 @@ io.on('connection', async (socket) => {
         }
     });
 
-    app.get('/productos', async (req, res) => {
-        try {
-            productos = await Products.getAll()
-        }
-        catch (error) {
-            console.log(error);
-        }
-        res.render('products.ejs', { productos });
-    });
+});
 
+app.get('/productos', async (req, res) => {
+    try {
+        productos = await Products.getAll()
+    }
+    catch (error) {
+        console.log(error);
+    }
+    res.render('products.ejs', { productos });
 });
 
 const addToMessageList = async (message) => {
@@ -114,9 +114,9 @@ const addToMessageList = async (message) => {
     return list;
 }
 
-
-server.listen(3000, () => {
-    console.log('listening on *:3000');
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log(`Server listening at port ${server.address().port}`);
 });
 
 
