@@ -27,7 +27,7 @@ class AnyContainer {
             
             object.id = newID
 
-            elements.push(object.id)
+            elements.push(object)
 
             const fileData = JSON.stringify(elements, null, 3)
 

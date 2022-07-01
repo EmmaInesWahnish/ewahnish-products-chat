@@ -1,0 +1,1 @@
+[{"nombre":"Pistola de Calor","descripcion":"Pistola de Calor Black & Decker","codigo":"BD-00-01","foto":"/images/pistola-de-calor.jpeg","precio":"3760","stock":"100","id":1}]
