@@ -99,7 +99,7 @@ const renderNewProductForm = () => {
         quantity.addEventListener('change', function () {
           product.stock = document.getElementById("quantity").value;
         })
-groo
+
         let formAdd = document.getElementById("addProductButton");
 
         formAdd.addEventListener('click', function () {

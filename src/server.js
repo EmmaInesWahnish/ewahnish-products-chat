@@ -55,7 +55,7 @@ app.use('/api/productos', routerProducts);
 app.use('/api/carrito', routerCart);
 app.use('/', viewsRouter);
 app.use('/api/sessions', sessionRouter);
-app.use('/api/upload', uploadRouter);
+app.use('/api/upload_file', uploadRouter);
 
 app.all('*', (req, res) => {
     res.status(404).send({

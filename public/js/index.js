@@ -14,7 +14,7 @@ import renderRegisterForm from './renderRegisterForm.js'
 
 import renderModalOneProduct from './renderModalOneProduct.js';
 
-import renderModalDeleteCart from './renderModalDeleteCart.js'
+import renderModalDeleteCart from './renderModalDeleteCart.js';
 
 const listProducts = document.getElementById('listProducts');
 

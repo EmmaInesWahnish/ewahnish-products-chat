@@ -1,9 +1,8 @@
 import uploadFile from './uploadFile.js';
-import multer from 'multer';
 
 const renderModalUploadFile = () => {
 
-    formData = new FormData();
+    //formData = new FormData();
 
     let buttonId = "Image";
 
@@ -13,7 +12,7 @@ const renderModalUploadFile = () => {
 
     modifyForm.innerHTML = `<div class="input-group">
                         <div class="form-group">
-                            <label for='avatar'>Select file</label>
+                            <label for='avatar'></label>
                             <input id='avatar' name='avatar' type="file">
                         </div>
 
@@ -25,10 +24,9 @@ const renderModalUploadFile = () => {
 
     formUpdate.addEventListener('click', function () {
 
-        formData.append("avatar", theFiles.files[0]);
-        console.log("Antes de salir ", formData);
+        console.log("Antes de salir ", theFile.value);
 
-        uploadFile(formData);
+        uploadFile(theFile);
 
         document.getElementById('modal').style.display = 'none';
     })
