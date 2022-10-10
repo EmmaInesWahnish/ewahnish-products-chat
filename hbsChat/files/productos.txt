@@ -1,1 +1,0 @@
-[{"title":"Panqueques","price":"760","thumbnail":"/images/pancakes.jpg","id":1}]

@@ -1,0 +1,31 @@
+{"level":"error","message":"404 - ruta no encontrada /blablabla","service":"user-service","timestamp":"2022-10-03T16:31:25.476Z"}
+{"level":"error","message":"404 - ruta no encontrada /blablabla","service":"user-service","timestamp":"2022-10-03T16:33:02.455Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-03T17:56:11.297Z"}
+{"level":"error","message":"404 - ruta no encontrada /isAdmin","service":"user-service","timestamp":"2022-10-03T20:23:52.020Z"}
+{"level":"error","message":"404 - ruta no encontrada /isadmin","service":"user-service","timestamp":"2022-10-03T20:24:18.121Z"}
+{"level":"error","message":"404 - ruta no encontrada /isadmin","service":"user-service","timestamp":"2022-10-03T20:24:26.527Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/isdamin","service":"user-service","timestamp":"2022-10-03T20:24:43.870Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products/isadmin","service":"user-service","timestamp":"2022-10-03T20:25:06.471Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:06:39.294Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:06:44.369Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:06:49.441Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:06:54.528Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:06:59.600Z"}
+{"level":"error","message":"404 - ruta no encontrada /socket.io/","service":"user-service","timestamp":"2022-10-08T22:07:04.666Z"}
+{"level":"error","message":"Error en servidor Error: listen EADDRINUSE: address already in use :::8080","service":"user-service","timestamp":"2022-10-08T22:09:12.095Z"}
+{"level":"error","message":"Error en servidor Error: listen EADDRINUSE: address already in use :::8080","service":"user-service","timestamp":"2022-10-08T22:20:36.127Z"}
+{"level":"error","message":"404 - ruta no encontrada /upload","service":"user-service","timestamp":"2022-10-09T00:28:59.024Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T00:48:01.941Z"}
+{"level":"error","message":"404 - ruta no encontrada /uploadfile","service":"user-service","timestamp":"2022-10-09T00:49:08.719Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T00:54:33.858Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T00:58:54.500Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:00:02.589Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:00:18.099Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:01:07.574Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:01:20.427Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:02:34.532Z"}
+{"level":"error","message":"404 - ruta no encontrada /index.css","service":"user-service","timestamp":"2022-10-09T01:04:10.405Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-09T15:42:24.322Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-09T16:30:38.305Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-10T12:10:54.717Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-10T16:37:32.374Z"}

@@ -1,0 +1,609 @@
+[
+   {
+      "id": 2,
+      "timestamp": 1657375554401,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         },
+         {
+            "id": 3,
+            "timestamp": 1656710054455,
+            "nombre": "Llaves combinadas",
+            "descripcion": "Llaves combinadas acodadas marca Hamilton",
+            "codigo": "LC-00-01",
+            "foto": "/images/llaves-combinadas.jpeg",
+            "precio": 10120,
+            "stock": 30,
+            "cantidad": 1
+         },
+         {
+            "id": 5,
+            "timestamp": 1656710054455,
+            "nombre": "Caja de herramientas",
+            "descripcion": "Caja de herramientas Carro 47 x 27",
+            "codigo": "CH-00-01",
+            "foto": "/images/caja-herramientas-carro.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         },
+         {
+            "id": 11,
+            "timestamp": 1656710054455,
+            "nombre": "Cargador de bateria",
+            "descripcion": "Cargador de bateria apto para auto moto y cuatriciclo",
+            "codigo": "CB-00-01",
+            "foto": "/images/cargador-bateria.jpeg",
+            "precio": 5100,
+            "stock": 100,
+            "cantidad": 1
+         },
+         {
+            "id": 12,
+            "timestamp": 1656710054455,
+            "nombre": "Cricket Carrito Hidraulico",
+            "descripcion": "Cricket carrito hidraulico 2 toneladas",
+            "codigo": "CC-00-01",
+            "foto": "/images/cricket-carrito.jpeg",
+            "precio": 8400,
+            "stock": 80,
+            "cantidad": 1
+         },
+         {
+            "id": 10,
+            "timestamp": 1656710054455,
+            "nombre": "Compresor de aire 12V Metal",
+            "descripcion": "Compresor de aire apto para auto bici y moto",
+            "codigo": "CA-00-01",
+            "foto": "/images/compresor-aire.jpeg",
+            "precio": 3280,
+            "stock": 80,
+            "cantidad": 2
+         },
+         {
+            "id": 14,
+            "timestamp": 1656710054455,
+            "nombre": "Bomba Centrifuga",
+            "descripcion": "Bomba centrifuga 1/2 Hp Fluvial",
+            "codigo": "BC-00-01",
+            "foto": "/images/bomba-centrifuga.jpeg",
+            "precio": 12800,
+            "stock": 100,
+            "cantidad": 1
+         },
+         {
+            "id": 8,
+            "timestamp": 1656710054455,
+            "nombre": "Triangulo Baliza",
+            "descripcion": "Triangulo baliza led portatil",
+            "codigo": "BA-00-01",
+            "foto": "/images/triangulo-baliza.jpeg",
+            "precio": 1100,
+            "stock": 200,
+            "cantidad": 1
+         },
+         {
+            "id": 9,
+            "timestamp": 1656710054455,
+            "nombre": "Baliza rotativa",
+            "descripcion": "Baliza rotativa giratoria imantada 12v",
+            "codigo": "BG-00-01",
+            "foto": "/images/baliza-giratoria.jpeg",
+            "precio": 1390,
+            "stock": 50,
+            "cantidad": 1
+         },
+         {
+            "id": 18,
+            "timestamp": 1656710054455,
+            "nombre": "Sopladora",
+            "descripcion": "Sopladora Luqstoff",
+            "codigo": "SO-00-01",
+            "foto": "/images/sopladora.jpeg",
+            "precio": 10987,
+            "stock": 100,
+            "cantidad": 1
+         },
+         {
+            "id": 6,
+            "timestamp": 1656710054455,
+            "nombre": "Talladro de banco",
+            "descripcion": "Talladro de banco agujereadora Luqstoff",
+            "codigo": "TB-00-01",
+            "foto": "/images/taladro-banco.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         },
+         {
+            "id": 4,
+            "timestamp": 1656710054455,
+            "nombre": "Set de Destornilladores",
+            "descripcion": "Set de destornilladores Bahco",
+            "codigo": "SD-00-01",
+            "foto": "/images/set-destornilladores.jpeg",
+            "precio": 3570,
+            "stock": 150,
+            "cantidad": 1
+         },
+         {
+            "id": 1,
+            "timestamp": 1656710054455,
+            "nombre": "Pistola de Calor",
+            "descripcion": "Pistola de calor Black & Decker",
+            "codigo": "BD-00-01",
+            "foto": "/images/pistola-de-calor.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "id": 3,
+      "timestamp": 1657377161353,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 4,
+      "timestamp": 1657394715844,
+      "productos": [
+         {
+            "id": 11,
+            "timestamp": 1656710054455,
+            "nombre": "Cargador de bateria",
+            "descripcion": "Cargador de bateria apto para auto moto y cuatriciclo",
+            "codigo": "CB-00-01",
+            "foto": "/images/cargador-bateria.jpeg",
+            "precio": 5100,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 5,
+      "timestamp": 1657395027915,
+      "productos": [
+         {
+            "id": 3,
+            "timestamp": 1656710054455,
+            "nombre": "Llaves combinadas",
+            "descripcion": "Llaves combinadas acodadas marca Hamilton",
+            "codigo": "LC-00-01",
+            "foto": "/images/llaves-combinadas.jpeg",
+            "precio": 10120,
+            "stock": 30,
+            "cantidad": 3
+         }
+      ]
+   },
+   {
+      "id": 6,
+      "timestamp": 1657395370168,
+      "productos": [
+         {
+            "id": 14,
+            "timestamp": 1656710054455,
+            "nombre": "Bomba Centrifuga",
+            "descripcion": "Bomba centrifuga 1/2 Hp Fluvial",
+            "codigo": "BC-00-01",
+            "foto": "/images/bomba-centrifuga.jpeg",
+            "precio": 12800,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 7,
+      "timestamp": 1657395571632,
+      "productos": [
+         {
+            "id": 8,
+            "timestamp": 1656710054455,
+            "nombre": "Triangulo Baliza",
+            "descripcion": "Triangulo baliza led portatil",
+            "codigo": "BA-00-01",
+            "foto": "/images/triangulo-baliza.jpeg",
+            "precio": 1100,
+            "stock": 200,
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "id": 8,
+      "timestamp": 1657397609418,
+      "productos": [
+         {
+            "id": 5,
+            "timestamp": 1656710054455,
+            "nombre": "Caja de herramientas",
+            "descripcion": "Caja de herramientas Carro 47 x 27",
+            "codigo": "CH-00-01",
+            "foto": "/images/caja-herramientas-carro.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 9,
+      "timestamp": 1657398346295,
+      "productos": [
+         {
+            "id": 16,
+            "timestamp": 1656710054455,
+            "nombre": "Lijadora orbital",
+            "descripcion": "Lijadora orbital Silverfox",
+            "codigo": "LO-00-01",
+            "foto": "/images/lijadora-orbital.jpeg",
+            "precio": 3330,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 10,
+      "timestamp": 1657398621579,
+      "productos": [
+         {
+            "id": 11,
+            "timestamp": 1656710054455,
+            "nombre": "Cargador de bateria",
+            "descripcion": "Cargador de bateria apto para auto moto y cuatriciclo",
+            "codigo": "CB-00-01",
+            "foto": "/images/cargador-bateria.jpeg",
+            "precio": 5100,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 14,
+      "timestamp": 1657399844898,
+      "productos": [
+         {
+            "id": 1,
+            "timestamp": 1656710054455,
+            "nombre": "Pistola de Calor",
+            "descripcion": "Pistola de calor Black & Decker",
+            "codigo": "BD-00-01",
+            "foto": "/images/pistola-de-calor.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 15,
+      "timestamp": 1657403003552,
+      "productos": [
+         {
+            "id": 5,
+            "timestamp": 1656710054455,
+            "nombre": "Caja de herramientas",
+            "descripcion": "Caja de herramientas Carro 47 x 27",
+            "codigo": "CH-00-01",
+            "foto": "/images/caja-herramientas-carro.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 17,
+      "timestamp": 1657403342678,
+      "productos": [
+         {
+            "id": 18,
+            "timestamp": 1656710054455,
+            "nombre": "Sopladora",
+            "descripcion": "Sopladora Luqstoff",
+            "codigo": "SO-00-01",
+            "foto": "/images/sopladora.jpeg",
+            "precio": 10987,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 18,
+      "timestamp": 1657404885653,
+      "productos": [
+         {
+            "id": 5,
+            "timestamp": 1656710054455,
+            "nombre": "Caja de herramientas",
+            "descripcion": "Caja de herramientas Carro 47 x 27",
+            "codigo": "CH-00-01",
+            "foto": "/images/caja-herramientas-carro.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 19,
+      "timestamp": 1657405182963,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 20,
+      "timestamp": 1657405258754,
+      "productos": [
+         {
+            "id": 3,
+            "timestamp": 1656710054455,
+            "nombre": "Llaves combinadas",
+            "descripcion": "Llaves combinadas acodadas marca Hamilton",
+            "codigo": "LC-00-01",
+            "foto": "/images/llaves-combinadas.jpeg",
+            "precio": 10120,
+            "stock": 30,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 24,
+      "timestamp": 1657412075702,
+      "productos": [
+         {
+            "id": 11,
+            "timestamp": 1656710054455,
+            "nombre": "Cargador de bateria",
+            "descripcion": "Cargador de bateria apto para auto moto y cuatriciclo",
+            "codigo": "CB-00-01",
+            "foto": "/images/cargador-bateria.jpeg",
+            "precio": 5100,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 25,
+      "timestamp": 1657412161381,
+      "productos": [
+         {
+            "id": 7,
+            "timestamp": 1656710054455,
+            "nombre": "Cables de Bateria",
+            "descripcion": "Cables de bateria extra gruesos",
+            "codigo": "CB-00-01",
+            "foto": "/images/cable-bateria.jpeg",
+            "precio": 1970,
+            "stock": 400,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 27,
+      "timestamp": 1657416653505,
+      "productos": [
+         {
+            "id": 4,
+            "timestamp": 1656710054455,
+            "nombre": "Set de Destornilladores",
+            "descripcion": "Set de destornilladores Bahco",
+            "codigo": "SD-00-01",
+            "foto": "/images/set-destornilladores.jpeg",
+            "precio": 3570,
+            "stock": 150,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 28,
+      "timestamp": 1657464440212,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 29,
+      "timestamp": 1657476879545,
+      "productos": [
+         {
+            "id": 5,
+            "timestamp": 1656710054455,
+            "nombre": "Caja de herramientas",
+            "descripcion": "Caja de herramientas Carro 47 x 27",
+            "codigo": "CH-00-01",
+            "foto": "/images/caja-herramientas-carro.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 30,
+      "timestamp": 1657476948135,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "id": 31,
+      "timestamp": 1657477733263,
+      "productos": []
+   },
+   {
+      "id": 32,
+      "timestamp": 1657479382405,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 33,
+      "timestamp": 1657479619819,
+      "productos": [
+         {
+            "id": 1,
+            "timestamp": 1656710054455,
+            "nombre": "Pistola de Calor",
+            "descripcion": "Pistola de calor Black & Decker",
+            "codigo": "BD-00-01",
+            "foto": "/images/pistola-de-calor.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "id": 34,
+      "timestamp": 1657480492560,
+      "productos": [
+         {
+            "id": 1,
+            "timestamp": 1656710054455,
+            "nombre": "Pistola de Calor",
+            "descripcion": "Pistola de calor Black & Decker",
+            "codigo": "BD-00-01",
+            "foto": "/images/pistola-de-calor.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "id": 35,
+      "timestamp": 1657480985365,
+      "productos": [
+         {
+            "id": 1,
+            "timestamp": 1656710054455,
+            "nombre": "Pistola de Calor",
+            "descripcion": "Pistola de calor Black & Decker",
+            "codigo": "BD-00-01",
+            "foto": "/images/pistola-de-calor.jpeg",
+            "precio": 4670,
+            "stock": 100,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 36,
+      "timestamp": 1657481042995,
+      "productos": [
+         {
+            "id": 2,
+            "timestamp": 1656710054455,
+            "nombre": "Maquina de Pintar",
+            "descripcion": "Maquina de pintar con compresor",
+            "codigo": "NN-00-01",
+            "foto": "/images/maquina-de-pintar.jpeg",
+            "precio": 5880,
+            "stock": 50,
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "id": 37,
+      "timestamp": 1657481210178,
+      "productos": [
+         {
+            "id": 3,
+            "timestamp": 1656710054455,
+            "nombre": "Llaves combinadas",
+            "descripcion": "Llaves combinadas acodadas marca Hamilton",
+            "codigo": "LC-00-01",
+            "foto": "/images/llaves-combinadas.jpeg",
+            "precio": 10120,
+            "stock": 30,
+            "cantidad": 1
+         },
+         {
+            "id": 4,
+            "timestamp": 1656710054455,
+            "nombre": "Set de Destornilladores",
+            "descripcion": "Set de destornilladores Bahco",
+            "codigo": "SD-00-01",
+            "foto": "/images/set-destornilladores.jpeg",
+            "precio": 3570,
+            "stock": 150,
+            "cantidad": 1
+         }
+      ]
+   }
+]

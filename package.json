@@ -1,0 +1,36 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend Final Project",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "author": "EIW",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "firebase-admin": "^11.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.1.0",
+    "mongoose": "^6.4.6",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.2.6",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0",
+    "session-file-store": "^1.5.0",
+    "socket.io": "^4.5.2",
+    "sqlite3": "^5.0.9",
+    "winston": "^3.8.2"
+  }
+}
