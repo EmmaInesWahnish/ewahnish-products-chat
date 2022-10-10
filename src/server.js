@@ -16,6 +16,7 @@ import passport from 'passport';
 import { createServer } from "http";
 import { Server } from "socket.io";
 import sendEmail from './services/sendEmail.js';
+import {__dirname} from  './utils.js'
 
 const app = express();
 const httpServer = createServer(app);
