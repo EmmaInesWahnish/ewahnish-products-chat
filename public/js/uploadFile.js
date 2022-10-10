@@ -1,11 +1,11 @@
 const uploadFile = (thefile) => {
-    const uploadRoute = `/api/upload_file`;
+    const uploadRoute = `/api/up`;
 
     console.log(thefile)
 
     const requestOptions = {
         method: 'POST',
-        body: JSON.stringify(thefile),
+        body: thefile,
         headers: {
           "Content-Type": "multipart/form-data"
         }        
