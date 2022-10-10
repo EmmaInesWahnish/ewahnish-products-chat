@@ -1,13 +1,16 @@
 const uploadFile = (thefile) => {
     const uploadRoute = `/api/up`;
 
+    let formData = new FormData();
+
+    formData.append("avatar",thefile)
+
     console.log(thefile)
 
     const requestOptions = {
         method: 'POST',
-        body: thefile,
+        body: formData,
         headers: {
-          "Content-Type": "multipart/form-data"
         }        
     }
 
