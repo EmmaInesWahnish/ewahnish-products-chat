@@ -36,8 +36,7 @@ const upload = multer({
 const uploadRouter = express.Router();
 
 uploadRouter.get('/', async (req, res,) => {
-  res.json({message:`Soy una ruta de prueba`})
-  //res.send(file)
+  res.json({message:`Soy una ruta de prueba ;)`})
 })
 
 uploadRouter.post('/', upload.single('avatar'), (req, res, next) => {
@@ -50,7 +49,6 @@ uploadRouter.post('/', upload.single('avatar'), (req, res, next) => {
     return next(error)
   }
   res.json({message: `Archivo <b>${file.originalname}</b> subido exitosamente`})
-  //res.send(file)
 })
 
 export default uploadRouter

@@ -10,7 +10,7 @@ const AuthorSchema = new Schema({
         apellido: { type: String, required: false, max: 100 },
         edad: { type: Number, required: false},
         alias: { type: String, required: false},
-        avatar: { type: Number, required: false },
+        avatar: { type: String, required: false },
     },
 })
 
