@@ -18,6 +18,8 @@ sessionRouter.post('/login',passport.authenticate('login',{failureRedirect:'/api
             email: req.user.email,
             first_name: req.user.first_name,
             last_name: req.user.last_name,
+            avatar:req.user.avatar,
+            cart_number: req.user.cart_number,
             isAdmin: req.user.isAdmin,
             id:req.user._id
         };

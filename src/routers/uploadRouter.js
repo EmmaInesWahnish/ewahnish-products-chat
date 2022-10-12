@@ -1,7 +1,5 @@
-import { fileFilter, upload, storage } from '../configurations/multerConfig.js';
-import { __dirname } from '../utils.js';
+import { upload } from '../configurations/multerConfig.js';
 import usersService from '../Models/Users.js';
-import path from 'path';
 
 
 import express from 'express';
@@ -26,8 +24,7 @@ uploadRouter.post('/', upload.single('avatar'), async (req, res, next) => {
     return next(error)
   }
   await usersService.findOneAndUpdate({_id:req.session.user.id}, avatar, {returnOriginal: false})
-  //res.json({message: `Archivo <b>${file.originalname}</b> subido exitosamente`})
-  //res.redirect('/register')
+  res.redirect('/')
 })
 
 export default uploadRouter

@@ -9,16 +9,20 @@ const initializePassport = () => {
 
     passport.use('register', new LocalStrategy({ passReqToCallback: true, usernameField: 'email' }, async (req, email, password, done) => {
         try {
-            const { email, password, first_name, last_name, age } = req.body;
+            const { email, password, first_name, last_name, age  } = req.body;
             if (!first_name || !last_name || !email || !password) return done(null, false);
             let exists = await usersService.findOne({ email: email });
             if (exists) return done(null, false);
+            let avatar = '/uploads/generic-avatar.jpg';
+            let cart_number = 0
             let result = await usersService.create({
                 email: email,
                 password: createHash(password),
                 first_name: first_name,
                 last_name: last_name,
                 age: age,
+                avatar: avatar,
+                cart_number: cart_number
             })
             return done(null, result)
         }
