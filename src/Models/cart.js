@@ -5,6 +5,7 @@ const cartCollection = 'carrito';
 
 const CartSchema = new Schema({
     timestamp: { type: Date, required: true },
+    user_id: {type: String},
     productos: [{
         id: { type: String, required: true},
         timestamp: { type: String, required: true },

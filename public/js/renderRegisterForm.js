@@ -77,7 +77,6 @@ const renderregisterForm = () => {
         let data = new FormData(form);
         let obj = {};
         data.forEach((value, key) => obj[key] = value);
-        console.log("In register >>>> ", obj)
         const registerRoute = '/api/sessions/register'
 
         const requestOptions = {

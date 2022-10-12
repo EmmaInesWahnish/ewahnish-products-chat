@@ -7,7 +7,9 @@ const usersSchema = new mongoose.Schema({
     password: String,
     first_name: String,
     last_name: String,
-    age: Number
+    age: Number,
+    avatar: String,
+    cart_number: String
 })
 
 const usersService = mongoose.model(collection, usersSchema);

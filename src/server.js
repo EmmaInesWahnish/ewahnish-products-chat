@@ -16,7 +16,7 @@ import passport from 'passport';
 import { createServer } from "http";
 import { Server } from "socket.io";
 import sendEmail from './services/sendEmail.js';
-import {__dirname} from  './utils.js'
+import { __dirname } from './utils.js'
 
 const app = express();
 const httpServer = createServer(app);
@@ -106,5 +106,7 @@ const addToMessageList = async (msg) => {
 
 /* Server Listen */
 const port = config.server.PORT;
-httpServer.listen(port);
-console.log(`Server http listening at port ${httpServer.address().port} process id ${process.pid}`)
+const server = httpServer.listen(port, () => {
+    console.log(`Server http listening at port ${server.address().port} process id ${process.pid}`)
+});
+server.on("error", (error) => console.log(`Error in server ${error}`))
