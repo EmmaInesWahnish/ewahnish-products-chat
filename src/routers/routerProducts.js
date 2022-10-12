@@ -5,8 +5,6 @@ import config from '../configurations/dotenvConfig.js';
 const routerProducts = express.Router();
 import fs from 'fs';
 
-let isAdmin;
-
 let whichDb = config.envs.SELECTED_DB
 
 // *** ROUTES ***
@@ -56,7 +54,7 @@ routerProducts.get('/:id', async (req, res) => {
             res.json({
                 message: 'Producto encontrado',
                 product: producto,
-                bool: isAdmin,
+                bool: req.session.user.isAdmin,
                 whichDb: whichDb
             })
         } else {
@@ -100,7 +98,7 @@ routerProducts.post('/', async (req, res) => {
                     res.json({
                         message: "Producto incorporado",
                         product: producto,
-                        bool: isAdmin,
+                        bool: req.session.user.isAdmin,
                         theProductId: theProductId,
                         whichDb: whichDb
                     })
