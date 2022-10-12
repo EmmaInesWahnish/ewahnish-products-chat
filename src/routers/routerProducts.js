@@ -16,7 +16,8 @@ routerProducts.get('/', async (req, res) => {
             message: 'Lista de productos ',
             products: array,
             bool: req.session.user.isAdmin,
-            whichDb: whichDb
+            whichDb: whichDb,
+            user: req.session
         });
     }
     catch (error) {

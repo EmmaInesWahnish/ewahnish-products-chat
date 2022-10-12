@@ -1,6 +1,7 @@
 import express from 'express';
 import { Cart } from "../daos/daosCarts.js";
 import config from '../configurations/dotenvConfig.js';
+import usersService from '../Models/Users.js';
 
 const routerCart = express.Router();
 
@@ -54,6 +55,7 @@ routerCart.get('/:id', async (req, res) => {
 routerCart.post('/', async (req, res) => {
     let receive = req.body;
     let carrito = {
+        user_id: req.session.user.id,
         timestamp: receive.timestamp,
         productos: receive.productos,
     }
@@ -69,6 +71,13 @@ routerCart.post('/', async (req, res) => {
                 else {
                     cartId = carrito[carrito.length - 1].id;
                 }
+
+                let cart_number = {
+                    cart_number: cartId
+                }
+
+                await usersService.findOneAndUpdate({_id:req.session.user.id}, cart_number, {returnOriginal: false})
+
                 res.json({
                     message: "Carrito incorporado",
                     carrito: carrito,
@@ -107,6 +116,7 @@ routerCart.post('/:id/productos', async (req, res) => {
     let searchedCart = [];
     let carts = [];
     let modifiedCart = [];
+
     try {
         let productArray = [];
         carts = await Cart.getAll();
@@ -156,7 +166,8 @@ routerCart.post('/:id/productos', async (req, res) => {
                     message: 'Modificacion exitosa',
                     product: modifiedCart,
                     cartId: cartId,
-                    whichDb: whichDb
+                    whichDb: whichDb,
+                    user: req.session
                 })
             }
             catch (error) {

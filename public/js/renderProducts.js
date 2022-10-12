@@ -37,12 +37,17 @@ const renderProducts = () => {
 
     hide(homePage)
 
+    let this_user;
 
     fetch('/api/productos')
         .then(res => res.json())
         .then(data => {
             
             let whichDb = data.whichDb;
+
+            this_user ={...data.user.user}
+
+            console.log(this_user)
 
             document.getElementById('productCards').innerHTML = "";
 
