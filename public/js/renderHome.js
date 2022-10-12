@@ -39,6 +39,9 @@ const renderHome = () => {
                 console.log(session.user)
                 show(homePage)
                 document.getElementById('welcome').innerHTML = `Te damos la bienvenida ${session.user.first_name} (${session.user.email})! 👋`;
+                document.getElementById('email').value = session.user.email;
+                document.getElementById('first_name').value = session.user.first_name;
+                document.getElementById('last_name').value = session.user.last_name;
             }
             else {
                 renderLoginForm();

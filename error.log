@@ -47,3 +47,8 @@
 {"level":"error","message":"404 - ruta no encontrada /api/upload","service":"user-service","timestamp":"2022-10-10T18:15:38.248Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/up","service":"user-service","timestamp":"2022-10-10T18:15:43.454Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/up","service":"user-service","timestamp":"2022-10-10T18:16:39.550Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-11T13:07:13.209Z"}
+{"level":"error","message":"404 - ruta no encontrada /uploads/generic-avatar","service":"user-service","timestamp":"2022-10-11T13:54:20.791Z"}
+{"level":"error","message":"404 - ruta no encontrada /uploads/generic-avatar","service":"user-service","timestamp":"2022-10-11T13:54:30.201Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/sessions/register","service":"user-service","timestamp":"2022-10-11T15:31:25.400Z"}
+{"level":"error","message":"404 - ruta no encontrada /63ad445b-92c8-413e-b1fd-1dc8d5bebe06","service":"user-service","timestamp":"2022-10-11T22:56:44.296Z"}

@@ -10,6 +10,8 @@ import renderLoginForm from './renderLoginForm.js';
 
 import renderModalUploadFile from './renderModalUploadFile.js';
 
+import renderModalUploadFileAlternative from './renderModalUploadFileAlternative.js';
+
 import renderRegisterForm from './renderRegisterForm.js'
 
 import renderModalOneProduct from './renderModalOneProduct.js';

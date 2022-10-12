@@ -1,5 +1,6 @@
 import multer from 'multer';
 import { __dirname } from '../utils.js';
+import usersService from '../Models/Users.js';
 import path from 'path';
 
 
@@ -40,15 +41,18 @@ uploadRouter.get('/', async (req, res,) => {
 })
 
 uploadRouter.post('/', upload.single('avatar'), (req, res, next) => {
-  console.log(req.body)
+  
   console.log(req.file)
+  console.log('/uploads/' + req.file.originalname, " goes to >>>> ", req.session.user.id)
+
   let file=req.file
   if (!file) {
     const error = new Error('Error subiendo archivo')
     error.httpStatusCode = 400
     return next(error)
   }
-  res.json({message: `Archivo <b>${file.originalname}</b> subido exitosamente`})
+  //res.json({message: `Archivo <b>${file.originalname}</b> subido exitosamente`})
+  //res.redirect('/register')
 })
 
 export default uploadRouter

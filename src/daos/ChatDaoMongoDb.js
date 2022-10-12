@@ -17,7 +17,7 @@ const connectToDb = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
-        gLogger.info(`Estado de la conexion (ChatDao) ${mongoose.connection.readyState}`);
+        //gLogger.info(`Estado de la conexion (ChatDao) ${mongoose.connection.readyState}`);
     } catch (error) {
         console.error("DB Error: ", error);
     }

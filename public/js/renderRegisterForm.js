@@ -57,6 +57,11 @@ const renderregisterForm = () => {
         <input id="age" class="form-control" type="number" name="age">
     </div>
 
+    <div class="form-group">
+        <label for="my_avatar"><b>Upload Image</b></label>
+        <button id="my_avatar" class="btn btn-light form-control" name="my_avatar">Upload image</button>
+    </div>
+
     <button type="submit" class="btn btn-success mt-3 mb-5">Submit</button>
 </form>
 

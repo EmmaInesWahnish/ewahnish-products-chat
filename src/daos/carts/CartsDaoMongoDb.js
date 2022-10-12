@@ -18,7 +18,7 @@ const connectToDb = async () => {
             useUnifiedTopology: true,
         })
         let theState = mongoose.connection.readyState
-        gLogger.info(`Estado de la conexion (CartDao) ${theState}`);
+        //gLogger.info(`Estado de la conexion (CartDao) ${theState}`);
     } catch (error) {
         console.error("DB Error: ", error);
     }
