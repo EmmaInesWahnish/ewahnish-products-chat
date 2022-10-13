@@ -13,10 +13,11 @@ let array = [];
 //element.parentNode.removeChild(element);
 const renderProducts = () => {
     let qobject = [{}];
-    let cartId = '';
     let cart = [];
+    let cartId = '';
+    let this_user;
 
-    document.getElementById('activeCart').innerHTML = "";
+    document.getElementById('activeCart').innerHTML = "No hay carrito activo";
     document.getElementById('cartNumber').innerHTML = "";
     document.getElementById('productCards').innerHTML = "";
     document.getElementById('newProduct').innerHTML = "";
@@ -25,6 +26,9 @@ const renderProducts = () => {
     document.getElementById('productsInCart').innerHTML = "";
     document.getElementById('login').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('active').innerHTML = "";
+    document.getElementById('thisCart').innerHTML = "";
+
 
     const homePage = document.getElementById("homePage")
 
@@ -37,8 +41,6 @@ const renderProducts = () => {
 
     hide(homePage)
 
-    let this_user;
-
     fetch('/api/productos')
         .then(res => res.json())
         .then(data => {
@@ -47,7 +49,12 @@ const renderProducts = () => {
 
             this_user ={...data.user.user}
 
-            console.log(this_user)
+            if(this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
+                cartId = this_user.cart_number;
+                document.getElementById('cartNumber').innerHTML = cartId;
+                document.getElementById('activeCart').innerHTML = "";
+                document.getElementById('thisCart').innerHTML = cartId;
+            };
 
             document.getElementById('productCards').innerHTML = "";
 
@@ -124,10 +131,6 @@ const renderProducts = () => {
                     })
 
                 } else {
-
-                    let activeCart = document.getElementById("activeCart")
-
-                    activeCart.innerHTML = `No hay carrito activo`
 
                     let i = findQobject(qobject, product.id);
 

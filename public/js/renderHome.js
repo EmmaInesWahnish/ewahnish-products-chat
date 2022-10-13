@@ -39,9 +39,10 @@ const renderHome = () => {
         .then(json => session = json)
         .finally(() => {
             if (session.user) {
-                if(session.user.avatar){
+                if(session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar){
                     user_avatar = session.user.avatar;
                     user_message = ''
+                    console.log("Avatar >>> ",user_avatar)
                 }
                 show(homePage)
                 document.getElementById('welcome').innerHTML = `<img class="avatar" src="${user_avatar}"/>
