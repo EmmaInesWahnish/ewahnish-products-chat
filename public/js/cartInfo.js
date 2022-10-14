@@ -36,20 +36,19 @@ const cartInfo = (cartNumber) => {
                         break;
                 }
 
-                console.log("In cartInfo ",cartProducts)
-
                 for (let product of cartProducts) {
-                    idProducts.push({
+                    let theProduct = {
                         id: product.id,
                         cantidad: product.cantidad
-                    })
+                    }
+                    idProducts.push(theProduct)                   
                 }
+                localStorage.removeItem("cart")
+                localStorage.setItem("cart",JSON.stringify(idProducts))
             }
         })
         .finally()
         .catch(err => console.log(err))
-
-        return idProducts
 }
 
 export default cartInfo;

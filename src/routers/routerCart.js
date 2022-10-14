@@ -135,7 +135,7 @@ routerCart.post('/:id/productos', async (req, res) => {
             }
             indexp = productArray.findIndex(element => element.id == receive.id);
             if (indexp !== -1) {
-                productArray[indexp].cantidad = productArray[indexp].cantidad + receive.cantidad;
+                productArray[indexp].cantidad = receive.cantidad;
             }
             else {
                 console.log("recibo ", receive)

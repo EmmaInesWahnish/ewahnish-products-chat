@@ -17,8 +17,8 @@ const renderProducts = () => {
     let cart = [];
     let cartId = '';
     let this_user;
-    let idProducts = []
     let theValue;
+    let idProducts=[];
 
     document.getElementById('activeCart').innerHTML = "No hay carrito activo";
     document.getElementById('cartNumber').innerHTML = "";
@@ -47,20 +47,21 @@ const renderProducts = () => {
     fetch('/api/productos')
         .then(res => res.json())
         .then(data => {
-            
+
             let whichDb = data.whichDb;
 
-            this_user ={...data.user.user}
+            this_user = { ...data.user.user }
 
-            console.log("this user >>>>  ",this_user)
+            console.log("this user >>>>  ", this_user)
 
-            if(this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
+            if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
                 cartId = this_user.cart_number;
                 document.getElementById('cartNumber').innerHTML = cartId;
                 document.getElementById('activeCart').innerHTML = "";
                 document.getElementById('thisCart').innerHTML = cartId;
-                idProducts = cartInfo(cartId);
-                console.log("Products in cart >>> ", idProducts)
+                cartInfo(cartId);
+                idProducts = JSON.parse(localStorage.getItem('cart'))
+                console.log("User >>> ",idProducts)
             };
 
             document.getElementById('productCards').innerHTML = "";
@@ -68,17 +69,12 @@ const renderProducts = () => {
             const cardContainer = document.getElementById('productCards')
             for (let product of data.products) {
                 theValue = 0;
-                for (let i=0;i<idProducts.length;i++){
-                    if(idProducts[i].id === product.id){
-                        theValue = Number(idProducts[i].cantidad);
-                    }
-                }
                 array.push(product)
                 qobject.push({
                     value: theValue,
                     id: product.id
                 });
-                
+
                 let pictureId = "PIC" + product.id;
                 const cards = document.createElement('div');
 
@@ -105,6 +101,13 @@ const renderProducts = () => {
                 const buttons = document.createElement('div');
 
                 if (data.bool) {
+                    let i = findQobject(qobject, product.id);
+                    for (let j = 0; j < idProducts.length; j++) {
+                        if (idProducts[j].id === product.id) {
+                            theValue = Number(idProducts[j].cantidad);
+                            qobject[i].value = theValue;
+                        }
+                    }
                     buttons.innerHTML = `<div class="flex-container-button-group card-footer">
                                         <button style="width:200px" 
                                                 id=U${product.id} 
@@ -145,10 +148,15 @@ const renderProducts = () => {
                     })
 
                 } else {
-
-                    console.log(qobject)
-
                     let i = findQobject(qobject, product.id);
+
+                    for (let j = 0; j < idProducts.length; j++) {
+                        console.log("This is in list products >>>> ", idProducts[j])
+                        if (idProducts[j].id === product.id) {
+                            theValue = Number(idProducts[j].cantidad);
+                            qobject[i].value = theValue;
+                        }
+                    }
 
                     let quantity = qobject[i].value;
 
