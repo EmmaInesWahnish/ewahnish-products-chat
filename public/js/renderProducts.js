@@ -4,9 +4,10 @@ import renderModalAddToCart from './renderModalAddToCart.js';
 import renderModalDeleteFromCart from './renderModalDeleteFromCart.js';
 import createACart from './createACart.js';
 import addToQuantity from './addToQuantity.js';
-import subtractFromQuantity from './subtractFromQuantity.js'
-import showOneProduct from './showOneProduct.js'
-import findQobject from './findQobject.js'
+import subtractFromQuantity from './subtractFromQuantity.js';
+import showOneProduct from './showOneProduct.js';
+import findQobject from './findQobject.js';
+import cartInfo from './cartInfo.js';
 
 let array = [];
 
@@ -16,6 +17,7 @@ const renderProducts = () => {
     let cart = [];
     let cartId = '';
     let this_user;
+    let idProducts = []
 
     document.getElementById('activeCart').innerHTML = "No hay carrito activo";
     document.getElementById('cartNumber').innerHTML = "";
@@ -54,6 +56,8 @@ const renderProducts = () => {
                 document.getElementById('cartNumber').innerHTML = cartId;
                 document.getElementById('activeCart').innerHTML = "";
                 document.getElementById('thisCart').innerHTML = cartId;
+                idProducts = cartInfo(cartId);
+                console.log("Products in cart >>> ", id0Products)
             };
 
             document.getElementById('productCards').innerHTML = "";

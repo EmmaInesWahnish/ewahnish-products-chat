@@ -58,3 +58,4 @@
 {"level":"error","message":"404 - ruta no encontrada /api/stylesheets/style.css","service":"user-service","timestamp":"2022-10-12T16:50:32.669Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/stylesheets/cardStylesheets.css","service":"user-service","timestamp":"2022-10-12T16:55:46.337Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/stylesheets/style.css","service":"user-service","timestamp":"2022-10-12T16:55:46.587Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-13T23:15:42.354Z"}
