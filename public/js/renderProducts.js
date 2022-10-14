@@ -18,6 +18,7 @@ const renderProducts = () => {
     let cartId = '';
     let this_user;
     let idProducts = []
+    let theValue;
 
     document.getElementById('activeCart').innerHTML = "No hay carrito activo";
     document.getElementById('cartNumber').innerHTML = "";
@@ -51,24 +52,33 @@ const renderProducts = () => {
 
             this_user ={...data.user.user}
 
+            console.log("this user >>>>  ",this_user)
+
             if(this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
                 cartId = this_user.cart_number;
                 document.getElementById('cartNumber').innerHTML = cartId;
                 document.getElementById('activeCart').innerHTML = "";
                 document.getElementById('thisCart').innerHTML = cartId;
                 idProducts = cartInfo(cartId);
-                console.log("Products in cart >>> ", id0Products)
+                console.log("Products in cart >>> ", idProducts)
             };
 
             document.getElementById('productCards').innerHTML = "";
 
             const cardContainer = document.getElementById('productCards')
             for (let product of data.products) {
+                theValue = 0;
+                for (let i=0;i<idProducts.length;i++){
+                    if(idProducts[i].id === product.id){
+                        theValue = Number(idProducts[i].cantidad);
+                    }
+                }
                 array.push(product)
                 qobject.push({
-                    value: 0,
+                    value: theValue,
                     id: product.id
                 });
+                
                 let pictureId = "PIC" + product.id;
                 const cards = document.createElement('div');
 
@@ -135,6 +145,8 @@ const renderProducts = () => {
                     })
 
                 } else {
+
+                    console.log(qobject)
 
                     let i = findQobject(qobject, product.id);
 
