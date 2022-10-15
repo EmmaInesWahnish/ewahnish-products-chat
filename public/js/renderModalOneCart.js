@@ -1,7 +1,7 @@
 
 import renderCarts from './renderCarts.js'
 
-const renderModalOneProduct = () => {
+const renderModalOneCart = () => {
 
     let buttonId = "showCart";
 
@@ -46,4 +46,4 @@ const renderModalOneProduct = () => {
     })
 }
 
-export default renderModalOneProduct;
+export default renderModalOneCart;
