@@ -17,12 +17,10 @@ const renderModalOneOrder = () => {
                         </div>
                         <button type="submit" id=${buttonIdShow} class="btn btn-success">Mostrar</button>
                         <div id="listOneOrder" class="container mt-3" width="80%">
-                              <h4 id="myOrder"></h4>
-                              <table id="productsInOrder" class="table table-light table-responsive table-bordered table-striped"></table>
+                            <h4 id="myOrder"></h4>
+                            <table id="productsInOrder" class="table table-light table-responsive table-bordered table-striped"></table>
                         </div>
-                        <button type="submit" id=${buttonIdSend} class="btn btn-success"></button>
-                        
-                        `;
+                        <button type="submit" id=${buttonIdSend} class="btn btn-success"></button>`;
 
     if (orderNumber !== '') {
         document.getElementById('orderId').value = orderNumber;

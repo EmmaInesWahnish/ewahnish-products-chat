@@ -14,6 +14,9 @@ const renderHome = () => {
     document.getElementById('root').innerHTML = "";
 
     const homePage = document.getElementById("homePage")
+
+    let cartId = '';
+
     let user_avatar = '/uploads/generic-avatar.jpg';
 
     let user_message = 'Si desea personalizar su avatar puede utilizar Upload Avatar en la barra de menu'
@@ -38,11 +41,11 @@ const renderHome = () => {
         .then(result => result.json())
         .then(json => session = json)
         .finally(() => {
+            console.log("Session >>>>>> ", session)
             if (session.user) {
-                if(session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar){
+                if (session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar) {
                     user_avatar = session.user.avatar;
                     user_message = ''
-                    console.log("Avatar >>> ",user_avatar)
                 }
                 show(homePage)
                 document.getElementById('welcome').innerHTML = `<img class="avatar" src="${user_avatar}"/>
@@ -52,6 +55,9 @@ const renderHome = () => {
                 document.getElementById('first_name').value = session.user.first_name;
                 document.getElementById('last_name').value = session.user.last_name;
                 document.getElementById('avatar').value = session.user.avatar;
+                cartId = session.user.cart_number;
+                document.getElementById('hayCarrito').innerHTML = 'Hay productos en su carrito'
+                document.getElementById('thisCart').innerHTML = cartId;
             }
             else {
                 renderLoginForm();

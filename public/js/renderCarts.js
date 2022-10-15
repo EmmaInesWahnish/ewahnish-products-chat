@@ -1,4 +1,6 @@
 import renderHome from './renderHome.js';
+import generateOneOrder from './generateOneOrder.js';
+import renderProducts from './renderProducts.js';
 
 const renderCarts = (cartNumber) => {
     document.getElementById('activeCart').innerHTML = "";
@@ -9,6 +11,16 @@ const renderCarts = (cartNumber) => {
     document.getElementById('myCart').innerText = "";
     document.getElementById('productsInCart').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+
+    const buttonGenerateOrder = 'generateOrder';
+
+    const buttonClose = 'closeOrder'
+
+    let cart = {};
+
+    let cartOwner;
+
+    let productos =[];
 
     const homePage = document.getElementById("homePage")
 
@@ -34,9 +46,9 @@ const renderCarts = (cartNumber) => {
 
                 const carrito = data.carrito;
 
-                const whichDb = data.whichDb;
+                cartOwner = data.carrito[0].user_id;
 
-                let productos = []
+                const whichDb = data.whichDb;
 
                 switch (whichDb) {
                     case 'MONGODB':
@@ -138,9 +150,39 @@ const renderCarts = (cartNumber) => {
 
                     cartContainer.appendChild(tableBody)
                 }
+
+                cart = {
+                    timestamp: Date.now(),
+                    user_id: cartOwner,
+                    productos: productos
+                }
+                const cartFooter = document.createElement('div')
+
+                cartFooter.innerHTML = `<div class="form-group">
+                    <button type="submit" id=${buttonGenerateOrder} class="btn btn-success">Comprar</button>
+                    <button id=${buttonClose} class="btn btn-secondary">Continuar</button>
+                </div>`
+
+                orderButtons.appendChild(cartFooter)
+
+                console.log("The cart >>>> ", cart)
+                let generateOrder = document.getElementById(buttonGenerateOrder);
+
+                let formSend = document.getElementById(buttonClose)
+
+                generateOrder.addEventListener('click', function () {
+                    generateOneOrder(cart)
+                })
+
+                formSend.addEventListener('click', function () {
+                    orderButtons.innerHTML = '';
+                    renderProducts()
+                })
+
             }
         })
         .catch(err => console.log(err))
+
 }
 
 export default renderCarts;

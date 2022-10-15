@@ -146,7 +146,7 @@ upload.addEventListener('click', () => {
 })
 
 listCart.addEventListener('click', () => {
-    renderModalOneCart()
+    renderModalOneCart(cartNumber)
 })
 
 function signOut() {
