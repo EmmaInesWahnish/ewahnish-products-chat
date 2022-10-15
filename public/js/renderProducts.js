@@ -52,8 +52,6 @@ const renderProducts = () => {
 
             this_user = { ...data.user.user }
 
-            console.log("this user >>>>  ", this_user)
-
             if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
                 cartId = this_user.cart_number;
                 document.getElementById('cartNumber').innerHTML = cartId;
@@ -61,7 +59,6 @@ const renderProducts = () => {
                 document.getElementById('thisCart').innerHTML = cartId;
                 cartInfo(cartId);
                 idProducts = JSON.parse(localStorage.getItem('cart'))
-                console.log("User >>> ",idProducts)
             };
 
             document.getElementById('productCards').innerHTML = "";
@@ -102,12 +99,14 @@ const renderProducts = () => {
 
                 if (data.bool) {
                     let i = findQobject(qobject, product.id);
+                    
                     for (let j = 0; j < idProducts.length; j++) {
                         if (idProducts[j].id === product.id) {
                             theValue = Number(idProducts[j].cantidad);
                             qobject[i].value = theValue;
                         }
                     }
+
                     buttons.innerHTML = `<div class="flex-container-button-group card-footer">
                                         <button style="width:200px" 
                                                 id=U${product.id} 
@@ -151,7 +150,6 @@ const renderProducts = () => {
                     let i = findQobject(qobject, product.id);
 
                     for (let j = 0; j < idProducts.length; j++) {
-                        console.log("This is in list products >>>> ", idProducts[j])
                         if (idProducts[j].id === product.id) {
                             theValue = Number(idProducts[j].cantidad);
                             qobject[i].value = theValue;
