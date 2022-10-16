@@ -11,11 +11,15 @@ const whichDb = config.envs.SELECTED_DB;
 // *** ROUTES ***
 //This route returns all Orders
 routerOrder.get('/', async (req, res) => {
+    let user_fname = req.session.user.first_name;
+    let user_lname = req.session.user.last_name;
     try {
-        const array = await Order.getAll();
+        const order = await Order.getAll();
         res.json({
             message: 'Ordenes ',
-            orden: array,
+            user_fname: user_fname,
+            user_lname: user_lname,
+            order: order,
             whichDb: whichDb
         });
     }
@@ -30,12 +34,16 @@ routerOrder.get('/', async (req, res) => {
 //This route returns a Order according to its id.
 routerOrder.get('/:id', async (req, res) => {
     let id = req.params.id;
-    try {
-        const orden = await Order.getById(id);
-        if (orden != undefined) {
+    let user_fname = req.session.user.first_name;
+    let user_lname = req.session.user.last_name;
+     try {
+        const order = await Order.getById(id);
+        if (order != undefined) {
             res.json({
                 message: 'orden encontrada',
-                orden: orden,
+                user_fname: user_fname,
+                user_lname: user_lname,    
+                order: order,
                 whichDb: whichDb
             })
         } else {

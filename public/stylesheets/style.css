@@ -525,6 +525,8 @@ footerD {
 
 .modal-content {
   background-color: bg-light;
+  width:100%;
+  height:fit-content;
   padding: 0;
 }
 

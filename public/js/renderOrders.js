@@ -6,7 +6,7 @@ const renderOrders = (orderNumber) => {
     document.getElementById('productCards').innerHTML = "";
     document.getElementById('newProduct').innerHTML = "";
     document.getElementById('oneProduct').innerHTML = "";
-    document.getElementById('myCart').innerText = "";
+    document.getElementById('myOrder').innerText = "";
     document.getElementById('productsInCart').innerHTML = "";
     document.getElementById('root').innerHTML = "";
 
@@ -21,20 +21,23 @@ const renderOrders = (orderNumber) => {
 
     hide(homePage)
 
-    const productRoute = `/api/ordenes/${orderNumber}`
+    const orderRoute = `/api/ordenes/${orderNumber}`
 
-    fetch(productRoute)
+    console.log("La ruta >>> ", orderRoute)
+
+    fetch(orderRoute)
         .then(res => res.json())
         .then(data => {
             if (data.message === "orden no encontrada") {
                 alert("Orden no encontrada");
                 renderHome();
             } else {
-                const myCart = document.getElementById('myCart')
-
-                const order = data.orderFooter;
+                const order = data.order;
 
                 const whichDb = data.whichDb;
+
+                const first_name = data.user_fname;
+                const last_name = data.user_lname;
 
                 let productos = []
 
@@ -56,9 +59,15 @@ const renderOrders = (orderNumber) => {
                         break;
                 }
 
-                myCart.innerText = `Carrito Nro. ${orderNumber}`;
+                let productsInOrder = document.getElementById('productsInOrder');
 
-                const cartContainer = document.getElementById('productsInOrder')
+                let myOrder = document.getElementById('myOrder')
+
+                myOrder.innerHTML = `Orden Nro. ${orderNumber}`;
+
+                const cliente = document.getElementById('cliente');
+
+                cliente.innerHTML = `Su compra, ${first_name} ${last_name}`;
 
                 const tableHead = document.createElement('tr');
 
@@ -103,7 +112,8 @@ const renderOrders = (orderNumber) => {
                                             </p>
                                         </th>`
 
-                cartContainer.appendChild(tableHead)
+                productsInOrder.appendChild(tableHead);
+
                 let total = 0
                 for (let product of productos) {
                     let importe = Number(product.precio) * Number(product.cantidad);
@@ -148,17 +158,14 @@ const renderOrders = (orderNumber) => {
                                             </p>
                                         </th>`
 
-                    cartContainer.appendChild(tableBody)
-
-                    const orderFooter = document.createElement('div')
-
-                    orderTotal.innerHtml = `
-                                        <h4>Importe total ${total} </h4>
-                                    </div>
-                                    <div></div>
-                    `
-
+                    productsInOrder.appendChild(tableBody)
                 }
+
+                let orderTotal = document.getElementById('orderTotal');
+
+                console.log(`Importe total ${total}`)
+
+                orderTotal.innerText = `Importe total ${total}`;
             }
         })
         .catch(err => console.log(err))

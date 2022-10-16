@@ -12,6 +12,8 @@ import renderModalUploadFile from './renderModalUploadFile.js';
 
 import renderModalUploadFileAlternative from './renderModalUploadFileAlternative.js';
 
+import renderModalOneOrder from './renderModalOneOrder.js';
+
 import renderRegisterForm from './renderRegisterForm.js'
 
 import renderModalOneProduct from './renderModalOneProduct.js';
@@ -37,6 +39,8 @@ const upload = document.getElementById('upload')
 const listCart = document.getElementById('listCart');
 
 const homePage = document.getElementById('home');
+
+const order = document.getElementById('order')
 
 const socket= io();
 
@@ -147,6 +151,10 @@ upload.addEventListener('click', () => {
 
 listCart.addEventListener('click', () => {
     renderModalOneCart(cartNumber)
+})
+
+order.addEventListener('click', () => {
+    renderModalOneOrder()
 })
 
 function signOut() {

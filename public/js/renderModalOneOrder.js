@@ -3,6 +3,8 @@ import renderOrders from './renderOrders.js';
 
 const renderModalOneOrder = () => {
 
+    let orderNumber ='';
+
     let buttonIdShow = "showOrder";
 
     let buttonIdSend = "closeOrder"
@@ -12,30 +14,32 @@ const renderModalOneOrder = () => {
     const theForm = document.getElementById('theForm');
 
     theForm.innerHTML = `<div class="form-group">
-                            <label for="carttId"><b>Id de Carrito</b></label>
-                            <input id="orderId" class="form-control" type="text" name="orderId" >
+                            <label for="orderId"><b>Id de Orden</b></label>
+                            <input id="theOrderId" class="form-control" type="text" name="orderId" >
                         </div>
-                        <button type="submit" id=${buttonIdShow} class="btn btn-success">Mostrar</button>
-                        <div id="listOneOrder" class="container mt-3" width="80%">
+                        <button type="submit" id=${buttonIdShow} class="btn btn-small btn-success">Mostrar</button>
+                        <div id="orderHeader" class="container mt-3" width="100%">
+                            <h4 id="cliente"></h4>
                             <h4 id="myOrder"></h4>
-                            <table id="productsInOrder" class="table table-light table-responsive table-bordered table-striped"></table>
                         </div>
-                        <button type="submit" id=${buttonIdSend} class="btn btn-success"></button>`;
+                        <div id="listOneOrder" class="container mt-3" width="100%">
+                            <table id="productsInOrder" class="table table-light table-responsive table-bordered table-striped"></table>
+                            <h4 id="orderTotal"></h4>
+                        </div>
+                        <button type="submit" id=${buttonIdSend} class="btn btn-small btn-success"></button>`;
 
-    if (orderNumber !== '') {
-        document.getElementById('orderId').value = orderNumber;
-     }  
-
+    theOrderId.addEventListener('change', function () {
+        orderNumber = document.getElementById('theOrderId').value;
+        console.log("La orden change >>> ",orderNumber)
+    })
+    
     let formUpdate = document.getElementById(buttonIdShow);
 
     let formSend = document.getElementById(buttonIdSend)
 
-    orderId.addEventListener('change', function () {
-
-        orderNumber = document.getElementById('orderId').value;
-    })
 
     formUpdate.addEventListener('click', function () {
+        console.log("La orden update >>> ",orderNumber)
         renderOrders(orderNumber);
     })
 
