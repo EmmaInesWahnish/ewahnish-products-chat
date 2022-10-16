@@ -38,7 +38,6 @@ h2 {
 h4 {
   font-family: trebuchet;
   color: #2D85E5;
-  text-align: center;
 }
 
 body {
@@ -334,17 +333,6 @@ button,
 
 /* flex container*/
 /*fin para listados*/
-.w3-modal-content .form__item__input {
-  display: block;
-  width: 40%;
-  min-height: fit-content;
-  border: 3px;
-  margin: 3px;
-  padding: 5px;
-  border-color: #12355B;
-  border-style: solid;
-}
-
 .form {
   width: auto;
   gap: 5px;
@@ -520,13 +508,13 @@ footerD {
   color: #12355B;
   margin: 5px;
   border: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .modal-content {
   background-color: bg-light;
   width:100%;
-  height:fit-content;
+  height:100%;
   padding: 0;
 }
 

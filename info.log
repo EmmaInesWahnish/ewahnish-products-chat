@@ -125,3 +125,4 @@
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-15T23:45:02.308Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-15T23:45:11.048Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-16T00:32:41.550Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-16T22:36:06.059Z"}

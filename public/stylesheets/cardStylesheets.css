@@ -39,9 +39,9 @@
     /* Sit on top */
     padding: 1em;
     /* Location of the box */
-    width: 60%;
+    width: 80%;
     /* Full width */
-    height: 80%;
+    height: 900%;
     /* Full height */
     overflow: scroll;
     /* Enable scroll if needed */
@@ -58,6 +58,7 @@
     padding: auto;
     border: 3px solid #2d85e5;
     width: 100%;
+    height: 100%;
     font-size: 1em;
   }
   
@@ -123,7 +124,18 @@
     padding:1px;
     margin:0%
   }
-  
+
+  .flex-container-order {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content:flex-end;
+    justify-items: center;
+    text-align: center;
+    padding:1px;
+    margin:0%
+  }
+
   .flex-container-card {
     display: flex;
     flex-flow: row wrap;

@@ -19,6 +19,8 @@ const renderOrders = (orderNumber) => {
         elem.style.display = 'none';
     };
 
+    const myHTML = document.createElement('div')
+
     hide(homePage)
 
     const orderRoute = `/api/ordenes/${orderNumber}`
@@ -159,7 +161,10 @@ const renderOrders = (orderNumber) => {
                                         </th>`
 
                     productsInOrder.appendChild(tableBody)
+
                 }
+
+
 
                 let orderTotal = document.getElementById('orderTotal');
 
@@ -169,6 +174,31 @@ const renderOrders = (orderNumber) => {
             }
         })
         .catch(err => console.log(err))
+
+        myHTML.innerHTML = productsInOrder;
+
+        const formSend = document.getElementById('formSend');
+
+    formSend.addEventListener('click', function () {
+        let myInfo = {
+            id: 'html',
+            html: myHTML
+        };
+
+        const emailRoute = '/email';
+
+        const requestOptions = {
+            method:'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(myInfo),
+        };
+
+        fetch(emailRoute, requestOptions)
+        .then(async res => {
+            await res.json();
+        })            
+    })
+
 }
 
 export default renderOrders;

@@ -62,3 +62,9 @@
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-14T12:41:41.364Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-15T14:21:31.306Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-15T20:44:53.184Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-16T20:25:37.370Z"}
+{"level":"error","message":"404 - ruta no encontrada /src/services/sendEmail.js","service":"user-service","timestamp":"2022-10-16T21:51:05.129Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/email","service":"user-service","timestamp":"2022-10-16T22:22:02.544Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/email","service":"user-service","timestamp":"2022-10-16T22:26:43.529Z"}
+{"level":"error","message":"404 - ruta no encontrada /email","service":"user-service","timestamp":"2022-10-16T22:28:11.843Z"}
+{"level":"error","message":"404 - ruta no encontrada /email","service":"user-service","timestamp":"2022-10-16T22:34:55.265Z"}

@@ -1,3 +1,4 @@
+import sendMail from '../services/sendEmail.js';
 import express from 'express';
 
 const viewsRouter = express.Router();
@@ -22,6 +23,12 @@ viewsRouter.get('/login', (req, res) => {
             message: 'Log',
         });
     };
+})
+
+viewsRouter.post('/email',(req, res) =>{
+    const myInfo = req.body;
+    const myHTML = myInfo.myHTML;
+    sendMail(myHTML);
 })
 
 viewsRouter.get('/', (req, res) => {
