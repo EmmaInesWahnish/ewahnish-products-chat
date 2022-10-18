@@ -52,7 +52,7 @@ const renderProducts = () => {
 
             this_user = { ...data.user.user }
 
-            if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null) {
+            if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null && this_user.cart_number != "0") {
                 cartId = this_user.cart_number;
                 document.getElementById('cartNumber').innerHTML = cartId;
                 document.getElementById('activeCart').innerHTML = "";

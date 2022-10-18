@@ -17,6 +17,10 @@ const renderModalOneOrder = () => {
                             <label for="orderId"><b>Id de Orden</b></label>
                             <input id="theOrderId" class="form-control" type="text" name="orderId" >
                         </div>
+                        <div>
+                            <label for="deliveryAddress"><b>Dirección de Entrega</b></label>
+                            <input id="theAddress" class="form-control" type="text" name="deliveryAddress" required>
+                        </div>
                         <div class="flex-container-order">
                             <button type="submit" id=${buttonIdShow} class="btn btn-small btn-success">Mostrar</button>
                             <button type="submit" id=${buttonIdSend} class="btn btn-small btn-secondary">Aceptar</button>

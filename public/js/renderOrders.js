@@ -19,7 +19,13 @@ const renderOrders = (orderNumber) => {
         elem.style.display = 'none';
     };
 
-    const myHTML = document.createElement('div')
+    let first_name = '';
+
+    let last_name = '';
+
+    let theAddress = document.getElementById('theAddress').value;
+
+    let order = {};
 
     hide(homePage)
 
@@ -34,12 +40,12 @@ const renderOrders = (orderNumber) => {
                 alert("Orden no encontrada");
                 renderHome();
             } else {
-                const order = data.order;
+                order = data.order;
 
                 const whichDb = data.whichDb;
 
-                const first_name = data.user_fname;
-                const last_name = data.user_lname;
+                first_name = data.user_fname;
+                last_name = data.user_lname;
 
                 let productos = []
 
@@ -175,14 +181,15 @@ const renderOrders = (orderNumber) => {
         })
         .catch(err => console.log(err))
 
-        myHTML.innerHTML = productsInOrder;
-
         const formSend = document.getElementById('formSend');
 
     formSend.addEventListener('click', function () {
-        let myInfo = {
-            id: 'html',
-            html: myHTML
+
+        let myOrder = {
+            delivery_address: theAddress,
+            first_name: first_name,
+            last_name: last_name,
+            order: order            
         };
 
         const emailRoute = '/email';
@@ -190,7 +197,7 @@ const renderOrders = (orderNumber) => {
         const requestOptions = {
             method:'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(myInfo),
+            body: JSON.stringify(myOrder),
         };
 
         fetch(emailRoute, requestOptions)

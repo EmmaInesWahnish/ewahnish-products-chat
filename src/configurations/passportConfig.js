@@ -15,6 +15,7 @@ const initializePassport = () => {
             if (exists) return done(null, false);
             let avatar = '/uploads/generic-avatar.jpg';
             let cart_number = 0
+            let delivery_address = ''
             let result = await usersService.create({
                 email: email,
                 password: createHash(password),
@@ -22,7 +23,8 @@ const initializePassport = () => {
                 last_name: last_name,
                 age: age,
                 avatar: avatar,
-                cart_number: cart_number
+                cart_number: cart_number,
+                delivery_address: delivery_address
             })
             return done(null, result)
         }

@@ -126,3 +126,57 @@
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-15T23:45:11.048Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-16T00:32:41.550Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-16T22:36:06.059Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T12:39:35.804Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T12:44:18.617Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:20:40.902Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:25:30.164Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:25:55.028Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:28:47.292Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:34:13.748Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:37:14.524Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:41:30.872Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:41:46.130Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:42:50.656Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:43:15.129Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:44:43.664Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T13:48:27.624Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T14:04:02.834Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T15:46:52.321Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T15:57:07.748Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T16:19:41.077Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T16:23:13.515Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T16:24:47.085Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:25:18.135Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:26:45.585Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:27:07.955Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:48:58.406Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:52:14.124Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:56:41.940Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T17:59:25.730Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T19:02:40.412Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T21:55:27.891Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T22:58:26.944Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:08:01.672Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:15:56.189Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:27:13.629Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:28:22.631Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:29:24.412Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:44:23.336Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:47:14.640Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:51:22.606Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:54:06.474Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-17T23:59:03.494Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:11:26.875Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:14:07.367Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:16:12.370Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:19:46.202Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T00:22:10.585Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T00:22:28.592Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T00:24:26.925Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T00:28:51.138Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T00:35:36.582Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:41:36.466Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T00:55:11.806Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T01:05:47.995Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T01:07:42.178Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T01:08:22.421Z"}

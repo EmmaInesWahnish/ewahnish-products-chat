@@ -17,14 +17,13 @@ const transporter = createTransport({
 
 let from = 'bettye48@ethereal.email';
 let to = 'ewahnish@hotmail.email';
-let subject = 'Test email'
 
-const sendEmail = async (myMessage) => {
+const sendEmail = async (myMessage, mySubject) => {
     const mailOptions = {
         from: from,
         to: to,
-        subject: subject,
-        html: `<p><b>Hello</b> ${myMessage} to myself!</p>`
+        subject: mySubject,
+        html: myMessage,
     }
 
     try {

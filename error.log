@@ -68,3 +68,4 @@
 {"level":"error","message":"404 - ruta no encontrada /api/email","service":"user-service","timestamp":"2022-10-16T22:26:43.529Z"}
 {"level":"error","message":"404 - ruta no encontrada /email","service":"user-service","timestamp":"2022-10-16T22:28:11.843Z"}
 {"level":"error","message":"404 - ruta no encontrada /email","service":"user-service","timestamp":"2022-10-16T22:34:55.265Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-17T12:38:11.524Z"}

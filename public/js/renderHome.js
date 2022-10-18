@@ -41,7 +41,6 @@ const renderHome = () => {
         .then(result => result.json())
         .then(json => session = json)
         .finally(() => {
-            console.log("Session >>>>>> ", session)
             if (session.user) {
                 if (session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar) {
                     user_avatar = session.user.avatar;
@@ -56,7 +55,7 @@ const renderHome = () => {
                 document.getElementById('last_name').value = session.user.last_name;
                 document.getElementById('avatar').value = session.user.avatar;
                 cartId = session.user.cart_number;
-                document.getElementById('hayCarrito').innerHTML = 'Hay productos en su carrito'
+                if (session.user.cart_number != "0") {document.getElementById('hayCarrito').innerHTML = 'Hay productos en su carrito'}
                 document.getElementById('thisCart').innerHTML = cartId;
             }
             else {

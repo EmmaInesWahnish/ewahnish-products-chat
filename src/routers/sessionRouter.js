@@ -20,6 +20,7 @@ sessionRouter.post('/login',passport.authenticate('login',{failureRedirect:'/api
             last_name: req.user.last_name,
             avatar:req.user.avatar,
             cart_number: req.user.cart_number,
+            delivery_address: req.user.delivery_address,
             isAdmin: req.user.isAdmin,
             id:req.user._id
         };
