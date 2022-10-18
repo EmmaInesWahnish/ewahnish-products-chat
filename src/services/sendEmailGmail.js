@@ -5,23 +5,23 @@ import { createTransport } from 'nodemailer';
 const ilogger = winston.createLogger(logConfiguration);
 
 const transporter = createTransport({
-    host: 'smtp.ethereal.email',
+    service: 'gmail',
     port: 587,
     auth: {
-        user: 'bettye48@ethereal.email',
-        pass: 'NCEddWPZP61qPzde2A'
+        user: 'ewahnish@gmail.com',
+        pass: 'vlvzybaydltqdalp'
     }
 });
 
 let from = 'todoherramientas@ferreteriaindustrial.com';
 
-const sendEmail = async (destEmail, myMessage, mySubject, attachment) => {
+const sendEmailGmail = async (destEmail, myMessage, mySubject, attachment) => {
     const mailOptions = {
         from: from,
         to: destEmail,
         subject: mySubject,
         html: myMessage,
-        attachments: attachment
+        attachment: attachment
     }
 
     try {
@@ -33,4 +33,4 @@ const sendEmail = async (destEmail, myMessage, mySubject, attachment) => {
     }
 }
 
-export default sendEmail
+export default sendEmailGmail

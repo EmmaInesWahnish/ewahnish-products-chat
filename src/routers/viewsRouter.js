@@ -1,6 +1,8 @@
 import sendMail from '../services/sendEmail.js';
+import sendMailGmail from '../services/sendEmailGmail.js';
 import express from 'express';
 import usersService from '../Models/Users.js';
+import { __dirname } from '../utils.js';
 
 const viewsRouter = express.Router();
 
@@ -27,13 +29,16 @@ viewsRouter.get('/login', (req, res) => {
 })
 
 viewsRouter.post('/email', async (req, res) => {
-    console.log("In email >>>> ", req.session.user)
     const myInfo = req.body;
+    const destEmail = req.session.user.email;
     const deliveryAddress = myInfo.delivery_address;
     const first_name = myInfo.first_name;
     const last_name = myInfo.last_name;
     const productos = myInfo.order[0].productos;
-    const orderNumber = myInfo.order[0].id
+    const orderNumber = myInfo.order[0].id;
+    const attachment = {
+        path: process.cwd() + '/public/images/GPSC.png'
+    }
 
     let myHTML = '';
 
@@ -50,7 +55,10 @@ viewsRouter.post('/email', async (req, res) => {
     </div>
     <br>`
 
-    myHTML = myHTML + `<strong>Lista de Productos solicitados</strong>`;
+    myHTML = myHTML + `<strong>Lista de Productos solicitados</strong>
+    <br>
+    <hr>`;
+
 
     let importeTotal = 0
 
@@ -60,12 +68,14 @@ viewsRouter.post('/email', async (req, res) => {
 
         importeTotal = importeTotal + importe;
 
-        myHTML = myHTML + `<dl>
-        <dt>${product.descripcion}
-            <dl>Precio unitario: $ ${product.precio}</dl>
-            <dl>Cantidad pedida: ${product.cantidad}</dl>
-            <dl>Importe        : $ ${importe}</dl>
-        </dl>
+        myHTML = myHTML + `<div>
+        ${product.descripcion}
+        <ul>
+            <li>Precio unitario: $ ${product.precio}</li>
+            <li>Cantidad pedida: ${product.cantidad}</li>
+            <li>Importe        : $ ${importe}</li>
+        </ul>
+        </div>
         <hr>`
     }
 
@@ -89,7 +99,7 @@ viewsRouter.post('/email', async (req, res) => {
 
     }
 
-    await sendMail(myHTML, `Orden de Compra Nro ${orderNumber}`)
+    await sendMailGmail(destEmail, myHTML, `Orden de Compra Nro ${orderNumber}`, attachment)
 })
 
 viewsRouter.get('/', (req, res) => {
