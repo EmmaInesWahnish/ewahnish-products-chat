@@ -75,3 +75,4 @@
 {"level":"error","message":"Error: Error trying to send email Error: ENOENT: no such file or directory, open 'C:\\Users\\ewahn\\Documents\\ewahnish-products-chat\\src.\\public\\images\\GPSC.png'","service":"user-service","timestamp":"2022-10-18T17:13:19.113Z"}
 {"level":"error","message":"Error: Error trying to send email Error: ENOENT: no such file or directory, open 'C:\\Users\\ewahn\\Documents\\ewahnish-products-chat\\src..\\public\\images\\GPSC.png'","service":"user-service","timestamp":"2022-10-18T17:13:41.225Z"}
 {"level":"error","message":"Error: Error trying to send email Error: ENOENT: no such file or directory, open 'C:\\Users\\ewahn\\Documents\\ewahnish-products-chat\\src..\\public\\images\\GPSC.png'","service":"user-service","timestamp":"2022-10-18T17:14:09.731Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-19T10:47:13.429Z"}

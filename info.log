@@ -217,3 +217,6 @@
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T01:29:22.515Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T01:30:12.110Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-19T01:31:57.144Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T10:50:25.690Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T11:23:23.119Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T11:29:43.957Z"}
