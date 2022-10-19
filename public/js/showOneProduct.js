@@ -27,8 +27,6 @@ const renderProducts = (productId) => {
 
     const productRoute = `/api/productos/${productId}`
 
-    console.log(productRoute);
-
     fetch(productRoute)
         .then(res => res.json())
         .then(data => {

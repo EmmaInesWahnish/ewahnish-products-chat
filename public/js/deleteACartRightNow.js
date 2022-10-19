@@ -1,10 +1,6 @@
 const deleteACart = (cartId) => {
     const productRoute = `/api/carrito/${cartId}`
 
-    console.log(productRoute);
-
-    
-
     fetch(productRoute, {
         method: 'DELETE',
         headers: {

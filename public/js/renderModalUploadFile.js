@@ -2,6 +2,8 @@
 import renderLoginForm from './renderLoginForm.js';
 const renderModalUploadFile = () => {
 
+  let url = '';
+
   let session = "";
 
   const homeRoute = '/api/sessions';
@@ -41,8 +43,7 @@ const renderModalUploadFile = () => {
 
         avatar.addEventListener('change', (e)=>{
           let avatar = document.getElementById('avatar');
-          let url = avatar.Name
-          console.log("The URL >>> ", url)
+          url = avatar.Name
         })
 
         root.addEventListener('submit', submitForm)
@@ -64,6 +65,8 @@ const renderModalUploadFile = () => {
       }
     })
     .catch(err => console.log(err))
+
+    return url
 
 }
 

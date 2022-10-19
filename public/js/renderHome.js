@@ -1,4 +1,5 @@
 import renderLoginForm from './renderLoginForm.js';
+import renderModalUploadFile from './renderModalUploadFile.js';
 const renderHome = () => {
 
     document.getElementById('activeCart').innerHTML = "";
@@ -12,6 +13,7 @@ const renderHome = () => {
     document.getElementById('register').innerHTML = "";
     document.getElementById('logout').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('the-avatar').innerHTML ="";
 
     const homePage = document.getElementById("homePage")
 
@@ -44,30 +46,34 @@ const renderHome = () => {
             if (session.user) {
                 if (session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar) {
                     user_avatar = session.user.avatar;
-                    document.getElementById('the-avatar').innerHTML = `<img id="user_avatar" class="avatar" src="${user_avatar}"/>`
+                    document.getElementById('the-avatar').innerHTML = `<img id="user_avatar" class="avatar" src="${user_avatar}"/> ${session.user.email} Logged in`
                     user_message = ''
                 }
                 show(homePage)
-                document.getElementById('welcome').innerHTML = `<img id="user_avatar" class="avatar" src="${user_avatar}"/>
-                    Te damos la bienvenida ${session.user.first_name} (${session.user.email})! 👋
-                    <p>${user_message}</p>`;
+                document.getElementById('welcome').innerHTML = `Te damos la bienvenida ${session.user.first_name}! 👋 <p>${user_message}</p>`;
                 document.getElementById('email').value = session.user.email;
                 document.getElementById('first_name').value = session.user.first_name;
                 document.getElementById('last_name').value = session.user.last_name;
                 document.getElementById('avatar').value = session.user.avatar;
                 cartId = session.user.cart_number;
                 document.getElementById('thisCart').innerHTML = cartId;
+
+                user_avatar = document.getElementById('user_avatar');
+
+                let changeAvatar = document.getElementById('user_avatar')
+        
+                changeAvatar.addEventListener('click', () => {
+                    let url=renderModalUploadFile();
+                    document.getElementById('the-avatar').innerHTML = `<img id="user_avatar" class="avatar" src="${url}"/> ${session.user.email} Logged in`
+                })
+        
             }
             else {
                 renderLoginForm();
             }
         })
         .catch(err => console.log(err))
-
-        user_avatar = document.getElementById('user_avatar');
-
-
-
+        
 }
 
 export default renderHome;

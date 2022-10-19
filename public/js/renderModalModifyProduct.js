@@ -90,8 +90,6 @@ const renderModalModifyProduct = (product) => {
     modifiedProduct.precio = product.precio;
     modifiedProduct.stock = product.stock,
     
-    console.log("Antes de salir ", modifiedProduct);
-    
     modifyOneProduct(modifiedProduct);
 
     document.getElementById('modal').style.display = 'none';

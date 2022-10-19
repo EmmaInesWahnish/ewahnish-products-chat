@@ -1,8 +1,6 @@
 const deleteOneProduct = (productId) => {
-    console.log(productId)
-    const productRoute = `/api/productos/${productId}`
 
-    console.log(productRoute);
+    const productRoute = `/api/productos/${productId}`
 
     fetch(productRoute, {
         method: 'DELETE',

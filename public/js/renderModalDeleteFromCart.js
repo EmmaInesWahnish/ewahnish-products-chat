@@ -1,8 +1,6 @@
 const renderModalDeleteFromCart = (productId, cartId) => {
     const productRoute = `/api/carrito/${cartId}/productos/${productId}`
 
-    console.log(productRoute);
-
     fetch(productRoute, {
         method: 'DELETE',
         headers: {

@@ -13,6 +13,7 @@ const renderLoginForm = () => {
     document.getElementById('register').innerHTML = "";
     document.getElementById('logout').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('the-avatar').innerHTML ="";
 
     const homePage = document.getElementById("homePage")
 

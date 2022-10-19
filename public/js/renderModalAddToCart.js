@@ -13,8 +13,6 @@ const renderModalAddToCart = (product, quantity, cartId) => {
 
     const productRoute = `/api/carrito/${cartId}/productos`
 
-    console.log(productRoute);
-
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

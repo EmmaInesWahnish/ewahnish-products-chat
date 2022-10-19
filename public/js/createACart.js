@@ -36,8 +36,6 @@ const createACart = (cart, quantity, product) => {
         }
         const productRoute2 = `http://localhost:8080/api/carrito/${cartId}/productos`
     
-        console.log(productRoute2);
-    
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

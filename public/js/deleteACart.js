@@ -1,8 +1,6 @@
 const deleteACart = (cartId) => {
     const productRoute = `/api/carrito/${cartId}`
 
-    console.log(productRoute);
-
     fetch(productRoute)
         .then(res => res.json())
         .then(data => {
@@ -25,8 +23,6 @@ const deleteACart = (cartId) => {
                 const productId = product.id;
 
                 const productRouteTwo = `http://localhost:8080/api/carrito/${cartId}/productos/${productId}`
-
-                console.log(productRouteTwo);
 
                 fetch(productRouteTwo, {
                     method: 'DELETE',
