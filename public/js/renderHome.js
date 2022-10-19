@@ -47,7 +47,7 @@ const renderHome = () => {
                     user_message = ''
                 }
                 show(homePage)
-                document.getElementById('welcome').innerHTML = `<img class="avatar" src="${user_avatar}"/>
+                document.getElementById('welcome').innerHTML = `<img id="user_avatar" class="avatar" src="${user_avatar}"/>
                     Te damos la bienvenida ${session.user.first_name} (${session.user.email})! 👋
                     <p>${user_message}</p>`;
                 document.getElementById('email').value = session.user.email;
@@ -55,7 +55,6 @@ const renderHome = () => {
                 document.getElementById('last_name').value = session.user.last_name;
                 document.getElementById('avatar').value = session.user.avatar;
                 cartId = session.user.cart_number;
-                if (session.user.cart_number != "") {document.getElementById('hayCarrito').innerHTML = 'Hay productos en su carrito'}
                 document.getElementById('thisCart').innerHTML = cartId;
             }
             else {
@@ -63,6 +62,10 @@ const renderHome = () => {
             }
         })
         .catch(err => console.log(err))
+
+        user_avatar = document.getElementById('user_avatar');
+
+
 
 }
 
