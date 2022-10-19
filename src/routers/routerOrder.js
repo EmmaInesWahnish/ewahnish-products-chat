@@ -89,7 +89,10 @@ routerOrder.post('/', async (req, res) => {
 
                 for (let elem of orden.productos) {
                     let id = elem.id;
-                    let stock = Number(elem.stock) - Number(elem.cantidad);
+                    let theStock = Number(elem.stock) - Number(elem.cantidad);
+                    let stock = {
+                        stock: theStock
+                    }
                     await ProductModel.findOneAndUpdate({ _id: id }, stock, { returnOriginal: false })
                 }
 

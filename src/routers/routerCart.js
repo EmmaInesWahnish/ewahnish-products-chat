@@ -251,6 +251,13 @@ routerCart.delete('/:id', async (req, res) => {
                 message: "El carrito solicitado no existe"
             })
         } else {
+
+            let cart_number = {
+                cart_number: "nohaycarrito"
+            }
+
+            let doc = await usersService.findOneAndUpdate({_id:req.session.user.id}, cart_number, {returnOriginal: true})
+            console.log("the user >>>> ", doc)
             res.json({
                 message: "El carrito ha sido eliminado",
                 product: removedCart

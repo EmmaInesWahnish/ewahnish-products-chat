@@ -187,3 +187,17 @@
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T17:31:56.026Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T20:40:05.214Z"}
 {"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-10-18T20:43:02.548Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T22:01:22.489Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T22:01:32.240Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T22:04:29.862Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T22:12:06.705Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T22:38:50.423Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T23:15:46.177Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T23:33:57.639Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T23:38:14.105Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-18T23:43:02.946Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T00:02:15.319Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T00:06:06.989Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T00:13:30.627Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T00:18:18.095Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T00:29:35.244Z"}
