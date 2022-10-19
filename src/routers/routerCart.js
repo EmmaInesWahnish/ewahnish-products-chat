@@ -76,7 +76,7 @@ routerCart.post('/', async (req, res) => {
                     cart_number: cartId
                 }
 
-                await usersService.findOneAndUpdate({_id:req.session.user.id}, cart_number, {returnOriginal: false})
+                await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: false })
 
                 res.json({
                     message: "Carrito incorporado",
@@ -241,6 +241,13 @@ routerCart.delete('/:id/productos/:id_prod', async (req, res) => {
 
 //This route removes the cart with the selected id
 routerCart.delete('/:id', async (req, res) => {
+    let cart_number = {
+        cart_number: ""
+    }
+
+    console.log("El usuario   ", req.session.user.id)
+    let doc = await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: true })
+    console.log("the user >>>> ", doc)
     const id = req.params.id;
     try {
         const removedCart = await Cart.deleteById(id);
@@ -252,12 +259,6 @@ routerCart.delete('/:id', async (req, res) => {
             })
         } else {
 
-            let cart_number = {
-                cart_number: "nohaycarrito"
-            }
-
-            let doc = await usersService.findOneAndUpdate({_id:req.session.user.id}, cart_number, {returnOriginal: true})
-            console.log("the user >>>> ", doc)
             res.json({
                 message: "El carrito ha sido eliminado",
                 product: removedCart
