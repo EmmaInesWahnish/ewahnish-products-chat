@@ -1,5 +1,5 @@
 import renderHome from './renderHome.js';
-import generateOneOrder from './generateOneOrder.js';
+import generateOneOrder from './generateOneOrder.js'
 import renderProducts from './renderProducts.js';
 
 const renderCarts = (cartNumber) => {
@@ -19,6 +19,8 @@ const renderCarts = (cartNumber) => {
     let cart = {};
 
     let cartOwner;
+
+    let user_cart = ''
 
     let productos =[];
 
@@ -47,6 +49,8 @@ const renderCarts = (cartNumber) => {
                 const carrito = data.carrito;
 
                 cartOwner = data.carrito[0].user_id;
+
+                user_cart = data.carrito[0].id
 
                 const whichDb = data.whichDb;
 
@@ -154,7 +158,8 @@ const renderCarts = (cartNumber) => {
                 cart = {
                     timestamp: Date.now(),
                     user_id: cartOwner,
-                    productos: productos
+                    productos: productos,
+                    user_cart: cartNumber
                 }
                 const cartFooter = document.createElement('div')
 
@@ -165,7 +170,6 @@ const renderCarts = (cartNumber) => {
 
                 orderButtons.appendChild(cartFooter)
 
-                console.log("The cart >>>> ", cart)
                 let generateOrder = document.getElementById(buttonGenerateOrder);
 
                 let formSend = document.getElementById(buttonClose)

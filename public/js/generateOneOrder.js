@@ -1,6 +1,10 @@
+import renderModalUserOrder from "./renderModalUserOrder.js";
+
 const createAnOrder = (cart) => {
 
     let orderId = '';
+
+    let user_cart = cart.user_cart;
 
     const orderRoute = `/api/ordenes/`
 
@@ -13,11 +17,8 @@ const createAnOrder = (cart) => {
     fetch(orderRoute, requestOptions)
     .then(async res => {
         const data = await res.json();
-        orderId = data.id;
-        document.getElementById('orderNumber').innerHTML = orderId;
-        document.getElementById('myOrder').innerHTML = `Nro Orden ${orderId} para ${cart.user_id}`;
-    
-        return orderId;
+        orderId = data.orden[0].id;
+        renderModalUserOrder(orderId, user_cart)
 
     })
     .catch(error => {

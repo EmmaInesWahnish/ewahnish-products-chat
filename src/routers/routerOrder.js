@@ -68,7 +68,6 @@ routerOrder.post('/', async (req, res) => {
         productos: receive.productos,
     }
 
-    console.log("la orden >>>>> ", orden)
     let orderId
     if (orden) {
         try {

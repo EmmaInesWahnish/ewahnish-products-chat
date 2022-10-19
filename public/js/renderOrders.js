@@ -1,6 +1,7 @@
 import renderHome from './renderHome.js';
+import deleteACart from './deleteACartRightNow.js'
 
-const renderOrders = (orderNumber) => {
+const renderOrders = (orderNumber, user_cart) => {
     document.getElementById('activeCart').innerHTML = "";
     document.getElementById('cartNumber').innerHTML = "";
     document.getElementById('productCards').innerHTML = "";
@@ -30,8 +31,6 @@ const renderOrders = (orderNumber) => {
     hide(homePage)
 
     const orderRoute = `/api/ordenes/${orderNumber}`
-
-    console.log("La ruta >>> ", orderRoute)
 
     fetch(orderRoute)
         .then(res => res.json())
@@ -75,7 +74,7 @@ const renderOrders = (orderNumber) => {
 
                 const cliente = document.getElementById('cliente');
 
-                cliente.innerHTML = `Su compra, ${first_name} ${last_name}`;
+                cliente.innerHTML = `A nombre de ${first_name} ${last_name}`;
 
                 const tableHead = document.createElement('tr');
 
@@ -184,6 +183,8 @@ const renderOrders = (orderNumber) => {
         const formSend = document.getElementById('formSend');
 
     formSend.addEventListener('click', function () {
+
+        deleteACart(user_cart);
 
         let myOrder = {
             delivery_address: theAddress,

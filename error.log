@@ -76,3 +76,10 @@
 {"level":"error","message":"Error: Error trying to send email Error: ENOENT: no such file or directory, open 'C:\\Users\\ewahn\\Documents\\ewahnish-products-chat\\src..\\public\\images\\GPSC.png'","service":"user-service","timestamp":"2022-10-18T17:13:41.225Z"}
 {"level":"error","message":"Error: Error trying to send email Error: ENOENT: no such file or directory, open 'C:\\Users\\ewahn\\Documents\\ewahnish-products-chat\\src..\\public\\images\\GPSC.png'","service":"user-service","timestamp":"2022-10-18T17:14:09.731Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-19T10:47:13.429Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:04:48.069Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:04:50.482Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:05:00.019Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:06:07.386Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:06:12.089Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:07:21.461Z"}
+{"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:07:23.766Z"}
