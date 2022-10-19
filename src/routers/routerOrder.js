@@ -1,7 +1,6 @@
 import express from 'express';
 import { Order } from "../daos/daosOrders.js";
 import config from '../configurations/dotenvConfig.js';
-import usersService from '../Models/Users.js';
 import ProductModel from '../Models/products.js';
 
 const routerOrder = express.Router();
@@ -36,13 +35,13 @@ routerOrder.get('/:id', async (req, res) => {
     let id = req.params.id;
     let user_fname = req.session.user.first_name;
     let user_lname = req.session.user.last_name;
-     try {
+    try {
         const order = await Order.getById(id);
         if (order != undefined) {
             res.json({
                 message: 'orden encontrada',
                 user_fname: user_fname,
-                user_lname: user_lname,    
+                user_lname: user_lname,
                 order: order,
                 whichDb: whichDb
             })
@@ -68,10 +67,20 @@ routerOrder.post('/', async (req, res) => {
         timestamp: receive.timestamp,
         productos: receive.productos,
     }
+
+    console.log("la orden >>>>> ", orden)
+    let orderId
     if (orden) {
-        let orderId
         try {
             const theProductId = await Order.save(orden)
+            for (let elem of orden.productos) {
+                let id = elem.id;
+                let theStock = Number(elem.stock) - Number(elem.cantidad);
+                let stock = {
+                    stock: theStock
+                }
+                await ProductModel.findOneAndUpdate({ _id: id }, stock, { returnOriginal: true })
+            }
             try {
                 const orden = await Order.getAll();
                 if (whichDb === 'FIREBASE') {
@@ -81,20 +90,6 @@ routerOrder.post('/', async (req, res) => {
                     orderId = orden[orden.length - 1].id;
                 }
 
-                let order_number = {
-                    order_number: orderId
-                }
-
-                await usersService.findOneAndUpdate({ _id: req.session.user.id }, order_number, { returnOriginal: false })
-
-                for (let elem of orden.productos) {
-                    let id = elem.id;
-                    let theStock = Number(elem.stock) - Number(elem.cantidad);
-                    let stock = {
-                        stock: theStock
-                    }
-                    await ProductModel.findOneAndUpdate({ _id: id }, stock, { returnOriginal: false })
-                }
 
                 res.json({
                     message: "Orden incorporada",

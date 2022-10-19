@@ -9,3 +9,4 @@
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-18T23:42:31.342Z"}
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T00:28:56.000Z"}
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T00:51:30.002Z"}
+{"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T01:22:07.957Z"}
