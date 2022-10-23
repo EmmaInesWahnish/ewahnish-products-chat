@@ -243,3 +243,4 @@
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-19T22:43:27.717Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-23T16:19:32.493Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-23T19:47:13.735Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-10-23T21:43:46.159Z"}

@@ -1,19 +1,29 @@
-import express from 'express';
 import { Products} from "../daos/daosProducts.js";
 import config from '../configurations/dotenvConfig.js';
-import { productsGetAll } from '../controller/productControler.js'
-
-const routerProducts = express.Router();
 import fs from 'fs';
 
 let whichDb = config.envs.SELECTED_DB
 
-// *** ROUTES ***
-//This route returns the products list
-routerProducts.get('/', productsGetAll)
+export const productsGetAll = async (req, res) => {
+    try {
+        const array = await Products.getAll();
+        res.json({
+            message: 'Lista de productos ',
+            products: array,
+            bool: req.session.user.isAdmin,
+            whichDb: whichDb,
+            user: req.session
+        });
+    }
+    catch (error) {
+        res.json({
+            message: 'No se ha podido recuperar la lista de productos',
+            error: error
+        })
+    }
+}
 
-//This route returns user information
-routerProducts.get('/isadmin', async (req, res) => {
+/*export const productsGetAdmin = async (req, res) => {
     try {
         res.json({
             message: 'Informacion',
@@ -28,7 +38,7 @@ routerProducts.get('/isadmin', async (req, res) => {
             error: error
         })
     }
-})
+}
 
 //This route returns a product according to its id.
 routerProducts.get('/:id', async (req, res) => {
@@ -249,6 +259,4 @@ routerProducts.delete('/:id', async (req, res) => {
             })
         }
     }
-})
-
-export default routerProducts;
+})*/
