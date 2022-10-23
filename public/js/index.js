@@ -55,7 +55,6 @@ form.addEventListener('submit', function (e) {
     if (input.value) {
         socket.emit('chat message', message);
         input.value = '';
-        email.value = 'c@m';
     }
 });
 
@@ -77,7 +76,7 @@ socket.on('old messages', (msg) => {
 })
 
 socket.on('new product', (msg) => {
-    console.log(msg)
+    //console.log(msg)
     renderProduct(msg);
     window.scrollTo(0, document.body.scrollHeight);
 })

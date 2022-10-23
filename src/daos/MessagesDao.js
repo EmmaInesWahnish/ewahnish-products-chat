@@ -1,5 +1,5 @@
 import MemoryContainer from '../api/MemoryContainer.js';
-import generateMessage from '../js/generateMessage.js';
+import generateMessage from '../Models/messages.js';
 import generateMessageOwner from '../js/generateMessageOwner.js';
 
 class MessagesDao extends MemoryContainer {

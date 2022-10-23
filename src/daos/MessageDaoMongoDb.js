@@ -1,7 +1,7 @@
 
 import mongoose from 'mongoose';
 import envs from '../../dotenvConfig.js';
-import MessageModel from '../models/messages.js';
+import MessageModel from '../Models/messages.js';
 import MongoDbContainer from '../api/MongoDbContainer.js';
 import winston from 'winston';
 import logConfiguration from '../js/gralLogger';

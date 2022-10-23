@@ -1,5 +1,6 @@
 import express from 'express';
 import passport from 'passport';
+import set_cookie from '../js/set_cookie.js'
 
 const sessionRouter = express.Router();
 
@@ -24,8 +25,11 @@ sessionRouter.post('/login',passport.authenticate('login',{failureRedirect:'/api
             isAdmin: req.user.isAdmin,
             id:req.user._id
         };
+
+        let userEmail= req.session.user.email;
+
         res.status(200).send({status:"success", payload: req.session.user})
-})
+    })
 
 sessionRouter.get('/loginfail',(req,res)=>{
     console.log("login failed");

@@ -83,3 +83,8 @@
 {"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:06:12.089Z"}
 {"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:07:21.461Z"}
 {"level":"error","message":"404 - ruta no encontrada /js/renderModalUserOrder","service":"user-service","timestamp":"2022-10-19T13:07:23.766Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-22T20:50:02.521Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-23T13:59:30.118Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-23T16:19:00.735Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-23T17:54:02.506Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-23T18:28:09.617Z"}
