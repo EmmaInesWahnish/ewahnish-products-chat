@@ -1,7 +1,7 @@
 import express from 'express';
 import { Products} from "../daos/daosProducts.js";
 import config from '../configurations/dotenvConfig.js';
-import { productsGetAll } from '../controller/productControler.js'
+import { productsGetAll , productsInfoAdmin, productsGetById, } from '../controller/productControler.js'
 
 const routerProducts = express.Router();
 import fs from 'fs';
@@ -10,54 +10,18 @@ let whichDb = config.envs.SELECTED_DB
 
 // *** ROUTES ***
 //This route returns the products list
-routerProducts.get('/', productsGetAll)
+routerProducts.get('/', productsGetAll);
 
 //This route returns user information
-routerProducts.get('/isadmin', async (req, res) => {
-    try {
-        res.json({
-            message: 'Informacion',
-            user: req.session.user,
-            bool: req.session.user.isAdmin,
-            whichDb: whichDb
-        });
-    }
-    catch (error) {
-        res.json({
-            message: 'No se ha podido recuperar informacion',
-            error: error
-        })
-    }
-})
+routerProducts.get('/isadmin', productsInfoAdmin);
 
 //This route returns a product according to its id.
-routerProducts.get('/:id', async (req, res) => {
-    let id = req.params.id;
-    try {
-        const producto = await Products.getById(id);
-        if (producto != undefined) {
-            res.json({
-                message: 'Producto encontrado',
-                product: producto,
-                bool: req.session.user.isAdmin,
-                whichDb: whichDb
-            })
-        } else {
-            res.json({
-                message: "Producto no encontrado"
-            })
-        }
-    }
-    catch (error) {
-        res.json({
-            message: "Se produjo un error al buscar el producto",
-            error: error
-        })
-    }
-})
+routerProducts.get('/:id', productsGetById);
 
 //This route ads a product
-routerProducts.post('/', async (req, res) => {
+routerProducts.post('/', 
+
+async (req, res) => {
     if (!req.session.user.isAdmin) {
         res.json({
             message: `Ruta ${req.path} metodo ${req.method} no autorizada`,

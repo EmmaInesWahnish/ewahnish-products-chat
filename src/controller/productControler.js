@@ -23,7 +23,7 @@ export const productsGetAll = async (req, res) => {
     }
 }
 
-/*export const productsGetAdmin = async (req, res) => {
+export const productsInfoAdmin = async (req, res) => {
     try {
         res.json({
             message: 'Informacion',
@@ -40,8 +40,7 @@ export const productsGetAll = async (req, res) => {
     }
 }
 
-//This route returns a product according to its id.
-routerProducts.get('/:id', async (req, res) => {
+export const productsGetById = async (req, res) => {
     let id = req.params.id;
     try {
         const producto = await Products.getById(id);
@@ -64,10 +63,10 @@ routerProducts.get('/:id', async (req, res) => {
             error: error
         })
     }
-})
+}
 
 //This route ads a product
-routerProducts.post('/', async (req, res) => {
+/*routerProducts.post('/', async (req, res) => {
     if (!req.session.user.isAdmin) {
         res.json({
             message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
