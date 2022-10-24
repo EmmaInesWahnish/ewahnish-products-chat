@@ -117,9 +117,7 @@ export const productsAddOne = async (req, res) => {
     }
 }
 
-//This route updates the product with the selected id
-//A property is updated only if it receives a non null value
-/*routerProducts.put('/:id', async (req, res) => {
+export const productsUpdateOne = async (req, res) => {
     if (!req.session.user.isAdmin) {
         res.json({
             message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
@@ -225,10 +223,10 @@ export const productsAddOne = async (req, res) => {
             })
         }
     }
-})
+}
 
 //This route removes the product with the selected id
-routerProducts.delete('/:id', async (req, res) => {
+/*routerProducts.delete('/:id', async (req, res) => {
     if (!req.session.user.isAdmin) {
         res.json({
             message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
