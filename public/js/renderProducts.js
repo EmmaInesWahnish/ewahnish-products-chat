@@ -31,6 +31,7 @@ const renderProducts = () => {
     document.getElementById('root').innerHTML = "";
     document.getElementById('active').innerHTML = "";
     document.getElementById('thisCart').innerHTML = "";
+    document.getElementById('orderButtons').innerHTML = "";
 
 
     const homePage = document.getElementById("homePage")
