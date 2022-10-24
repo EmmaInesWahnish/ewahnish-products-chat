@@ -225,8 +225,7 @@ export const productsUpdateOne = async (req, res) => {
     }
 }
 
-//This route removes the product with the selected id
-/*routerProducts.delete('/:id', async (req, res) => {
+export const productsDeleteOne = async (req, res) => {
     if (!req.session.user.isAdmin) {
         res.json({
             message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
@@ -255,4 +254,4 @@ export const productsUpdateOne = async (req, res) => {
             })
         }
     }
-})*/
+}
