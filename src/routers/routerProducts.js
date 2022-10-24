@@ -1,7 +1,7 @@
 import express from 'express';
 import { Products} from "../daos/daosProducts.js";
 import config from '../configurations/dotenvConfig.js';
-import { productsGetAll , productsInfoAdmin, productsGetById, } from '../controller/productControler.js'
+import { productsGetAll , productsInfoAdmin, productsGetById, productsAddOne,  } from '../controller/productControler.js'
 
 const routerProducts = express.Router();
 import fs from 'fs';
@@ -19,59 +19,7 @@ routerProducts.get('/isadmin', productsInfoAdmin);
 routerProducts.get('/:id', productsGetById);
 
 //This route ads a product
-routerProducts.post('/', 
-
-async (req, res) => {
-    if (!req.session.user.isAdmin) {
-        res.json({
-            message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
-            error: -1
-        })
-        req.logger.warn(`Ruta ${req.path} metodo ${req.method} no autorizada ( Informacion de sesion ${req.session})`)
-    } else {
-        let receive = req.body;
-        let producto = {
-            timestamp: Date.now(),
-            nombre: receive.nombre,
-            descripcion: receive.descripcion,
-            codigo: receive.codigo,
-            foto: receive.foto,
-            precio: receive.precio,
-            stock: receive.stock
-        }
-        if (producto) {
-            try {
-                const theProductId = await Products.save(producto);
-                try {
-                    const products = await Products.getAll();
-                    res.json({
-                        message: "Producto incorporado",
-                        product: producto,
-                        bool: req.session.user.isAdmin,
-                        theProductId: theProductId,
-                        whichDb: whichDb
-                    })
-                }
-                catch (error) {
-                    res.json({
-                        message: 'No se ha podido obtener la lista de productos',
-                        error: error
-                    })
-                }
-            }
-            catch (error) {
-                res.json({
-                    message: 'No se ha podido guardar el producto',
-                    error: error
-                })
-            }
-        } else {
-            res.json({
-                message: "Los datos suministrados son incorrectos"
-            })
-        }
-    }
-})
+routerProducts.post('/', productsAddOne);
 
 //This route updates the product with the selected id
 //A property is updated only if it receives a non null value
