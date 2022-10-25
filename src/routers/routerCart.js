@@ -1,12 +1,7 @@
 import express from 'express';
-import { Cart } from "../daos/daosCarts.js";
-import config from '../configurations/dotenvConfig.js';
-import usersService from '../Models/Users.js';
 import { cartsGetAll, cartsGetById, cartsAddOne, cartsUpdateOne, cartsDeleteOneProduct, cartsDeleteOne } from '../controller/cartController.js'
 
 const routerCart = express.Router();
-
-const whichDb = config.envs.SELECTED_DB;
 
 // *** ROUTES ***
 //This route returns all carts
