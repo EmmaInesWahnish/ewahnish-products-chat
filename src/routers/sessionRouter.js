@@ -1,54 +1,19 @@
 import express from 'express';
 import passport from 'passport';
-import set_cookie from '../js/set_cookie.js'
+import { sessionRegister, sessionRegisterFail, sessionLogin, sessionLoginFail, sessionLogout, sessionInfo } from '../controller/sessionController.js'
 
 const sessionRouter = express.Router();
 
-sessionRouter.post('/register',passport.authenticate('register',{failureRedirect:'/api/sessions/registerfail'}),async(req,res)=>{
-    res.status(200).send({status:"success", payload: req.session.user})
-})
+sessionRouter.post('/register',passport.authenticate('register',{failureRedirect:'/api/sessions/registerfail'}), sessionRegister);
 
-sessionRouter.get('/registerfail', async (req, res) => {
-    console.log("Register failed");
-    res.status(500).send({ status: "error", error: "Register failed" })
-    req.logger.warn('Intento de registro fallido')
-})
+sessionRouter.get('/registerfail', sessionRegisterFail);
 
-sessionRouter.post('/login',passport.authenticate('login',{failureRedirect:'/api/sessions/loginfail'}), async (req, res) => {
-        req.session.user = {
-            email: req.user.email,
-            first_name: req.user.first_name,
-            last_name: req.user.last_name,
-            avatar:req.user.avatar,
-            cart_number: req.user.cart_number,
-            delivery_address: req.user.delivery_address,
-            isAdmin: req.user.isAdmin,
-            id:req.user._id
-        };
+sessionRouter.post('/login',passport.authenticate('login',{failureRedirect:'/api/sessions/loginfail'}), sessionLogin);
 
-        let userEmail= req.session.user.email;
+sessionRouter.get('/loginfail', sessionLoginFail);
 
-        res.status(200).send({status:"success", payload: req.session.user})
-    })
+sessionRouter.get('/logout', sessionLogout);
 
-sessionRouter.get('/loginfail',(req,res)=>{
-    console.log("login failed");
-    res.status(500).send({status:"error",error:"Login failed"})
-    req.logger.warn('Intento de login fallido');
-})
-
-sessionRouter.get('/logout', async (req, res) => {
-    req.session.destroy(err => {
-        if (err) return res.status(500).send("error");
-        res.status(200).send({ status: "success", payload: "Log Out successful" })
-    })
-})
-
-sessionRouter.get('/', (req, res) => {
-    res.json({
-        status: 'information',
-        user: req.session.user
-    });
-})
+sessionRouter.get('/', sessionInfo);
 
 export default sessionRouter
