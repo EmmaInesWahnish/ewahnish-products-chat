@@ -10,6 +10,7 @@ const renderOrders = (orderNumber, user_cart) => {
     document.getElementById('myOrder').innerText = "";
     document.getElementById('productsInCart').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('orderButtons').innerHTML = "";
 
     const homePage = document.getElementById("homePage")
 

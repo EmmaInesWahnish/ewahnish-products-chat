@@ -1,18 +1,28 @@
-import { Products} from "../daos/daosProducts.js";
+import { Products } from "../daos/daosProducts.js";
 import config from '../configurations/dotenvConfig.js';
+import usersService from '../Models/Users.js';
 import fs from 'fs';
 
 let whichDb = config.envs.SELECTED_DB
+let cartNumber;
+let result;
 
 export const productsGetAll = async (req, res) => {
     try {
+        try {
+            result = await usersService.findById(req.session.user.id);           
+        }
+        catch (error) {
+
+        }
+        cartNumber = result.cart_number;
         const array = await Products.getAll();
         res.json({
             message: 'Lista de productos ',
             products: array,
             bool: req.session.user.isAdmin,
             whichDb: whichDb,
-            user: req.session
+            user: result
         });
     }
     catch (error) {

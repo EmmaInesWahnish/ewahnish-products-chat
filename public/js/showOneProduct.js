@@ -13,6 +13,7 @@ const renderProducts = (productId) => {
     document.getElementById('register').innerHTML = "";
     document.getElementById('logout').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('orderButtons').innerHTML = "";
 
     const homePage = document.getElementById("homePage")
 

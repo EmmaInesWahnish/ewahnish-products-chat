@@ -51,9 +51,7 @@ const renderProducts = () => {
 
             let whichDb = data.whichDb;
 
-            this_user = { ...data.user.user }
-
-            console.log(" this_user >>>> ", data)
+            this_user = { ...data.user }
 
             if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null && this_user.cart_number != "0") {
                 cartId = this_user.cart_number;

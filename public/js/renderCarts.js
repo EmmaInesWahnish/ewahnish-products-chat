@@ -11,6 +11,7 @@ const renderCarts = (cartNumber) => {
     document.getElementById('myCart').innerText = "";
     document.getElementById('productsInCart').innerHTML = "";
     document.getElementById('root').innerHTML = "";
+    document.getElementById('orderButtons').innerHTML = "";
 
     const buttonGenerateOrder = 'generateOrder';
 
