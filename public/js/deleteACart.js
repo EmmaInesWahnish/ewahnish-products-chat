@@ -22,7 +22,7 @@ const deleteACart = (cartId) => {
             for (let product of data.productos) {
                 const productId = product.id;
 
-                const productRouteTwo = `http://localhost:8080/api/carrito/${cartId}/productos/${productId}`
+                const productRouteTwo = `/api/carrito/${cartId}/productos/${productId}`
 
                 fetch(productRouteTwo, {
                     method: 'DELETE',

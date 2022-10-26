@@ -34,7 +34,7 @@ const createACart = (cart, quantity, product) => {
             stock: product.stock,
             cantidad: quantity
         }
-        const productRoute2 = `http://localhost:8080/api/carrito/${cartId}/productos`
+        const productRoute2 = `/api/carrito/${cartId}/productos`
     
         const requestOptions = {
             method: 'POST',

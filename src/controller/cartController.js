@@ -45,7 +45,7 @@ export const cartsGetById = async (req, res) => {
     }
 }
 
-export const cartsAddOne =  async (req, res) => {
+export const cartsAddOne = async (req, res) => {
     let receive = req.body;
     let carrito = {
         user_id: req.session.user.id,
@@ -235,9 +235,8 @@ export const cartsDeleteOne = async (req, res) => {
         cart_number: ""
     }
 
-    console.log("El usuario   ", req.session.user.id)
     let doc = await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: true })
-    console.log("the user >>>> ", doc)
+
     const id = req.params.id;
     try {
         const removedCart = await Cart.deleteById(id);
@@ -259,6 +258,59 @@ export const cartsDeleteOne = async (req, res) => {
         res.json({
             message: "El carrito no pudo ser eliminado",
             error: error
+        })
+    }
+}
+
+export const cartsOneEmpty = async (req, res) => {
+
+    let productArray = [];
+    let carts = await Cart.getAll();
+    let indexc = 0;
+    let modifiedCart = {};
+
+    const id = req.params.id;
+
+    indexc = carts.findIndex(element => element.id == id);
+    
+    if (indexc !== -1) {
+        const searchedCart = carts[indexc];
+        if ((whichDb === 'SQL') || (whichDb === 'MARIADB')) {
+            modifiedCart = {
+                id: searchedCart.id,
+                timestamp: searchedCart.timestamp,
+                user_id: searchedCart.user_id,
+                productos: JSON.stringify(productArray)
+            }
+        }
+        else {
+            modifiedCart = {
+                id: searchedCart.id,
+                timestamp: searchedCart.timestamp,
+                user_id: searchedCart.user_id,
+                productos: productArray
+            }
+        }
+        try {
+            await Cart.modifyById(id, modifiedCart);
+            res.json({
+                message: 'Modificacion exitosa',
+                product: modifiedCart,
+                cartId: id,
+                whichDb: whichDb,
+                user: req.session
+            })
+        }
+        catch (error) {
+            res.json({
+                message: 'No fue posible eliminar los productos',
+                error: error
+            })
+        }
+    }
+    else {
+        res.json({
+            message: 'carrito no encontrado'
         })
     }
 }

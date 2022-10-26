@@ -20,6 +20,8 @@ import renderModalOneProduct from './renderModalOneProduct.js';
 
 import renderModalDeleteCart from './renderModalDeleteCart.js';
 
+import renderModalEmptyACart from './renderModalEmptyACart.js';
+
 const listProducts = document.getElementById('listProducts');
 
 const createProduct = document.getElementById('createProduct');
@@ -37,6 +39,8 @@ const deleteCart = document.getElementById('deleteCart');
 const upload = document.getElementById('upload')
 
 const listCart = document.getElementById('listCart');
+
+const emptyACart = document.getElementById('emptyACart');
 
 const homePage = document.getElementById('home');
 
@@ -154,6 +158,10 @@ listCart.addEventListener('click', () => {
 
 order.addEventListener('click', () => {
     renderModalOneOrder()
+})
+
+emptyACart.addEventListener('click', () => {
+    renderModalEmptyACart(cartNumber)
 })
 
 function signOut() {

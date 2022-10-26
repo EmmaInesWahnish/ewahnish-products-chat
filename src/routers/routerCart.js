@@ -1,5 +1,5 @@
 import express from 'express';
-import { cartsGetAll, cartsGetById, cartsAddOne, cartsUpdateOne, cartsDeleteOneProduct, cartsDeleteOne } from '../controller/cartController.js'
+import { cartsGetAll, cartsGetById, cartsAddOne, cartsUpdateOne, cartsDeleteOneProduct, cartsDeleteOne, cartsOneEmpty } from '../controller/cartController.js'
 
 const routerCart = express.Router();
 
@@ -22,5 +22,8 @@ routerCart.delete('/:id/productos/:id_prod', cartsDeleteOneProduct);
 
 //This route removes the cart with the selected id
 routerCart.delete('/:id', cartsDeleteOne);
+
+//This route is used to empty a cart
+routerCart.post('/:id/empty', cartsOneEmpty);
 
 export default routerCart;
