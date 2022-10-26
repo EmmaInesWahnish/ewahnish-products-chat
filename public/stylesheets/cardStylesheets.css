@@ -139,9 +139,10 @@
   .flex-container-card {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    align-content: space-between;
+    justify-content: space-around;
+    align-content: space-around;
     text-align: center;
+    margin: 1rem;
   }
   
   .flex-container {
@@ -345,4 +346,13 @@
     background-color: white;
     height:10px;
     width:10px;
+  }
+
+  .card {
+    cursor: pointer;
+  }
+
+  .card:hover {
+    box-shadow:rgba(0, 0, 75, 0.45) 0px 25px 20px -20px;
+    transform: translate3d(0, -4px, 0);
   }
