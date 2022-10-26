@@ -10,3 +10,5 @@
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T00:28:56.000Z"}
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T00:51:30.002Z"}
 {"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-19T01:22:07.957Z"}
+{"level":"warn","message":"Intento de login fallido","service":"user-service","timestamp":"2022-10-25T16:38:56.448Z"}
+{"level":"warn","message":"Intento de registro fallido","service":"user-service","timestamp":"2022-10-25T21:41:48.782Z"}

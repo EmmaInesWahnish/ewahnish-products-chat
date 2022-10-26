@@ -47,7 +47,7 @@ const renderHome = () => {
                 if (session.user.avatar !== null && session.user.avatar !== "" && session.user.avatar) {
                     user_avatar = session.user.avatar;
                     document.getElementById('the-avatar').innerHTML = `<img id="user_avatar" class="avatar" src="${user_avatar}"/> ${session.user.email} Logged in`
-                    user_message = ''
+                    user_message = '';
                 }
                 show(homePage)
                 document.getElementById('welcome').innerHTML = `Te damos la bienvenida ${session.user.first_name}! 👋 <p>${user_message}</p>`;

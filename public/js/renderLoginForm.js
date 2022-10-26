@@ -1,5 +1,7 @@
 import renderRegisterForm from './renderRegisterForm.js'
 import renderHome from './renderHome.js'
+import createEmptyCart from './createEmptyCart.js'
+
 const renderLoginForm = () => {
 
     document.getElementById('activeCart').innerHTML = "";
@@ -75,6 +77,16 @@ const renderLoginForm = () => {
             .then(json => theStatus = json)
             .finally(() => {
                 if (theStatus.status === 'success') {
+                    let cart_number = theStatus.payload.cart_number;
+                    let email = theStatus.payload.email
+                    if (cart_number === '0' && email != 'admin@mail.com'){
+                        try {
+                            createEmptyCart();
+                        }
+                        catch(error){
+                            console.log('No se pudo crear el carrito')
+                        }
+                    }
                     renderHome();
                 }
                 else {
