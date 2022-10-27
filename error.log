@@ -94,3 +94,5 @@
 {"level":"error","message":"404 - ruta no encontrada /isadmin","service":"user-service","timestamp":"2022-10-24T15:19:16.548Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-25T12:59:38.877Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-26T14:31:31.589Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-10-27T13:34:16.464Z"}
+{"level":"error","message":"404 - ruta no encontrada /generic-avatar.jpg","service":"user-service","timestamp":"2022-10-27T13:56:07.290Z"}

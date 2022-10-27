@@ -86,7 +86,7 @@ export const ordersGenerateOne = async (req, res) => {
                 res.json({
                     message: "Orden incorporada",
                     orden: orden,
-                    cartId: orderId,
+                    orderId: orderId,
                     whichDb: whichDb
                 })
             }

@@ -16,8 +16,11 @@ const createAnOrder = (cart) => {
 
     fetch(orderRoute, requestOptions)
     .then(async res => {
+
         const data = await res.json();
-        orderId = data.orden[0].id;
+        
+        orderId = data.orderId;
+
         renderModalUserOrder(orderId, user_cart)
 
     })
