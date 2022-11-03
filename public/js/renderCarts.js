@@ -23,7 +23,7 @@ const renderCarts = (cartNumber) => {
 
     let user_cart = ''
 
-    let productos =[];
+    let productos = [];
 
     const homePage = document.getElementById("homePage")
 
@@ -49,26 +49,33 @@ const renderCarts = (cartNumber) => {
 
                 const carrito = data.carrito;
 
-                cartOwner = data.carrito[0].user_id;
-
-                user_cart = data.carrito[0].id
 
                 const whichDb = data.whichDb;
 
                 switch (whichDb) {
                     case 'MONGODB':
+                        cartOwner = data.carrito[0].user_id;
+                        user_cart = data.carrito[0].id;
                         productos = carrito[0].productos;
                         break;
                     case 'FIREBASE':
                         productos = carrito.productos;
+                        user_cart = carrito.id;
+                        cartOwner = carrito.user_id;
                         break;
                     case 'MARIADB':
                         productos = JSON.parse(carrito[0].productos);
+                        user_cart = data.carrito[0].id;
+                        productos = carrito[0].productos;
                         break;
                     case 'SQL':
                         productos = JSON.parse(carrito[0].productos);
-                        break;
+                        user_cart = data.carrito[0].id;
+                        productos = carrito[0].productos;
+                       break;
                     default:
+                        user_cart = carrito.id;
+                        cartOwner = carrito.user_id;
                         productos = carrito.productos;
                         break;
                 }

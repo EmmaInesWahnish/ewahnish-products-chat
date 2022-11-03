@@ -56,8 +56,6 @@ const renderHome = () => {
                 document.getElementById('first_name').value = session.user.first_name;
                 document.getElementById('last_name').value = session.user.last_name;
                 document.getElementById('avatar').value = session.user.avatar;
-                cartId = session.user.cart_number;
-                document.getElementById('thisCart').innerHTML = cartId;
 
                 user_avatar = document.getElementById('user_avatar');
 

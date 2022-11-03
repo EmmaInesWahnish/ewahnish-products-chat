@@ -8,6 +8,7 @@ import subtractFromQuantity from './subtractFromQuantity.js';
 import showOneProduct from './showOneProduct.js';
 import findQobject from './findQobject.js';
 import cartInfo from './cartInfo.js';
+import getAllCarts from './getAllCarts.js';
 
 let array = [];
 
@@ -18,7 +19,7 @@ const renderProducts = () => {
     let cartId = '';
     let this_user;
     let theValue;
-    let idProducts=[];
+    let idProducts = [];
 
     document.getElementById('activeCart').innerHTML = "";
     document.getElementById('cartNumber').innerHTML = "";
@@ -51,16 +52,24 @@ const renderProducts = () => {
 
             let whichDb = data.whichDb;
 
-            this_user = { ...data.user }
+            this_user = { ...data.user };
 
-            if (this_user.cart_number && this_user.cart != "" && this_user.cart_number != null && this_user.cart_number != "0") {
-                cartId = this_user.cart_number;
-                document.getElementById('cartNumber').innerHTML = cartId;
-                document.getElementById('activeCart').innerHTML = "";
-                document.getElementById('thisCart').innerHTML = cartId;
-                cartInfo(cartId);
-                idProducts = JSON.parse(localStorage.getItem('cart'))
-            };
+            console.log("This user products >>>> ",this_user._id);
+
+            getAllCarts(this_user._id);
+
+            cartId = localStorage.getItem("ls_cart")
+
+            console.log("Cart id in products >>> ",cartId);
+
+            cartInfo(cartId);
+
+            document.getElementById('cartNumber').innerText = cartId;
+            document.getElementById('activeCart').innerText = "";
+            document.getElementById('thisCart').innerText = cartId;
+            document.getElementById('myCart').innerText = cartId;
+
+            idProducts = JSON.parse(localStorage.getItem('cart'))
 
             document.getElementById('productCards').innerHTML = "";
 
@@ -100,7 +109,7 @@ const renderProducts = () => {
 
                 if (data.bool) {
                     let i = findQobject(qobject, product.id);
-                    
+
                     for (let j = 0; j < idProducts.length; j++) {
                         if (idProducts[j].id === product.id) {
                             theValue = Number(idProducts[j].cantidad);

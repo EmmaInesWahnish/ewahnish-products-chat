@@ -1,16 +1,23 @@
 const cartInfo = (cartNumber) => {
 
+    console.log("En cart info >>>> ", cartNumber)
+
     const productRoute = `/api/carrito/${cartNumber}`
 
-    let idProducts = []; 
+    console.log("Route >>> ", productRoute)
+
+    let idProducts = [];
 
     let cartProducts = [];
 
     fetch(productRoute)
         .then(res => res.json())
         .then(data => {
+
+            console.log("Info >>> ", data)
+
             if (data.message === "carrito no encontrado") {
-                alert("Carrito no encontrado");
+                alert("El Carrito no encontrado");
             } else {
                 const myCart = document.getElementById('myCart')
 
@@ -41,10 +48,10 @@ const cartInfo = (cartNumber) => {
                         id: product.id,
                         cantidad: product.cantidad
                     }
-                    idProducts.push(theProduct)                   
+                    idProducts.push(theProduct)
                 }
                 localStorage.removeItem("cart")
-                localStorage.setItem("cart",JSON.stringify(idProducts))
+                localStorage.setItem("cart", JSON.stringify(idProducts))
             }
         })
         .finally()

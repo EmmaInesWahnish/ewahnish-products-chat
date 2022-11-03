@@ -69,7 +69,7 @@ export const cartsAddOne = async (req, res) => {
                     cart_number: cartId
                 }
 
-                await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: false })
+                //await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: false })
 
                 res.json({
                     message: "Carrito incorporado",
@@ -235,7 +235,7 @@ export const cartsDeleteOne = async (req, res) => {
         cart_number: ""
     }
 
-    let doc = await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: true })
+    //let doc = await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: true })
 
     const id = req.params.id;
     try {

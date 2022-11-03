@@ -3,7 +3,7 @@ import FileContainer from '../../api/FileContainer.js';
 class CartsDaoFiles extends FileContainer {
 
     constructor() {
-        super('./DB/carrito.json')
+        super(process.cwd() + '/DB/carrito.json')
     }
 
     async disconnect() {

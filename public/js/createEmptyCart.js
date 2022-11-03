@@ -1,9 +1,10 @@
-const createEmptyCart = () => {
+const createEmptyCart = (whichUser) => {
 
     let cartId = '';
 
     let cart = {
         timestamp: Date.now(),
+        user_id:whichUser,
         productos: [],
     }
 

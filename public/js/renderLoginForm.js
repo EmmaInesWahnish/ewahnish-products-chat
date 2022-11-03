@@ -1,6 +1,8 @@
-import renderRegisterForm from './renderRegisterForm.js'
-import renderHome from './renderHome.js'
-import createEmptyCart from './createEmptyCart.js'
+import renderRegisterForm from './renderRegisterForm.js';
+import renderHome from './renderHome.js';
+import createEmptyCart from './createEmptyCart.js';
+import getAllCarts from './getAllCarts.js';
+import getUserCart from './getUserCart.js';
 
 const renderLoginForm = () => {
 
@@ -15,7 +17,7 @@ const renderLoginForm = () => {
     document.getElementById('register').innerHTML = "";
     document.getElementById('logout').innerHTML = "";
     document.getElementById('root').innerHTML = "";
-    document.getElementById('the-avatar').innerHTML ="";
+    document.getElementById('the-avatar').innerHTML = "";
     document.getElementById('orderButtons').innerHTML = "";
 
     const homePage = document.getElementById("homePage")
@@ -60,6 +62,8 @@ const renderLoginForm = () => {
 
     let theStatus = "";
 
+    let cart_number = '0';
+
     form.addEventListener('submit', evt => {
         evt.preventDefault();
         let data = new FormData(form);
@@ -78,13 +82,15 @@ const renderLoginForm = () => {
             .then(json => theStatus = json)
             .finally(() => {
                 if (theStatus.status === 'success') {
-                    let cart_number = theStatus.payload.cart_number;
-                    let email = theStatus.payload.email
-                    if (cart_number === '0' && email != 'admin@mail.com'){
+                    let whichUser = theStatus.payload.id;
+                    cart_number = getAllCarts(whichUser);
+                    console.log("In renderProducts >>> ", cart_number);
+                    let email = theStatus.payload.email;
+                    if (cart_number == '0' && email !== 'admin@mail.com') {
                         try {
-                            createEmptyCart();
+                            createEmptyCart(whichUser);
                         }
-                        catch(error){
+                        catch (error) {
                             console.log('No se pudo crear el carrito')
                         }
                     }
