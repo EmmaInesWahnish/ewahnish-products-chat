@@ -1,4 +1,4 @@
-import { Products } from "../daos/daosProducts.js";
+import { Products } from "../persistence/productsPersistenceFactory.js";
 import config from '../configurations/dotenvConfig.js';
 import usersService from '../Models/Users.js';
 import fs from 'fs';

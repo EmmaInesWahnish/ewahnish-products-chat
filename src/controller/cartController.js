@@ -1,4 +1,4 @@
-import { Cart } from "../daos/daosCarts.js";
+import { Cart } from "../persistence/cartPersistenceFactory.js";
 import config from '../configurations/dotenvConfig.js';
 
 const whichDb = config.envs.SELECTED_DB;

@@ -1,8 +1,8 @@
-import ProductsDaoFile from './products/ProductsDaoFile.js'
-import ProductsDaoFirebase from './products/ProductsDaoFirebase.js'
-import ProductsDaoMongoDb from './products/ProductsDaoMongoDb.js'
-import ProductsDaoMariaDb from './products/ProductsDaoMariaDb.js'
-import ProductsDaoSql from './products/ProductsDaoSql.js'
+import ProductsDaoFile from '../daos/products/ProductsDaoFile.js'
+import ProductsDaoFirebase from '../daos/products/ProductsDaoFirebase.js'
+import ProductsDaoMongoDb from '../daos/products/ProductsDaoMongoDb.js'
+import ProductsDaoMariaDb from '../daos/products/ProductsDaoMariaDb.js'
+import ProductsDaoSql from '../daos/products/ProductsDaoSql.js'
 import config from '../configurations/dotenvConfig.js'
 
 const db = config.envs.SELECTED_DB || 'FILE'
