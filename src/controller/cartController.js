@@ -1,6 +1,5 @@
 import { Cart } from "../daos/daosCarts.js";
 import config from '../configurations/dotenvConfig.js';
-import usersService from '../Models/Users.js';
 
 const whichDb = config.envs.SELECTED_DB;
 
@@ -68,8 +67,6 @@ export const cartsAddOne = async (req, res) => {
                 let cart_number = {
                     cart_number: cartId
                 }
-
-                //await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: false })
 
                 res.json({
                     message: "Carrito incorporado",
@@ -234,8 +231,6 @@ export const cartsDeleteOne = async (req, res) => {
     let cart_number = {
         cart_number: ""
     }
-
-    //let doc = await usersService.findOneAndUpdate({ _id: req.session.user.id }, cart_number, { returnOriginal: true })
 
     const id = req.params.id;
     try {
