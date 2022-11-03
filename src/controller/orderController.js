@@ -1,6 +1,5 @@
 import { Order } from "../daos/daosOrders.js";
 import config from '../configurations/dotenvConfig.js';
-import ProductModel from '../Models/products.js';
 
 const whichDb = config.envs.SELECTED_DB;
 
@@ -31,6 +30,7 @@ export const ordersGetOneById = async (req, res) => {
     let user_lname = req.session.user.last_name;
     try {
         const order = await Order.getById(id);
+        console.log("Order ", order)
         if (order != undefined) {
             res.json({
                 message: 'orden encontrada',
@@ -41,7 +41,7 @@ export const ordersGetOneById = async (req, res) => {
             })
         } else {
             res.json({
-                message: "orden no encontrado"
+                message: "orden no encontrada"
             })
         }
     }
@@ -65,14 +65,6 @@ export const ordersGenerateOne = async (req, res) => {
     if (orden) {
         try {
             const theProductId = await Order.save(orden)
-            for (let elem of orden.productos) {
-                let id = elem.id;
-                let theStock = Number(elem.stock) - Number(elem.cantidad);
-                let stock = {
-                    stock: theStock
-                }
-                await ProductModel.findOneAndUpdate({ _id: id }, stock, { returnOriginal: true })
-            }
             try {
                 const orden = await Order.getAll();
                 if (whichDb === 'FIREBASE') {

@@ -6,3 +6,4 @@
 {"level":"error","message":"404 - ruta no encontrada /js/getUserCart","service":"user-service","timestamp":"2022-11-03T01:07:48.302Z"}
 {"level":"error","message":"404 - ruta no encontrada /js/getUserCart","service":"user-service","timestamp":"2022-11-03T01:07:50.067Z"}
 {"level":"error","message":"404 - ruta no encontrada /js/getUserCart","service":"user-service","timestamp":"2022-11-03T01:08:58.556Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-03T11:33:31.718Z"}

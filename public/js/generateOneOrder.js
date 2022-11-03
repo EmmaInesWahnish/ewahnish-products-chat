@@ -18,6 +18,8 @@ const createAnOrder = (cart) => {
     .then(async res => {
 
         const data = await res.json();
+
+        console.log("Viene en la orden >>>> ", data);
         
         orderId = data.orderId;
 
