@@ -3,7 +3,6 @@ import sendMailGmail from '../services/sendEmailGmail.js';
 import usersService from '../Models/Users.js';
 import { __dirname } from '../utils.js';
 
-
 export const viewsRegister = (req, res) => {
     if (req.session.user) {
         return res.redirect('/');

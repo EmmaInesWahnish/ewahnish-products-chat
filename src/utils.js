@@ -10,11 +10,13 @@ export const isValidPassword = (user,password) => bcrypt.compareSync(password,us
 
 export const gralLogger = winston.createLogger(logConfiguration)
 
-//*Middleware to use with routes*/
+/*Middleware to use with routes*/
 export const logger = () => (req, res, next) => {
     req.logger = gralLogger;
     next();
 }
+
 const __filename = fileURLToPath(import.meta.url);
+
 export const __dirname = dirname(__filename);
 
