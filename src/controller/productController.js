@@ -10,7 +10,7 @@ let result;
 export const productsGetAll = async (req, res) => {
     try {
         try {
-            result = await usersService.findById(req.session.user.id);           
+            result = await usersService.findById(req.session.user.id);
         }
         catch (error) {
 
@@ -128,85 +128,55 @@ export const productsAddOne = async (req, res) => {
 }
 
 export const productsUpdateOne = async (req, res) => {
-    if (!req.session.user.isAdmin) {
-        res.json({
-            message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
-            error: -1
-        })
-    } else {
-        const id = req.params.id;
-        let receive = req.body;
-        try {
-            const products = await Products.getAll();
-            const index = products.findIndex(element => element.id == id);
-            let searchedProduct = products[index];
-            if (index !== -1) {
+    const id = req.params.id;
+    let receive = req.body;
+    try {
+        const products = await Products.getAll();
+        const index = products.findIndex(element => element.id == id);
+        let searchedProduct = products[index];
+        if (index !== -1) {
 
-                if (receive.nombre !== null && receive.nombre !== undefined) {
-                    products[index].nombre = receive.nombre;
-                }
-                if (receive.descripcion !== null && receive.descripcion !== undefined) {
-                    products[index].descripcion = receive.descripcion;
-                }
-                if (receive.codigo !== null && receive.codigo !== undefined) {
-                    products[index].codigo = receive.codigo;
-                }
-                if (receive.foto !== null && receive.foto !== undefined) {
-                    products[index].foto = receive.foto;
-                }
-                if (receive.precio !== null && receive.precio !== undefined) {
-                    products[index].precio = receive.precio;
-                }
-                if (receive.stock !== null && receive.stock !== undefined) {
-                    products[index].stock = receive.stock;
-                }
+            if (receive.nombre !== null && receive.nombre !== undefined) {
+                products[index].nombre = receive.nombre;
+            }
+            if (receive.descripcion !== null && receive.descripcion !== undefined) {
+                products[index].descripcion = receive.descripcion;
+            }
+            if (receive.codigo !== null && receive.codigo !== undefined) {
+                products[index].codigo = receive.codigo;
+            }
+            if (receive.foto !== null && receive.foto !== undefined) {
+                products[index].foto = receive.foto;
+            }
+            if (receive.precio !== null && receive.precio !== undefined) {
+                products[index].precio = receive.precio;
+            }
+            if (receive.stock !== null && receive.stock !== undefined) {
+                products[index].stock = receive.stock;
+            }
 
-                searchedProduct = products[index];
-                //The array gets updated here
-                let array = [];
+            searchedProduct = products[index];
+            //The array gets updated here
+            let array = [];
 
-                products.forEach((element) => {
-                    array.push({
-                        timestamp: element.timestamp,
-                        nombre: element.nombre,
-                        descripcion: element.descripcion,
-                        codigo: element.codigo,
-                        foto: element.foto,
-                        precio: element.precio,
-                        stock: element.stock
+            products.forEach((element) => {
+                array.push({
+                    timestamp: element.timestamp,
+                    nombre: element.nombre,
+                    descripcion: element.descripcion,
+                    codigo: element.codigo,
+                    foto: element.foto,
+                    precio: element.precio,
+                    stock: element.stock
 
-                    })
                 })
-                //productos.json file is replaced with the updated array
-                if (config.envs.SELECTED_DB === "FILE") {
+            })
+            //productos.json file is replaced with the updated array
+            if (config.envs.SELECTED_DB === "FILE") {
+                try {
+                    await fs.promises.unlink('./DB/productos.json');
                     try {
-                        await fs.promises.unlink('./DB/productos.json');
-                        try {
-                            await Products.saveArray(array);
-                            res.json({
-                                message: 'Modificacion exitosa',
-                                product: array,
-                                whichDb: whichDb
-                            })
-                        }
-                        catch (error) {
-                            res.json({
-                                message: 'No fue posible cargar los productos en productos.txt',
-                                error: error
-                            })
-                        }
-                    }
-                    catch (error) {
-                        res.json({
-                            message: 'No se pudo borrar el archivo productos.txt',
-                            error: error
-                        })
-                    }
-
-                }
-                else {
-                    try {
-                        await Products.modifyById(id, searchedProduct);
+                        await Products.saveArray(array);
                         res.json({
                             message: 'Modificacion exitosa',
                             product: array,
@@ -215,24 +185,48 @@ export const productsUpdateOne = async (req, res) => {
                     }
                     catch (error) {
                         res.json({
-                            message: 'No fue posible modificar el producto',
+                            message: 'No fue posible cargar los productos en productos.txt',
                             error: error
                         })
                     }
                 }
-            } else {
-                res.json({
-                    message: 'Producto no encontrado'
-                })
+                catch (error) {
+                    res.json({
+                        message: 'No se pudo borrar el archivo productos.txt',
+                        error: error
+                    })
+                }
+
             }
-        }
-        catch (error) {
+            else {
+                try {
+                    await Products.modifyById(id, searchedProduct);
+                    res.json({
+                        message: 'Modificacion exitosa',
+                        product: array,
+                        whichDb: whichDb
+                    })
+                }
+                catch (error) {
+                    res.json({
+                        message: 'No fue posible modificar el producto',
+                        error: error
+                    })
+                }
+            }
+        } else {
             res.json({
-                message: 'Ha ocurrido un error al intentar recuperar la lista de productos',
-                error: error
+                message: 'Producto no encontrado'
             })
         }
     }
+    catch (error) {
+        res.json({
+            message: 'Ha ocurrido un error al intentar recuperar la lista de productos',
+            error: error
+        })
+    }
+
 }
 
 export const productsDeleteOne = async (req, res) => {

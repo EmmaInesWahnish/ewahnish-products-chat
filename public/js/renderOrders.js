@@ -1,5 +1,7 @@
 import renderHome from './renderHome.js';
 import emptyACart from './emptyACart.js';
+import modifyOneProduct from './modifyOneProduct.js';
+import ModifiedProduct from '../Classes/ModifiedProduct.js';
 
 const renderOrders = (orderNumber, user_cart) => {
     document.getElementById('activeCart').innerHTML = "";
@@ -125,6 +127,8 @@ const renderOrders = (orderNumber, user_cart) => {
                 let total = 0
                 for (let product of productos) {
                     let importe = Number(product.precio) * Number(product.cantidad);
+
+                    let stock = Number(product.stock) - Number(product.cantidad)
                     total = total + importe;
                     const tableBody = document.createElement('tr')
                     tableBody.innerHTML = `<td>
@@ -168,20 +172,29 @@ const renderOrders = (orderNumber, user_cart) => {
 
                     productsInOrder.appendChild(tableBody)
 
+                    const modifiedProduct = new ModifiedProduct();
+                    modifiedProduct.id = product.id;
+                    modifiedProduct.timestamp = product.timestamp;
+                    modifiedProduct.nombre = product.nombre;
+                    modifiedProduct.descripcion = product.descripcion;
+                    modifiedProduct.codigo = product.codigo;
+                    modifiedProduct.foto = product.foto;
+                    modifiedProduct.precio = product.precio;
+                    modifiedProduct.stock = stock;
+
+                    modifyOneProduct(modifiedProduct)
                 }
 
 
 
                 let orderTotal = document.getElementById('orderTotal');
 
-                console.log(`Importe total ${total}`)
-
                 orderTotal.innerText = `Importe total ${total}`;
             }
         })
         .catch(err => console.log(err))
 
-        const formSend = document.getElementById('formSend');
+    const formSend = document.getElementById('formSend');
 
     formSend.addEventListener('click', function () {
 
@@ -191,21 +204,21 @@ const renderOrders = (orderNumber, user_cart) => {
             delivery_address: theAddress,
             first_name: first_name,
             last_name: last_name,
-            order: order            
+            order: order
         };
 
         const emailRoute = '/email';
 
         const requestOptions = {
-            method:'POST',
-            headers: {'Content-Type': 'application/json'},
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(myOrder),
         };
 
         fetch(emailRoute, requestOptions)
-        .then(async res => {
-            await res.json();
-        })            
+            .then(async res => {
+                await res.json();
+            })
     })
 
 }

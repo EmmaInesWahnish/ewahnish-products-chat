@@ -88,7 +88,7 @@ const renderModalModifyProduct = (product) => {
     modifiedProduct.codigo = product.codigo;
     modifiedProduct.foto = product.foto;
     modifiedProduct.precio = product.precio;
-    modifiedProduct.stock = product.stock,
+    modifiedProduct.stock = product.stock;
     
     modifyOneProduct(modifiedProduct);
 
