@@ -1,4 +1,4 @@
-import { Order } from "../persistence/orderPersistenceFactory.js";
+import { Order } from "../persistence/orderPersistenceFactoryDi.js";
 import config from '../configurations/dotenvConfig.js';
 
 const whichDb = config.envs.SELECTED_DB;

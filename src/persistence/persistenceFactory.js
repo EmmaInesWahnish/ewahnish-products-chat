@@ -1,30 +1,30 @@
-import CartsDaoFile from './carts/CartsDaoFile.js'
-import CartsDaoFirebase from './carts/CartsDaoFirebase.js'
-import CartsDaoMongoDb from './carts/CartsDaoMongoDb.js'
-import CartsDaoMariaDb from './carts/CartsDaoMariaDb.js'
-import CartsDaoSql from './carts/CartsDaoSql.js'
 import config from '../configurations/dotenvConfig.js'
 
-const db = config.envs.SELECTED_DB || 'FILE'
+const PERSISTENCE = config.envs.SELECTED_DB || 'FILE'
 
-let Cart
+export default class PersistenceFactory {
 
-switch (db) {
-    case 'FIREBASE':
-        Cart = new CartsDaoFirebase()
-        break
-    case 'MONGODB':
-        Cart = new CartsDaoMongoDb()
-        break
-    case 'MARIADB':
-        Cart = new CartsDaoMariaDb()
-        break
-    case 'SQL':
-        Cart = new CartsDaoSql()
-        break
-    default:
-        Cart = new CartsDaoFile()
-        break
+    static getPersistence = async ()=>{
+
+        switch (PERSISTENCE) {
+            case 'FIREBASE':
+                Products = new ProductsDaoFirebase()
+                break
+            case 'MONGODB':
+                Products = new ProductsDaoMongoDb()
+                break
+            case 'MARIADB':
+                Products = new ProductsDaoMariaDb()
+                break
+            case 'SQL':
+                Products = new ProductsDaoSql()
+                break
+            default:
+                Products = new ProductsDaoFile()
+                break
+        }
+        
+
+    }
+
 }
-
-export { Cart }

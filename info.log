@@ -20,3 +20,10 @@
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-03T17:04:20.962Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-03T17:04:26.830Z"}
 {"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-03T18:58:27.631Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:27:38.479Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:47:30.955Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:48:15.768Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:49:23.864Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:49:23.932Z"}
+{"level":"info","message":"Estado de la conexion (ProductsDao) 1","service":"user-service","timestamp":"2022-11-04T00:49:26.430Z"}
+{"level":"info","message":"nodemailer test message [object Object]","service":"user-service","timestamp":"2022-11-04T00:49:32.381Z"}

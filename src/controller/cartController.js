@@ -1,4 +1,4 @@
-import { Cart } from "../persistence/cartPersistenceFactory.js";
+import { Cart } from "../persistence/cartPersistenceFactoryDi.js";
 import config from '../configurations/dotenvConfig.js';
 
 const whichDb = config.envs.SELECTED_DB;
