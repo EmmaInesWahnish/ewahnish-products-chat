@@ -42,7 +42,6 @@ export default class PersistenceFactory {
                     Products: new ProductsDaoSql(),
                     Orders: new OrdersDaoSql()
                 }
-                break
             default:
                 let { default: CartsDaoFile } = await import('../daos/carts/CartsDaoFile.js')
                 let { default: ProductsDaoFile } = await import('../daos/products/ProductsDaoFile.js')
