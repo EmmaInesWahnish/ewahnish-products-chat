@@ -1,4 +1,12 @@
-import { Products } from "../persistence/productsPersistenceFactoryDi.js";
+import {
+    getAllProducts,
+    getProductsById, 
+    saveProducts, 
+    saveProductsArray,
+    modifyProductById,
+    deleteProductById
+} 
+from '../services/ProductService.js'
 import config from '../configurations/dotenvConfig.js';
 import usersService from '../Models/Users.js';
 import fs from 'fs';
@@ -16,7 +24,7 @@ export const productsGetAll = async (req, res) => {
 
         }
         cartNumber = result.cart_number;
-        const array = await Products.getAll();
+        const array = await getAllProducts();
         res.json({
             message: 'Lista de productos ',
             products: array,
@@ -53,7 +61,7 @@ export const productsInfoAdmin = async (req, res) => {
 export const productsGetById = async (req, res) => {
     let id = req.params.id;
     try {
-        const producto = await Products.getById(id);
+        const producto = await getProductsById(id);
         if (producto != undefined) {
             res.json({
                 message: 'Producto encontrado',
@@ -95,9 +103,9 @@ export const productsAddOne = async (req, res) => {
         }
         if (producto) {
             try {
-                const theProductId = await Products.save(producto);
+                const theProductId = await saveProducts(producto);
                 try {
-                    const products = await Products.getAll();
+                    const products = await getAllProducts();
                     res.json({
                         message: "Producto incorporado",
                         product: producto,
@@ -131,7 +139,7 @@ export const productsUpdateOne = async (req, res) => {
     const id = req.params.id;
     let receive = req.body;
     try {
-        const products = await Products.getAll();
+        const products = await getAllProducts();
         const index = products.findIndex(element => element.id == id);
         let searchedProduct = products[index];
         if (index !== -1) {
@@ -176,7 +184,7 @@ export const productsUpdateOne = async (req, res) => {
                 try {
                     await fs.promises.unlink('./DB/productos.json');
                     try {
-                        await Products.saveArray(array);
+                        await saveProductsArray(array);
                         res.json({
                             message: 'Modificacion exitosa',
                             product: array,
@@ -200,7 +208,7 @@ export const productsUpdateOne = async (req, res) => {
             }
             else {
                 try {
-                    await Products.modifyById(id, searchedProduct);
+                    await modifyProductById(id, searchedProduct);
                     res.json({
                         message: 'Modificacion exitosa',
                         product: array,
@@ -238,7 +246,7 @@ export const productsDeleteOne = async (req, res) => {
     } else {
         const id = req.params.id;
         try {
-            const removedProduct = await Products.deleteById(id);
+            const removedProduct = await deleteProductById(id);
             if (removedProduct.length === 0) {
                 res.json({
                     message: "El producto solicitado no existe"

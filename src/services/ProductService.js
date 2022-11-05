@@ -1,32 +1,34 @@
 import { Products } from "../persistence/productsPersistenceFactoryDi.js";
 
-export default class ProductService {
-    constructor() {
-        this.productsDao = new Products()
-    }
-
-    getAllProducts = async () => {
-        return await this.productsDao.getAll();
-    }
-
-    getProductsById = async () => {
-        return await this.productsDao.getById();
-    }
-
-    saveProducts = async () => {
-        return await this.productsDao.save();
-    }
-
-    saveProductsArray = async () => {
-        return await this.productsDao.saveArray();
-    }
-
-    modifyProductById = async () => {
-        return await this.productsDao.modifyById();
-    }
-
-    deleteProductsById = async () => {
-        return await this.productsDao.deleteById();
-    }
-
+const getAllProducts = async () => {
+    return await Products.getAll();
 }
+
+const getProductsById = async () => {
+    return await Products.getById();
+}
+
+const saveProducts = async () => {
+    return await Products.save();
+}
+
+const saveProductsArray = async () => {
+    return await Products.saveArray();
+}
+
+const modifyProductById = async () => {
+    return await Products.modifyById();
+}
+
+const deleteProductById = async () => {
+    return await Products.deleteById();
+}
+
+export {
+    getAllProducts,
+    getProductsById, 
+    saveProducts, 
+    saveProductsArray,
+    modifyProductById,
+    deleteProductById
+} 

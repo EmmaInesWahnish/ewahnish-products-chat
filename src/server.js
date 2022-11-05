@@ -15,6 +15,7 @@ import passport from 'passport';
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { __dirname } from './utils.js'
+import routerTest from './routers/routerTest.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -60,6 +61,7 @@ app.use('/api/up', uploadRouter);
 app.use('/', viewsRouter);
 app.use('/api/sessions', sessionRouter);
 app.use('/api/ordenes', routerOrder)
+app.use('/api/test', routerTest)
 
 app.all('*', (req, res) => {
     res.status(404).send({
