@@ -1,38 +1,40 @@
-import PersistenceFactory  from "../persistence/PersistenceFactory.js";
+import { Cart }  from "../persistence/cartPersistenceFactoryDi.js";
 
-Products
-
-class ProductService {
-    constructor() {
-        this.productsDao = new Products()
+    const getAllCarts = async () => {
+        return await Cart.getAll();
     }
 
-    getAllProducts = async () => {
-        return await this.productsDao.getAll();
+    const getCartsById = async (id) => {
+        return await Cart.getById(id);
     }
 
-    getProductsById = async () => {
-        return await this.productsDao.getById();
+    const saveCarts = async (carrito) => {
+        return await Cart.save(carrito);
     }
 
-    saveProducts = async () => {
-        return await this.productsDao.save();
+    const saveCartsArray = async (array) => {
+        return await Cart.saveArray(array);
     }
 
-    saveProductsArray = async () => {
-        return await this.productsDao.saveArray();
+    const modifyCartById = async (id, modifiedCart) => {
+        return await Cart.modifyById(id, modifiedCart);
     }
 
-    modifyProductById = async () => {
-        return await this.productsDao.modifyById();
+    const deleteCartById = async (id) => {
+        return await Cart.deleteById(id);
     }
 
-    deleteProductsById = async () => {
-        return await this.productsDao.deleteById();
+    const deleteProdInCart = async (id, id_prod, indexp, productArray) => {
+        return await deleteProdById(id, id_prod, indexp, productArray)
     }
 
+
+export {
+    getAllCarts,
+    getCartsById,
+    saveCarts,
+    saveCartsArray,
+    modifyCartById,
+    deleteCartById,
+    deleteProdInCart
 }
-
-let productService = new ProductService()
-
-export default productService

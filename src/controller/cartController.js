@@ -1,11 +1,19 @@
-import { Cart } from "../persistence/cartPersistenceFactoryDi.js";
 import config from '../configurations/dotenvConfig.js';
+import {
+    getAllCarts,
+    getCartsById,
+    saveCarts,
+    saveCartsArray,
+    modifyCartById,
+    deleteCartById,
+    deleteProdInCart
+} from '../services/CartService.js'
 
 const whichDb = config.envs.SELECTED_DB;
 
 export const cartsGetAll = async (req, res) => {
     try {
-        const array = await Cart.getAll();
+        const array = await getAllCarts();
         res.json({
             message: 'Carritos ',
             carrito: array,
@@ -23,7 +31,7 @@ export const cartsGetAll = async (req, res) => {
 export const cartsGetById = async (req, res) => {
     let id = req.params.id;
     try {
-        const carrito = await Cart.getById(id);
+        const carrito = await getCartsById(id);
         if (carrito != undefined) {
             res.json({
                 message: 'carrito encontrado',
@@ -54,9 +62,9 @@ export const cartsAddOne = async (req, res) => {
     if (carrito) {
         let cartId
         try {
-            const theProductId = await Cart.save(carrito)
+            const theProductId = await saveCarts(carrito)
             try {
-                const carrito = await Cart.getAll();
+                const carrito = await getAllCarts();
                 if (whichDb === 'FIREBASE') {
                     cartId = theProductId;
                 }
@@ -107,7 +115,7 @@ export const cartsUpdateOne = async (req, res) => {
 
     try {
         let productArray = [];
-        carts = await Cart.getAll();
+        carts = await getAllCarts();
         indexc = carts.findIndex(element => element.id == id);
         console.log("Entra al primer try ", indexc)
         if (indexc !== -1) {
@@ -149,7 +157,7 @@ export const cartsUpdateOne = async (req, res) => {
                 }
             }
             try {
-                await Cart.modifyById(cartId, modifiedCart);
+                await modifyCartById(cartId, modifiedCart);
                 res.json({
                     message: 'Modificacion exitosa',
                     product: modifiedCart,
@@ -185,7 +193,7 @@ export const cartsDeleteOneProduct = async (req, res) => {
     const id_prod = req.params.id_prod
     try {
         let productArray = [];
-        const carts = await Cart.getAll();
+        const carts = await getAllCarts();
         const indexc = carts.findIndex(element => element.id == id);
         const searchedCart = carts[indexc];
         if ((whichDb === 'SQL') || (whichDb === 'MARIADB')) {
@@ -199,7 +207,7 @@ export const cartsDeleteOneProduct = async (req, res) => {
             const indexp = productArray.findIndex(element => element.id == id_prod);
             if (indexp !== -1) {
                 try {
-                    await Cart.deleteProdById(id, id_prod, indexp, productArray);
+                    await deleteProdInCart(id, id_prod, indexp, productArray);
                     res.json({
                         message: 'Eliminacion exitosa',
                     })
@@ -234,9 +242,8 @@ export const cartsDeleteOne = async (req, res) => {
 
     const id = req.params.id;
     try {
-        const removedCart = await Cart.deleteById(id);
-        let howManyProducts = Cart.productos.length;
-
+        const removedCart = await deleteCartById(id);
+    
         if (removedCart.length === 0) {
             res.json({
                 message: "El carrito solicitado no existe"
@@ -260,14 +267,14 @@ export const cartsDeleteOne = async (req, res) => {
 export const cartsOneEmpty = async (req, res) => {
 
     let productArray = [];
-    let carts = await Cart.getAll();
+    let carts = await getAllCarts();
     let indexc = 0;
     let modifiedCart = {};
 
     const id = req.params.id;
 
     indexc = carts.findIndex(element => element.id == id);
-    
+
     if (indexc !== -1) {
         const searchedCart = carts[indexc];
         if ((whichDb === 'SQL') || (whichDb === 'MARIADB')) {
@@ -287,7 +294,7 @@ export const cartsOneEmpty = async (req, res) => {
             }
         }
         try {
-            await Cart.modifyById(id, modifiedCart);
+            await modifyCartById(id, modifiedCart);
             res.json({
                 message: 'Modificacion exitosa',
                 product: modifiedCart,

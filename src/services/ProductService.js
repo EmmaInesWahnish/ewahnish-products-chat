@@ -4,24 +4,24 @@ const getAllProducts = async () => {
     return await Products.getAll();
 }
 
-const getProductsById = async () => {
-    return await Products.getById();
+const getProductsById = async (id) => {
+    return await Products.getById(id);
 }
 
-const saveProducts = async () => {
-    return await Products.save();
+const saveProducts = async (producto) => {
+    return await Products.save(producto);
 }
 
 const saveProductsArray = async () => {
     return await Products.saveArray();
 }
 
-const modifyProductById = async () => {
-    return await Products.modifyById();
+const modifyProductById = async (id, searchedProduct) => {
+    return await Products.modifyById(id, searchedProduct);
 }
 
-const deleteProductById = async () => {
-    return await Products.deleteById();
+const deleteProductById = async (id) => {
+    return await Products.deleteById(id);
 }
 
 export {

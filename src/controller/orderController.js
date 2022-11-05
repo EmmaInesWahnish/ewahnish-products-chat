@@ -1,5 +1,13 @@
-import { Order } from "../persistence/orderPersistenceFactoryDi.js";
 import config from '../configurations/dotenvConfig.js';
+import {
+    getAllOrders,
+    getOrdersById,
+    saveOrders,
+    saveOrdersArray,
+    modifyOrderById,
+    deleteOrderById,
+    deleteProdInOrder
+} from '../services/OrderService.js'
 
 const whichDb = config.envs.SELECTED_DB;
 
@@ -7,7 +15,7 @@ export const ordersGetAll = async (req, res) => {
     let user_fname = req.session.user.first_name;
     let user_lname = req.session.user.last_name;
     try {
-        const order = await Order.getAll();
+        const order = await getAllOrders();
         res.json({
             message: 'Ordenes ',
             user_fname: user_fname,
@@ -29,7 +37,7 @@ export const ordersGetOneById = async (req, res) => {
     let user_fname = req.session.user.first_name;
     let user_lname = req.session.user.last_name;
     try {
-        const order = await Order.getById(id);
+        const order = await getOrdersById(id);
         console.log("Order ", order)
         if (order != undefined) {
             res.json({
@@ -64,9 +72,9 @@ export const ordersGenerateOne = async (req, res) => {
     let orderId
     if (orden) {
         try {
-            const theProductId = await Order.save(orden)
+            const theProductId = await saveOrders(orden)
             try {
-                const orden = await Order.getAll();
+                const orden = await getAllOrders();
                 if (whichDb === 'FIREBASE') {
                     orderId = theProductId;
                 }
@@ -106,8 +114,7 @@ export const ordersGenerateOne = async (req, res) => {
 export const ordersDeleteOne = async (req, res) => {
     const id = req.params.id;
     try {
-        const removedCart = await Order.deleteById(id);
-        let howManyProducts = Order.productos.length;
+        const removedCart = await deleteOrderById(id);
 
         if (removedCart.length === 0) {
             res.json({
