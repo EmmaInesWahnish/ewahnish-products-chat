@@ -62,7 +62,7 @@ const renderProducts = () => {
 
             console.log("Cart id in products >>> ",cartId);
 
-            cartInfo(cartId);
+            cartInfo(cartId, this_user.email);
 
             document.getElementById('cartNumber').innerText = cartId;
             document.getElementById('activeCart').innerText = "";

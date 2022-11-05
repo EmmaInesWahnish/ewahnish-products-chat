@@ -1,4 +1,4 @@
-const cartInfo = (cartNumber) => {
+const cartInfo = (cartNumber, userEmail) => {
 
     console.log("En cart info >>>> ", cartNumber)
 
@@ -16,7 +16,7 @@ const cartInfo = (cartNumber) => {
 
             console.log("Info >>> ", data)
 
-            if (data.message === "carrito no encontrado") {
+            if ((data.message === "carrito no encontrado") && (userEmail !== 'admin@mail.com')) {
                 alert("El Carrito no encontrado");
             } else {
                 const myCart = document.getElementById('myCart')
