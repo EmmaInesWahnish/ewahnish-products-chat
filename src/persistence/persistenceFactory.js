@@ -1,4 +1,5 @@
 import config from '../configurations/dotenvConfig.js'
+import MongoClient from '../daos/MongoClient.js'
 
 const db = config.envs.SELECTED_DB || 'FILE';
 
@@ -16,6 +17,7 @@ switch (db) {
         }
         break
     case 'MONGODB':
+        const connection = MongoClient.getInstance();
         let { default: CartsDaoMongoDb } = await import('../daos/carts/CartsDaoMongoDb.js')
         let { default: ProductsDaoMongoDb } = await import('../daos/products/ProductsDaoMongoDb.js')
         let { default: OrdersDaoMongoDb } = await import('../daos/orders/OrdersDaoMongoDb.js')

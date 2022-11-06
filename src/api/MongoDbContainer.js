@@ -10,7 +10,6 @@ class MongoDbContainer {
 
     async deleteById(myId) {
         try {
-            this.connectToDb();
             const item = await this.TheModel.deleteOne({ _id: myId });
             console.log("Item eliminado ", item)
         } catch (error) {
@@ -20,7 +19,6 @@ class MongoDbContainer {
 
     async deleteAll() {
         try {
-            this.connectToDb();
             const array = this.getAll()
             for (element in array) {
                 let myId = array[element].id;
@@ -34,7 +32,6 @@ class MongoDbContainer {
 
     async save(item) {
         try {
-            this.connectToDb();
             await this.TheModel.create(item);
             try {
                 const items = await this.TheModel.find({}).sort({_id: -1}).limit(1);
@@ -53,7 +50,6 @@ class MongoDbContainer {
     }
 
     async saveArray(array) {
-        this.connectToDb();
         for (let item in array) {
             try {
                 await this.TheModel.create(array[item]);
@@ -67,7 +63,6 @@ class MongoDbContainer {
 
     async getAll() {
         try {
-            this.connectToDb();
             const response = await this.TheModel.find({});
             return response;
         } catch (error) {
@@ -77,7 +72,6 @@ class MongoDbContainer {
 
     async getById(myId) {
         try {
-            this.connectToDb();
             const response = await this.TheModel.find({ _id: myId });
             return response;
         } catch (error) {
@@ -106,7 +100,6 @@ class MongoDbContainer {
 
     async modifyById(myId, myJson) {
         try {
-            this.connectToDb();
             let item = await this.TheModel.updateOne({ _id: myId }, { $set: myJson });
             console.log("Item actualizado ", item)
         } catch (error) {
