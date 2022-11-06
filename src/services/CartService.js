@@ -1,4 +1,6 @@
-import { Cart }  from "../persistence/cartPersistenceFactoryDi.js";
+import { persistence }  from "../persistence/PersistenceFactory.js";
+
+    let Cart = persistence.Carts;
 
     const getAllCarts = async () => {
         return await Cart.getAll();

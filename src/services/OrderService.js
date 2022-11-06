@@ -1,4 +1,6 @@
-import { Order }  from "../persistence/orderPersistenceFactoryDi.js";
+import { persistence }  from "../persistence/PersistenceFactory.js";
+
+    let Order = persistence.Orders;
 
     const getAllOrders = async () => {
         return await Order.getAll();

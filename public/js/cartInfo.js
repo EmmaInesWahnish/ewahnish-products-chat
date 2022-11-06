@@ -16,7 +16,7 @@ const cartInfo = (cartNumber, userEmail) => {
 
             console.log("Info >>> ", data)
 
-            if ((data.message === "carrito no encontrado") && (userEmail !== 'admin@mail.com')) {
+            if (data.message === "carrito no encontrado") {
                 alert("El Carrito no encontrado");
             } else {
                 const myCart = document.getElementById('myCart')

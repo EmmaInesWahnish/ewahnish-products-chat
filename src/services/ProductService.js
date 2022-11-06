@@ -1,4 +1,6 @@
-import { Products } from "../persistence/productsPersistenceFactoryDi.js";
+import { persistence } from "../persistence/PersistenceFactory.js";
+
+let Products = persistence.Products;
 
 const getAllProducts = async () => {
     return await Products.getAll();
