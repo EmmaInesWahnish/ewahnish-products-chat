@@ -1,1 +1,12 @@
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-06T13:25:00.125Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T17:00:45.832Z"}
+{"level":"error","message":"404 - ruta no encontrada /public/api/products","service":"user-service","timestamp":"2022-11-06T17:01:58.099Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-06T22:19:50.195Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T22:55:29.610Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T22:57:39.279Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T22:58:21.398Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:13:50.873Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:15:35.667Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:16:11.393Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:16:32.133Z"}
+{"level":"error","message":"404 - ruta no encontrada /api/session/login","service":"user-service","timestamp":"2022-11-06T23:17:12.944Z"}
