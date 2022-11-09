@@ -10,3 +10,5 @@
 {"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:16:11.393Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/products","service":"user-service","timestamp":"2022-11-06T23:16:32.133Z"}
 {"level":"error","message":"404 - ruta no encontrada /api/session/login","service":"user-service","timestamp":"2022-11-06T23:17:12.944Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-07T11:26:54.507Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-08T21:19:44.727Z"}

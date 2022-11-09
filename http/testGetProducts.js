@@ -4,7 +4,8 @@ const options = {
     host:'localhost',
     port: 8080,
     path: '/api/productos',
-    method: 'GET'
+    method: 'GET',
+    withCredentials: true
 }
 
 const req = http.request(options, res =>{

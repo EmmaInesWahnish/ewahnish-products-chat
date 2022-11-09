@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { logger } from './utils.js';
 import routerProducts from './routers/routerProducts.js';
 import routerCart from './routers/routerCart.js';
@@ -20,6 +21,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
+app.use(cors({credentials: true}))
 // this code is necessary for express to understand json format
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
