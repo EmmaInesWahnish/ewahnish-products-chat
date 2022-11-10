@@ -1,61 +1,59 @@
-const cartInfo = (cartNumber, userEmail) => {
+const cartInfo = (cartNumber, isAdmin) => {
 
-    console.log("En cart info >>>> ", cartNumber)
+    if (isAdmin) {
+        return
+    }
+    else {
+        const productRoute = `/api/carrito/${cartNumber}`
 
-    const productRoute = `/api/carrito/${cartNumber}`
+        let idProducts = [];
 
-    console.log("Route >>> ", productRoute)
+        let cartProducts = [];
 
-    let idProducts = [];
+        fetch(productRoute)
+            .then(res => res.json())
+            .then(data => {
+                if (data.message === "carrito no encontrado") {
+                    alert("El Carrito no encontrado");
+                } else {
+                    const myCart = document.getElementById('myCart')
 
-    let cartProducts = [];
+                    const carrito = data.carrito;
 
-    fetch(productRoute)
-        .then(res => res.json())
-        .then(data => {
+                    const whichDb = data.whichDb;
 
-            console.log("Info >>> ", data)
-
-            if (data.message === "carrito no encontrado") {
-                alert("El Carrito no encontrado");
-            } else {
-                const myCart = document.getElementById('myCart')
-
-                const carrito = data.carrito;
-
-                const whichDb = data.whichDb;
-
-                switch (whichDb) {
-                    case 'MONGODB':
-                        cartProducts = carrito[0].productos;
-                        break;
-                    case 'FIREBASE':
-                        cartProducts = carrito.productos;
-                        break;
-                    case 'MARIADB':
-                        cartProducts = JSON.parse(carrito[0].productos);
-                        break;
-                    case 'SQL':
-                        cartProducts = JSON.parse(carrito[0].productos);
-                        break;
-                    default:
-                        cartProducts = carrito.productos;
-                        break;
-                }
-
-                for (let product of cartProducts) {
-                    let theProduct = {
-                        id: product.id,
-                        cantidad: product.cantidad
+                    switch (whichDb) {
+                        case 'MONGODB':
+                            cartProducts = carrito[0].productos;
+                            break;
+                        case 'FIREBASE':
+                            cartProducts = carrito.productos;
+                            break;
+                        case 'MARIADB':
+                            cartProducts = JSON.parse(carrito[0].productos);
+                            break;
+                        case 'SQL':
+                            cartProducts = JSON.parse(carrito[0].productos);
+                            break;
+                        default:
+                            cartProducts = carrito.productos;
+                            break;
                     }
-                    idProducts.push(theProduct)
+
+                    for (let product of cartProducts) {
+                        let theProduct = {
+                            id: product.id,
+                            cantidad: product.cantidad
+                        }
+                        idProducts.push(theProduct)
+                    }
+                    localStorage.removeItem("cart")
+                    localStorage.setItem("cart", JSON.stringify(idProducts))
                 }
-                localStorage.removeItem("cart")
-                localStorage.setItem("cart", JSON.stringify(idProducts))
-            }
-        })
-        .finally()
-        .catch(err => console.log(err))
+            })
+            .finally()
+            .catch(err => console.log(err))
+    }
 }
 
 export default cartInfo;

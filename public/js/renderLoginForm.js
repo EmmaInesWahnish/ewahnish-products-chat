@@ -64,6 +64,8 @@ const renderLoginForm = () => {
 
     let cart_number = '0';
 
+    let isAdmin = true;
+
     form.addEventListener('submit', evt => {
         evt.preventDefault();
         let data = new FormData(form);
@@ -82,11 +84,12 @@ const renderLoginForm = () => {
             .then(json => theStatus = json)
             .finally(() => {
                 if (theStatus.status === 'success') {
-                    let whichUser = theStatus.payload.id;
+                    let whichUser = theStatus.payload.id;                    
                     cart_number = getAllCarts(whichUser);
                     console.log("In renderProducts >>> ", cart_number);
-                    let email = theStatus.payload.email;
-                    if (cart_number == '0' && email !== 'admin@mail.com') {
+                    isAdmin = theStatus.payload.isAdmin
+                    localStorage.setItem("isAdmin",isAdmin)
+                    if (cart_number == '0' && !isAdmin) {
                         try {
                             createEmptyCart(whichUser);
                         }

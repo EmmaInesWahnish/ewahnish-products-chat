@@ -17,18 +17,10 @@ let result;
 
 export const productsGetAll = async (req, res) => {
     try {
-        try {
-            result = await usersService.findById(req.session.user.id);
-        }
-        catch (error) {
-
-        }
-        cartNumber = result.cart_number;
         const array = await getAllProducts();
         res.json({
             message: 'Lista de productos ',
             products: array,
-            bool: req.session.user.isAdmin,
             whichDb: whichDb,
             user: result
         });
