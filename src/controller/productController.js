@@ -33,23 +33,6 @@ export const productsGetAll = async (req, res) => {
     }
 }
 
-export const productsInfoAdmin = async (req, res) => {
-    try {
-        res.json({
-            message: 'Informacion',
-            user: req.session.user,
-            bool: req.session.user.isAdmin,
-            whichDb: whichDb
-        });
-    }
-    catch (error) {
-        res.json({
-            message: 'No se ha podido recuperar informacion',
-            error: error
-        })
-    }
-}
-
 export const productsGetById = async (req, res) => {
     let id = req.params.id;
     try {
@@ -58,7 +41,6 @@ export const productsGetById = async (req, res) => {
             res.json({
                 message: 'Producto encontrado',
                 product: producto,
-                bool: req.session.user.isAdmin,
                 whichDb: whichDb
             })
         } else {
@@ -94,7 +76,6 @@ export const productsAddOne = async (req, res) => {
                 res.json({
                     message: "Producto incorporado",
                     product: producto,
-                    bool: req.session.user.isAdmin,
                     theProductId: theProductId,
                     whichDb: whichDb
                 })
@@ -223,32 +204,25 @@ export const productsUpdateOne = async (req, res) => {
 }
 
 export const productsDeleteOne = async (req, res) => {
-    if (!req.session.user.isAdmin) {
-        res.json({
-            message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
-            error: -1
-        })
-    } else {
-        const id = req.params.id;
-        try {
-            const removedProduct = await deleteProductById(id);
-            if (removedProduct.length === 0) {
-                res.json({
-                    message: "El producto solicitado no existe"
-                })
-            } else {
-                res.json({
-                    message: "El producto ha sido eliminado",
-                    product: removedProduct,
-                    whichDb: whichDb
-                })
-            }
-        }
-        catch (error) {
+    const id = req.params.id;
+    try {
+        const removedProduct = await deleteProductById(id);
+        if (removedProduct.length === 0) {
             res.json({
-                message: "El producto no pudo ser eliminado",
-                error: error
+                message: "El producto solicitado no existe"
+            })
+        } else {
+            res.json({
+                message: "El producto ha sido eliminado",
+                product: removedProduct,
+                whichDb: whichDb
             })
         }
+    }
+    catch (error) {
+        res.json({
+            message: "El producto no pudo ser eliminado",
+            error: error
+        })
     }
 }

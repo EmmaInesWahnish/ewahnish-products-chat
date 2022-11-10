@@ -64,7 +64,7 @@ const renderLoginForm = () => {
 
     let cart_number = '0';
 
-    let isAdmin = true;
+    let isAdmin = 'true';
 
     form.addEventListener('submit', evt => {
         evt.preventDefault();
@@ -89,7 +89,8 @@ const renderLoginForm = () => {
                     console.log("In renderProducts >>> ", cart_number);
                     isAdmin = theStatus.payload.isAdmin
                     localStorage.setItem("isAdmin",isAdmin)
-                    if (cart_number == '0' && !isAdmin) {
+                    isAdmin = localStorage.getItem("isAdmin")
+                    if (cart_number == '0' && (isAdmin === 'false')) {
                         try {
                             createEmptyCart(whichUser);
                         }

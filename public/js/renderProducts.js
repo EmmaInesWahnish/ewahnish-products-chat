@@ -20,7 +20,7 @@ const renderProducts = () => {
     let this_user;
     let theValue;
     let idProducts = [];
-    let isAdmin = true;
+    let isAdmin = 'true';
 
     document.getElementById('activeCart').innerHTML = "";
     document.getElementById('cartNumber').innerHTML = "";
@@ -106,7 +106,7 @@ const renderProducts = () => {
 
                 const buttons = document.createElement('div');
 
-                if (isAdmin === true) {
+                if (isAdmin === 'true') {
                     let i = findQobject(qobject, product.id);
 
                     for (let j = 0; j < idProducts.length; j++) {

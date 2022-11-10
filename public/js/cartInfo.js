@@ -1,6 +1,6 @@
 const cartInfo = (cartNumber, isAdmin) => {
 
-    if (isAdmin === true) {
+    if (isAdmin === 'true') {
         return
     }
     else {

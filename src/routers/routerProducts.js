@@ -1,14 +1,11 @@
 import express from 'express';
-import { productsGetAll , productsInfoAdmin, productsGetById, productsAddOne, productsUpdateOne, productsDeleteOne } from '../controller/productController.js'
+import { productsGetAll, productsGetById, productsAddOne, productsUpdateOne, productsDeleteOne } from '../controller/productController.js'
 
 const routerProducts = express.Router();
 
 // *** ROUTES ***
 //This route returns the products list
 routerProducts.get('/', productsGetAll);
-
-//This route returns user information
-routerProducts.get('/isadmin', productsInfoAdmin);
 
 //This route returns a product according to its id.
 routerProducts.get('/:id', productsGetById);

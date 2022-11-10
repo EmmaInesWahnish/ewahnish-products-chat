@@ -27,21 +27,15 @@ const renderNewProductForm = () => {
 
   hide(homePage)
 
-  let isAdmin = true;
-
-  isAdmin = localStorage.getItem("isAdmin") 
+  let isAdmin = localStorage.getItem("isAdmin")
 
 
-  fetch('/api/productos/isadmin')
-    .then(res => res.json())
-    .then(data => {
+  if (isAdmin === 'true' ) {
 
-      if (isAdmin === true) {
-
-        const newProduct = document.getElementById('newProduct');
-        const productForm = document.createElement('div');
-        productForm.setAttribute('class', 'jumbotron');
-        productForm.innerHTML = `<h2>Alta de producto</h2>
+    const newProduct = document.getElementById('newProduct');
+    const productForm = document.createElement('div');
+    productForm.setAttribute('class', 'jumbotron');
+    productForm.innerHTML = `<h2>Alta de producto</h2>
     <br>
     <form id="productForm" action="javascript:void(0);" id="addProductForm">
 
@@ -78,56 +72,53 @@ const renderNewProductForm = () => {
       <button type="submit" class="btn btn-success" id="addProductButton">Enviar</button>
     </form>`
 
-        newProduct.appendChild(productForm);
+    newProduct.appendChild(productForm);
 
-        let nomb = document.getElementById("nomb");
-        let desc = document.getElementById("desc");
-        let code = document.getElementById("code");
-        let photo = document.getElementById("photo");
-        let price = document.getElementById("price");
-        let quantity = document.getElementById("quantity");
+    let nomb = document.getElementById("nomb");
+    let desc = document.getElementById("desc");
+    let code = document.getElementById("code");
+    let photo = document.getElementById("photo");
+    let price = document.getElementById("price");
+    let quantity = document.getElementById("quantity");
 
-        nomb.addEventListener('change', function () {
-          product.nombre = document.getElementById("nomb").value;
-        })
-        desc.addEventListener('change', function () {
-          product.descripcion = document.getElementById("desc").value;
-        })
-        code.addEventListener('change', function () {
-          product.codigo = document.getElementById("code").value;
-        })
-        photo.addEventListener('change', function () {
-          product.foto = document.getElementById("photo").value;
-        })
-        price.addEventListener('change', function () {
-          product.precio = document.getElementById("price").value;
-        })
-        quantity.addEventListener('change', function () {
-          product.stock = document.getElementById("quantity").value;
-        })
-
-        let formAdd = document.getElementById("addProductButton");
-
-        formAdd.addEventListener('click', function () {
-          let addedProduct = {
-            nombre: product.nombre,
-            descripcion: product.descripcion,
-            codigo: product.codigo,
-            foto: product.foto,
-            precio: product.precio,
-            stock: product.stock,
-          }
-          addOneProduct(addedProduct);
-
-        })
-
-      } else {
-        alert("Operacion no autorizada")
-        renderHome()
-      }
+    nomb.addEventListener('change', function () {
+      product.nombre = document.getElementById("nomb").value;
+    })
+    desc.addEventListener('change', function () {
+      product.descripcion = document.getElementById("desc").value;
+    })
+    code.addEventListener('change', function () {
+      product.codigo = document.getElementById("code").value;
+    })
+    photo.addEventListener('change', function () {
+      product.foto = document.getElementById("photo").value;
+    })
+    price.addEventListener('change', function () {
+      product.precio = document.getElementById("price").value;
+    })
+    quantity.addEventListener('change', function () {
+      product.stock = document.getElementById("quantity").value;
     })
 
+    let formAdd = document.getElementById("addProductButton");
 
+    formAdd.addEventListener('click', function () {
+      let addedProduct = {
+        nombre: product.nombre,
+        descripcion: product.descripcion,
+        codigo: product.codigo,
+        foto: product.foto,
+        precio: product.precio,
+        stock: product.stock,
+      }
+      addOneProduct(addedProduct);
+
+    })
+
+  } else {
+    alert("Operacion no autorizada")
+    renderHome()
+  }
 
 }
 
