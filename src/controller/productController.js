@@ -1,12 +1,12 @@
 import {
     getAllProducts,
-    getProductsById, 
-    saveProducts, 
+    getProductsById,
+    saveProducts,
     saveProductsArray,
     modifyProductById,
     deleteProductById
-} 
-from '../services/ProductService.js'
+}
+    from '../services/ProductService.js'
 import config from '../configurations/dotenvConfig.js';
 import usersService from '../Models/Users.js';
 import fs from 'fs';
@@ -76,55 +76,48 @@ export const productsGetById = async (req, res) => {
 }
 
 export const productsAddOne = async (req, res) => {
-    if (!req.session.user.isAdmin) {
-        res.json({
-            message: `Ruta ${req.path} metodo ${req.method} no autorizada`,
-            error: -1
-        })
-        req.logger.warn(`Ruta ${req.path} metodo ${req.method} no autorizada ( Informacion de sesion ${req.session})`)
-    } else {
-        let receive = req.body;
-        let producto = {
-            timestamp: Date.now(),
-            nombre: receive.nombre,
-            descripcion: receive.descripcion,
-            codigo: receive.codigo,
-            foto: receive.foto,
-            precio: receive.precio,
-            stock: receive.stock
-        }
-        if (producto) {
+    let receive = req.body;
+    let producto = {
+        timestamp: Date.now(),
+        nombre: receive.nombre,
+        descripcion: receive.descripcion,
+        codigo: receive.codigo,
+        foto: receive.foto,
+        precio: receive.precio,
+        stock: receive.stock
+    }
+    if (producto) {
+        try {
+            const theProductId = await saveProducts(producto);
             try {
-                const theProductId = await saveProducts(producto);
-                try {
-                    const products = await getAllProducts();
-                    res.json({
-                        message: "Producto incorporado",
-                        product: producto,
-                        bool: req.session.user.isAdmin,
-                        theProductId: theProductId,
-                        whichDb: whichDb
-                    })
-                }
-                catch (error) {
-                    res.json({
-                        message: 'No se ha podido obtener la lista de productos',
-                        error: error
-                    })
-                }
+                const products = await getAllProducts();
+                res.json({
+                    message: "Producto incorporado",
+                    product: producto,
+                    bool: req.session.user.isAdmin,
+                    theProductId: theProductId,
+                    whichDb: whichDb
+                })
             }
             catch (error) {
                 res.json({
-                    message: 'No se ha podido guardar el producto',
+                    message: 'No se ha podido obtener la lista de productos',
                     error: error
                 })
             }
-        } else {
+        }
+        catch (error) {
             res.json({
-                message: "Los datos suministrados son incorrectos"
+                message: 'No se ha podido guardar el producto',
+                error: error
             })
         }
+    } else {
+        res.json({
+            message: "Los datos suministrados son incorrectos"
+        })
     }
+
 }
 
 export const productsUpdateOne = async (req, res) => {

@@ -27,11 +27,16 @@ const renderNewProductForm = () => {
 
   hide(homePage)
 
+  let isAdmin = true;
+
+  isAdmin = localStorage.getItem("isAdmin") 
+
+
   fetch('/api/productos/isadmin')
     .then(res => res.json())
     .then(data => {
 
-      if (data.bool) {
+      if (isAdmin === true) {
 
         const newProduct = document.getElementById('newProduct');
         const productForm = document.createElement('div');

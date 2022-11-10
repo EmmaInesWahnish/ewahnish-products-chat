@@ -61,8 +61,6 @@ const renderProducts = () => {
 
             cartId = localStorage.getItem("ls_cart")
 
-            console.log("Cart id in products >>> ",cartId);
-
             cartInfo(cartId, isAdmin);
 
             document.getElementById('cartNumber').innerText = cartId;
@@ -108,7 +106,7 @@ const renderProducts = () => {
 
                 const buttons = document.createElement('div');
 
-                if (isAdmin) {
+                if (isAdmin === true) {
                     let i = findQobject(qobject, product.id);
 
                     for (let j = 0; j < idProducts.length; j++) {
