@@ -207,17 +207,11 @@ export const productsDeleteOne = async (req, res) => {
     const id = req.params.id;
     try {
         const removedProduct = await deleteProductById(id);
-        if (removedProduct.length === 0) {
-            res.json({
-                message: "El producto solicitado no existe"
-            })
-        } else {
             res.json({
                 message: "El producto ha sido eliminado",
                 product: removedProduct,
                 whichDb: whichDb
             })
-        }
     }
     catch (error) {
         res.json({
