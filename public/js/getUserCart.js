@@ -1,7 +1,7 @@
-const getUserCart = async (allCarts, whichUser) => {
+const getUserCart = async (allCarts) => {
 
-    console.log("Carts in getUserCart  >>>> ",allCarts)
-
+    let whichUser = localStorage.getItem("whichUser");
+    
     let cart_number = 0;
 
     if ((allCarts !== undefined) && (allCarts.length > 0)) {

@@ -57,7 +57,7 @@ const renderProducts = () => {
 
             isAdmin = localStorage.getItem("isAdmin")
 
-            getAllCarts(this_user._id);
+            getAllCarts();
 
             cartId = localStorage.getItem("ls_cart")
 

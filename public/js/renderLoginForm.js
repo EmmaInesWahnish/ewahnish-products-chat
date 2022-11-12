@@ -66,6 +66,8 @@ const renderLoginForm = () => {
 
     let isAdmin = 'true';
 
+    let whichUser = '';
+
     form.addEventListener('submit', evt => {
         evt.preventDefault();
         let data = new FormData(form);
@@ -84,7 +86,8 @@ const renderLoginForm = () => {
             .then(json => theStatus = json)
             .finally(() => {
                 if (theStatus.status === 'success') {
-                    let whichUser = theStatus.payload.id;                    
+                    whichUser = theStatus.payload.id;
+                    localStorage.setItem("whichUser",whichUser);                    
                     cart_number = getAllCarts(whichUser);
                     console.log("In renderProducts >>> ", cart_number);
                     isAdmin = theStatus.payload.isAdmin

@@ -11,4 +11,3 @@ const env = async () => {
 }
 
 env();
-

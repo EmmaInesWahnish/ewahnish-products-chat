@@ -5,13 +5,14 @@
   "description": "Backend Final Project",
   "main": "./src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./src/index.test.js",
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js"
   },
   "author": "EIW",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "chai-http": "^4.3.0",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -29,7 +30,6 @@
     "mysql": "^2.18.1",
     "node-fetch": "^3.2.6",
     "nodemailer": "^6.8.0",
-    "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "session": "^0.1.0",
@@ -37,5 +37,11 @@
     "socket.io": "^4.5.2",
     "sqlite3": "^5.0.9",
     "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.1"
   }
 }

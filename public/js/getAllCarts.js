@@ -1,6 +1,6 @@
 import getUserCart from "./getUserCart.js";
 
-const getAllCarts = async (whichUser) => {
+const getAllCarts = async () => {
 
     const cartRoute = `/api/carrito`
 
@@ -14,7 +14,7 @@ const getAllCarts = async (whichUser) => {
             if (data.carrito !== undefined) {
                 allCarts = [...data.carrito];                
             }
-            cart_number = getUserCart(allCarts, whichUser);
+            cart_number = getUserCart(allCarts);
             console.log(cart_number);
             return cart_number;
         })
