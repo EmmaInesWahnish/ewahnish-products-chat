@@ -47,8 +47,8 @@ describe('Agregado de un producto: ', () => {
     });
 });
 
-describe('Obtener un producto por id', () => {
-    it('Debe obtener el producto que se indica en el primer parametro', (done) => {
+describe('Obtencion de un producto por id', () => {
+    it('Debe obtener el producto incorporado', (done) => {
         chai.request(url)
             .get(`/api/productos/${item}`)
             .end(function (err, res) {
@@ -60,7 +60,7 @@ describe('Obtener un producto por id', () => {
 });
 
 describe('Modificacion de un producto por id ', () => {
-    it('Debe modificar el producto que se indica en el primer parametro', (done) => {
+    it('Debe modificar el producto incorporado', (done) => {
         chai.request(url)
             .put(`/api/productos/${item}`)
             .send({
@@ -76,7 +76,7 @@ describe('Modificacion de un producto por id ', () => {
 
 
 describe('Eliminacion de un producto', () => {
-    it('Debe eliminar el producto indicado en el segundo parametro', (done) => {
+    it('Debe eliminar el producto incorporado', (done) => {
         chai.request(url)
             .del(`/api/productos/${item}`)
             .end(function (err, res) {
