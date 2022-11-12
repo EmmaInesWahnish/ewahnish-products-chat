@@ -8,24 +8,14 @@ chai.use(chaiHttp);
 
 const port = config.server.PORT;
 
+let item;
+
 const url = `http://localhost:${port}`
 
 describe('Obtencion de productos: ', () => {
     it('Debe retornar el arreglo de productos', (done) => {
         chai.request(url)
             .get('/api/productos')
-            .end(function (err, res) {
-                console.log(res.body)
-                expect(res).to.have.status(200);
-                done();
-            });
-    });
-});
-
-describe('Obtener un producto por id', () => {
-    it('Debe obtener el producto con id 62de94c3ed5c1ba52b0cf869', (done) => {
-        chai.request(url)
-            .get('/api/productos/62de94c3ed5c1ba52b0cf869')
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(200);
@@ -49,6 +39,20 @@ describe('Agregado de un producto: ', () => {
             })
             .end(function (err, res) {
                 console.log(res.body)
+                item = res.body.theProductId
+                console.log(item)
+                expect(res).to.have.status(200);
+                done();
+            });
+    });
+});
+
+describe('Obtener un producto por id', () => {
+    it('Debe obtener el producto que se indica en el primer parametro', (done) => {
+        chai.request(url)
+            .get(`/api/productos/${item}`)
+            .end(function (err, res) {
+                console.log(res.body)
                 expect(res).to.have.status(200);
                 done();
             });
@@ -56,12 +60,25 @@ describe('Agregado de un producto: ', () => {
 });
 
 describe('Modificacion de un producto por id ', () => {
-    it('Debe modificar el precio del producto 62de94c3ed5c1ba52b0cf869', (done) => {
+    it('Debe modificar el producto que se indica en el primer parametro', (done) => {
         chai.request(url)
-            .put('/api/productos/62de94c3ed5c1ba52b0cf869')
+            .put(`/api/productos/${item}`)
             .send({
                 precio: 6800,
             })
+            .end(function (err, res) {
+                console.log(res.body)
+                expect(res).to.have.status(200);
+                done();
+            });
+    });
+});
+
+
+describe('Eliminacion de un producto', () => {
+    it('Debe eliminar el producto indicado en el segundo parametro', (done) => {
+        chai.request(url)
+            .del(`/api/productos/${item}`)
             .end(function (err, res) {
                 console.log(res.body)
                 expect(res).to.have.status(200);
