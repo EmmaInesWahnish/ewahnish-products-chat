@@ -1,8 +1,15 @@
 import http from 'http';
 
+let parameters = [];
+
+process.argv.forEach((value, index)=>{
+    parameters[index]=value;
+})
+
+
 const data = JSON.stringify({
-    email: 'c@c',
-    password: '123'
+    email: `${parameters[2]}`,
+    password: `${parameters[3]}`
 })
 
 const options = {

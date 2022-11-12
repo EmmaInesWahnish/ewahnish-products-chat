@@ -1,5 +1,12 @@
 import http from 'http';
 
+let parameters = [];
+
+process.argv.forEach((value, index)=>{
+    parameters[index]=value;
+})
+
+
 const data = JSON.stringify({
     codigo: "BG-01-01",
     stock: 50
@@ -8,7 +15,7 @@ const data = JSON.stringify({
 const options = {
     hostname:'localhost',
     port: 8080,
-    path: '/api/productos/636e3b4228159c7452e6e301',
+    path: `/api/productos/${parameters[2]}`,
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json',

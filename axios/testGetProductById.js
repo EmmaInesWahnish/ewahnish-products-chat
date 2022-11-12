@@ -1,9 +1,15 @@
-import axios from "axios"
+import axios from "axios";
+
+let parameters = [];
+
+process.argv.forEach((value, index)=>{
+    parameters[index]=value;
+})
 
 const env = async () => {
-    let result = await axios.get("http://localhost:8080/api/productos/636e3b4228159c7452e6e301",{ withCredentials: true });
+    let result = await axios.get(`http://localhost:8080/api/productos/${parameters[2]}`,{ withCredentials: true });
     console.log(result.status);
     console.log(result.data)
-}
+};
 
 env();

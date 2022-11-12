@@ -1,9 +1,16 @@
 import http from 'http';
 
+let parameters = [];
+
+process.argv.forEach((value, index)=>{
+    parameters[index]=value;
+})
+
+
 const options = {
     host:'localhost',
     port: 8080,
-    path: '/api/productos/636e3b4228159c7452e6e301',
+    path: `/api/productos/${parameters[2]}`,
     method: 'GET',
     withCredentials: true
 }

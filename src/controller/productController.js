@@ -205,18 +205,35 @@ export const productsUpdateOne = async (req, res) => {
 
 export const productsDeleteOne = async (req, res) => {
     const id = req.params.id;
+    let producto = []
     try {
-        const removedProduct = await deleteProductById(id);
+        producto = await getProductsById(id);
+        if (producto.length != 0) {
+            try {
+                const removedProduct = await deleteProductById(id);
+                res.json({
+                    message: "El producto ha sido eliminado",
+                    product: removedProduct,
+                    whichDb: whichDb
+                })
+            }
+            catch (error) {
+                res.json({
+                    message: "El producto no pudo ser eliminado",
+                    error: error
+                })
+            }
+        } else {
             res.json({
-                message: "El producto ha sido eliminado",
-                product: removedProduct,
-                whichDb: whichDb
+                message: "Producto no encontrado"
             })
+        }
     }
     catch (error) {
         res.json({
-            message: "El producto no pudo ser eliminado",
+            message: "Se produjo un error al buscar el producto",
             error: error
         })
     }
+
 }
