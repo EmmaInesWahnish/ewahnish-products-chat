@@ -15,6 +15,9 @@ import initializePassport from './configurations/passportConfig.js';
 import passport from 'passport';
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './graphQl/typeDefs.js';
+import resolvers from './graphQl/resolvers.js';
 import { __dirname } from './utils.js';
 
 const app = express();
@@ -45,6 +48,14 @@ const sessionMiddleware = session({
 })
 
 app.use(sessionMiddleware);
+
+const aServer = new ApolloServer({
+    typeDefs,
+    resolvers
+})
+
+await aServer.start();
+aServer.applyMiddleware({app});
 
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
 
