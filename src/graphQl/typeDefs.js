@@ -52,8 +52,11 @@ const typeDefs = gql`
     type Query {
         helloWorld:String
         getAllProducts: [Product]
+        getAllCarts: [Cart]
         getAllOrders: [Order]
         getProductsById(id:ID): [Product]
+        getCartsById(id:ID): [Cart]
+        getOrdersById(id: ID): [Order]
     }
 
     type Response {
@@ -63,6 +66,7 @@ const typeDefs = gql`
 
     type Mutation {
         createProduct(producto: ProductInput): Response
+        
    }
 `
 
