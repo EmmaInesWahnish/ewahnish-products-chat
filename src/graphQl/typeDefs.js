@@ -25,7 +25,7 @@ const typeDefs = gql`
         stock: Int
     }
 
-    input ProductData {
+    input ProductInput {
         timestamp: String
         nombre: String
         descripcion: String
@@ -53,17 +53,16 @@ const typeDefs = gql`
         helloWorld:String
         getAllProducts: [Product]
         getAllOrders: [Order]
+        getProductsById(id:ID): [Product]
     }
 
     type Response {
+        id: ID
         message: String
-        product: Product
-        theProductId: ID
-        whichDb: String
     }
 
     type Mutation {
-        createProduct(producto: ProductData): Response
+        createProduct(producto: ProductInput): Response
    }
 `
 

@@ -40,13 +40,19 @@ const resolvers = {
         getAllOrders: async()=> {
             let orders = await getAllOrders();
             return orders;
+        },
+        getProductsById: async(_,{id})=>{
+            let productId = id
+            let producto = await getProductsById(productId);
+            console.log(producto)
+            return producto
         }
     },
 
     Mutation: {
         createProduct: async (_,newProduct) => {
-            let Response = await saveProducts(newProduct.producto);
-            return Response;
+            let producto = await saveProducts(newProduct.producto);
+            return producto;
         }
 
    }

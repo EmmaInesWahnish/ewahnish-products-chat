@@ -2,3 +2,5 @@
 {"level":"error","message":"404 - ruta no encontrada /apollo","service":"user-service","timestamp":"2022-11-13T12:21:21.747Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-13T13:34:01.750Z"}
 {"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-13T22:09:30.506Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-19T00:13:38.061Z"}
+{"level":"error","message":"404 - ruta no encontrada /favicon.ico","service":"user-service","timestamp":"2022-11-19T11:29:08.305Z"}
