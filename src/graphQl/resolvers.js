@@ -52,21 +52,18 @@ const resolvers = {
         getProductsById: async(_,{id})=>{
             let productId = id
             let producto = await getProductsById(productId);
-            console.log(producto)
             return producto
         },
 
         getCartsById: async(_,{id})=>{
             let cartId = id
             let cart = await getCartsById(cartId);
-            console.log(cart)
             return cart
         },
 
         getOrdersById: async(_,{id})=>{
             let orderId = id
             let order = await getOrdersById(orderId);
-            console.log(order)
             return order
         }
    
@@ -84,10 +81,12 @@ const resolvers = {
         modifyProductById: async(_,params) => {
             const {id, updateProduct} = params;
             let result = await modifyProductById(id, updateProduct);
-            let status ={
-                result: result
+            let ProductStatus ={
+                id: id,
+                result: result,
+                product: updateProduct
             }
-            return status
+            return ProductStatus
         },
 
         deleteProductById: async(_,{id}) =>{

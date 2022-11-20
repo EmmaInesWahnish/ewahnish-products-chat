@@ -68,9 +68,15 @@ const typeDefs = gql`
         result: String
     }
 
+    type ProductStatus {
+        id:ID
+        result: String
+        product: Product
+    }
+
     type Mutation {
         createProduct(producto: ProductInput): Status
-        modifyProductById(id: String, updateProduct: ProductInput): Status
+        modifyProductById(id: String, updateProduct: ProductInput): ProductStatus
         deleteProductById(id: String): Response
    }
 `
