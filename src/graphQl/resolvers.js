@@ -74,10 +74,30 @@ const resolvers = {
 
     Mutation: {
         createProduct: async (_,newProduct) => {
-            let producto = await saveProducts(newProduct.producto);
-            return producto;
-        }
+            let result = await saveProducts(newProduct.producto);
+            let status = {
+                result: result
+            }
+            return status;
+        },
 
+        modifyProductById: async(_,params) => {
+            const {id, updateProduct} = params;
+            let result = await modifyProductById(id, updateProduct);
+            let status ={
+                result: result
+            }
+            return status
+        },
+
+        deleteProductById: async(_,{id}) =>{
+            let result = await deleteProductById(id);
+            let response = {
+                id: id,
+                result: result
+            }
+            return response
+        }        
    }
 
 }
